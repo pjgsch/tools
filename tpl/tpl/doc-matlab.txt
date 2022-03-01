@@ -1,0 +1,104 @@
+**********************************************************************
+* <inf> commands for Matlab
+======================================================================
+=== TO PREVENT CRASH ON USING 'surf' :
+opengl neverselect
+======================================================================
+=== PATH
+path('addtopath',path);
+path(path,'/home/piet/piet/ps');
+======================================================================
+=== PRINT
+epsf = ['filename']; print('-deps2',epsf);
+imgf = ['filename']; print('-djpeg','-r50',imgf);
+print(gcf,'-deps2','filename')
+======================================================================
+=== SCALE A PLOT
+set(gca,'fontsize',18,'fontweight','normal');
+set(get(gca,'xlabel'),'fontsize',18,'fontweight','normal');
+set(get(gca,'ylabel'),'fontsize',18,'fontweight','normal');
+set(get(gca,'title'),'fontsize',18,'fontweight','normal');
+xlp=get(get(gca,'xlabel'),'position');
+xlp=[xlp(1) 1.0*xlp(2) xlp(3)];
+set(get(gca,'xlabel'),'position',xlp);
+ylp=get(get(gca,'ylabel'),'position');
+ylp=[1.1*ylp(1) ylp(2) ylp(3)];
+set(get(gca,'ylabel'),'position',ylp);
+======================================================================
+% A saved Mentat plot 'foo' is split such that fooA01
+% containes the x and y-values.
+----------------------------------------------------------------------
+% foo = 'defepmoel_tiuy'; 
+----------------------------------------------------------------------
+fff = ['csplit ',foo,' ''/^-/+1'' -f ',foo,'A']; unix(fff);
+fff = ['/bin/rm ',foo,'A00'];  unix(fff);
+ggg = [foo,'A01'];
+load(ggg,'-ascii'); foo = eval(ggg); col = 'b';
+----------------------------------------------------------------------
+% f1 = foo;
+% f2 = foo;
+% f3 = foo;
+% f4 = foo;
+%----------------------------------------------------------------------
+ ff=f4 ; plot(ff(:,1),ff(:,2),'-'); grid on;
+ plot(f1(:,1),f1(:,2),'-'); grid on;
+ plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.'); grid on;
+ plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.',f3(:,1),f3(:,2),'-.'); grid on;
+%......................................................................
+xlabel('time [s]'); ylabel('disp x [mm]'); % title('');
+xlabel('time [s]'); ylabel('force y [N]'); % title('');
+legend('top','bottom');
+run('/home/piet/work/mlf/mbib/chp');
+%----------------------------------------------------------------------
+ epsfile = [' '];
+ print('-depsc2',[epsfile]);
+xmin = min(min(f1(:,2)),min(f2(:,2))); xmax = max(max(f1(:,2)),max(f2(:,2)));
+ymin = min(min(f1(:,3)),min(f2(:,3))); ymax = max(max(f1(:,3)),max(f2(:,3)));
+axis([xmin,45,0,60]);
+%======================================================================
+%name='crank';
+clear M;M = moviein(ic-1);
+load([matf '0']);load([matf '00']);mshop = [1 0 0 0 0 0 0 0 0];
+for i=1:1:ic-1,
+  load([matf num2str(i)]);clf;pmsh(mshop,lok,crd0,crd,eldaC,5);
+  axis([-0.1 2.5 -0.1 2.5]);
+  M(:,i)=getframe;pause(0.01);
+end;
+save stadam1 M;
+% load stadam1; axis off; movie(M,3,50);
+load stadam1; path('/home/piet/src/tmp/',path); mpgwrite(M,jet,name);
+% load stadam1; movie2avi(M,'stadam1.avi','compression','none') % in matlab72
+======================================================================
+=== RUN MENTAT AND/OR MARC
+mentprg = '/usr/local/marck2005r3-emt64/mentat2005r3/bin/mentat';
+prcfile = '/home/piet/wdoc/tex/syl/mmm/tnt/mrc/mmN1101a.proc';
+fff = [mentprg,' -pr ',prcfile]; unix(fff);
+======================================================================
+=== PLOT FROM MENTAT TO MATLAB
+=== /home/piet/work/mlf/mbib/me2maplot.m
+addpath('/home/piet/work/mlf/mbib'); 
+[x1,y1] = me2maplot('<x-y-file>');   
+[x2,y2] = me2maplot('<x-y-file>'); 
+plot(x1,y1,x2,y2);
+grid on;xlabel('');ylabel('');title('');legend('');   
+run('/home/piet/work/mlf/mbib/chp');
+epsdir='';epsfile='';
+print('-depsc2',[epsdir,epsfile]);
+======================================================================
+x = 0:(pi/50):2*pi;
+y = sin(x);
+plot(x,y,'b'); hold on;
+y = cos(2*y);
+plot(x,y,'r'); grid on;
+xlabel('xl'); ylabel('yl'); title('tl');
+
+disp('Print matlab.eps');
+print('-depsc2','-r50','ex-matlab.eps');
+disp('Print matlab.jpg');
+print('-djpeg','-r50','ex-matlab.jpg');
+
+======================================================================
+
+\begin{center}\fbox{\parbox[c][][c]{0.5\textwidth}{   }}\end{center}
+
+%**********************************************************************

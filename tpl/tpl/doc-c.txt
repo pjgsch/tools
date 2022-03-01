@@ -1,0 +1,635 @@
+**********************************************************************
+* <inf> C-programming language : examples
+**********************************************************************
+general
+arguments
+arithmetic operators
+arrays
+character
+conditional statement
+constants
+declarations
+define
+definition
+file
+formatted
+fscanf             scanf , sscanf
+functions
+include
+initialization
+input
+logical operators
+loops
+main
+output
+relational operators
+string
+structures
+variables
+----------------------------------------------------------------------
+demo-programs :
+read a line of text from an input file
+links
+**********************************************************************
+general
+
+C is case sensitive.
+variables are passed by value to functions.
+accept no warnings.
+always assign adress to pointer.
+(ptr + i) = memory adress of (ptr + (i * sizeof(type ptr)))
+ptrname -> membername = (*ptrname).membername
+special characters in strings must be preceded by \
+comment : /* ..... */
+comment-out (correct!) code with /*comment*/ with #ifdef or #if 0
+token pasting : #define paste(a,b) a##b
+do not use final ';' in macro definition
+
+**********************************************************************
+include
+
+#include <assert.h>
+#include <ctype.h>
+#include <errno.h>
+#include <float.h>
+#include <limits.h>
+#include <locale.h>
+#include <math.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#include <dos.h>
+#include <dir.h>
+
+#include "pause.h"
+
+**********************************************************************
+constants and function definition
+
+#define true 1
+#define false 0
+#define maxvec 100
+#define MAX1 10
+#define MAX2 10
+#define EOL '/n'
+
+#define may placed everywhere in a program or function
+the # must be placed in the first column
+no space must be placed between # and 'define'
+#define can have arguments 
+
+----------------------------------------------------------------------
+# ifndef EOF
+# define EOF -1
+#endif
+----------------------------------------------------------------------
+
+NULL : null-pointer value, defined in <stdio.h>
+
+string constant  ".."
+long constant 1234567L
+----------------------------------------------------------------------
+
+#define prlin(len) \
+{ int i; \
+  i = len; \
+  while (i-->0) printf("-"); \
+  printf("\n") \
+}
+#define fprlin(file,len) \
+{ int i; \
+  i = len; \
+  while (i-->0) fprintf(file,"-"); \
+  fprintf(file,"\n") \
+}
+#define fprchr(file,len,chr) \
+{ int i; \
+  i = len; \
+  while (i-->0) fprintf(file,"%c",chr); \
+  fprintf(file,"\n") \
+}
+
+**********************************************************************
+program structure
+
+#include
+#define
+global declarations
+main()
+{
+  declarations
+  statements
+}
+function definitions
+
+----------------------------------------------------------------------
+arguments
+
+main(int argc, char *argv[])
+main(argc,argv) int argc; char *argv[];
+
+{
+  int    argcnt;
+  char   *argstr;
+ 
+  if (argc<2)
+  {
+    printf("Usage is :  atc <file> \n");
+    exit(0);
+  }
+  argcnt = argc              = aantal argumenten incl. prognaam
+  argstr = argv[argcnt]      : argstr = argument nr. argcnt 
+}
+
+if input argument # is an integer 'argint' use : 
+
+  argint = atoi(argv[#])
+
+**********************************************************************
+declarations
+----------------------------------------------------------------------
+variables and pointers
+
+variables can be initialized at declaration time
+the following declarations are local in 'main'
+these declarations could have been globally preceding 'main'
+
+enum   e;               /* 2 bytes */
+int    i,j,n;           /* 2 bytes */    /* -2e15<int<2e15-1 */
+int    *ip;             /* pointer to integer */
+short  is;              /* 2 bytes */
+long   ii;              /* 4 bytes */    /* -2e31<long<2e31-1 */
+float  a,b;             /* 4 bytes */    /* float<=3.4e38 */
+double aa;              /* 8 bytes */    /* double<=1.7e308 */
+char   c1,c2;           /* 1 byte  */
+char   *pc;             /* pointer to char */
+
+register <type> <variable-list>  : for frequently used variables
+
+----------------------------------------------------------------------
+arrays
+
+int     A[20], B[20], C[11]                        vanaf A[0] en B[0]
+int     A[5][5], B[5][11]
+float   v1[50], v2[100], v3[100], v4[200];         [100] == [0..99]
+float   mat[11][100];
+char    s[25],line[80];
+char    caa[MAX1][MAX2], text[1000][100];
+----------------------------------------------------------------------
+structures
+
+struct persoon
+{ char naam[25];
+  int leeftijd;
+} rec;
+----------------------------------------------------------------------
+unions
+
+union name
+{  int ival;
+   float fval;
+   char *sval;
+} u;
+----------------------------------------------------------------------
+internal files
+
+FILE *f,*bes;
+----------------------------------------------------------------------
+external
+
+definition outside main
+declaration : extern <type> <variables>
+----------------------------------------------------------------------
+type definition
+
+typedef int Length
+typedef char *String
+
+**********************************************************************
+initialization 
+
+int i = 5;
+
+**********************************************************************
+memory allocation 
+
+pointer = (type *) malloc(n*sizeof(type));
+pointer = (type *) calloc(nc,n*sizeof(type));   
+  initialization to 'all-bits-zero'
+equivalent is : calloc(m,n) and {p=malloc(m*n); memset(p,0,m8n);}
+free(pointer);
+
+**********************************************************************
+assignment statements  
+
+more=1; more=0; 
+i=j=n=0;
+i=5; j=2;
+s[0] = '\0';
+for (i=0;i<MAX1;i++) for (j=0;j<MAX2;j++) caa[i][j] = '\0';
+charac1 = 'a'; charac2 = '\n';
+string1 = "aap"; string2 = "\n";
+
+----------------------------------------------------------------------
+conversion (cast)
+ 
+int i; float x = 3.775;
+i = (int)x        -->  i = 3
+i = (int)(x+0.5)  -->  i = 4
+double = (double) integer
+
+**********************************************************************
+arithmetic operators
+
+* . / . + , -
+
+3/5 gives j=0  ;  3.0/5.0 gives 0.6
+i=i+1; i++; ++i; i+=1; i=i+j; i+=j; i=i*j; i*=j;
+a=1; a=0.1;
+a=3.0/5.0 gives a=0.6  
+b=i/5;
+ii=7;
+aa=2.8;
+j=i/3; j=i%3;
+for (i=0; i<49; i++) v1[i]=0;       /*  warning if not initialised  */
+v1[8]=v1[3]+v1[36];    
+*(v1+8)=*(v1+3)+*(v1+36);
+*ip = i;
+*ip=*ip+1; *ip+=1; ++*ip; (*ip)++;
+
+----------------------------------------------------------------------
+logical operators
+
+&& , || , == , !=
+
+----------------------------------------------------------------------
+relational operators
+
+< , <= , == , != , > , >=
+
+**********************************************************************
+conditional statement
+
+if () {} else if () {} else {}
+if (i==0) a=3.14;
+if (i>0) a=3.14; else a=0;
+a=(i>0 ? 3.14 : 0);
+if (i>=0) {v1[i+1]=0; v2[i+1]=0;}
+if (i>0 && j==0) a=0;
+if (i<0 || j!=0) a=1;
+
+**********************************************************************
+loops
+
+for (i=0; i<100 ; i++) v4[i]=0;         /* met 'break' kan uit 'for',    */
+for (i=20 ; i>=1 ; i--) v1[i]=0;        /* 'while' en 'do' -loop worden  */
+                                        /* gesprongen.                   */
+for (i=100,j=100;j<109;i++,j++)         { printf("%d \n",i*j); }
+while (i<20) { i++ ; v1[i]=0; };        /* er nog verder moet worden     */
+                                        /* gegaan.                       */
+do { i++; v1[i]=0; } while (i<20);
+
+**********************************************************************
+case
+
+case 1:   { printf(".."); break };
+case 2:   { printf(".."); break };
+default : { printf(".."); }
+
+**********************************************************************
+switch
+
+switch (a+b){
+  case 1: {..}
+  case 2: {..}
+  defau;t : {..}
+  };
+
+**********************************************************************
+file operations ; <stdio.h>
+
+FILE *fopen(const char *filename, const char *mode)
+void rewind ( FILE *stream )
+fclose(f);
+
+f = fopen("democ.dat","w");
+f = fopen(argv[1],"r");
+f = fopen(*char, "r/w/ ");
+f = fopen("filename","..");
+f = fopen("democ.dat","a");
+
+end of input                               EOF (= integer in <stdio.h>
+
+**********************************************************************
+I/O
+======================================================================
+output
+
+int fprintf( FILE *stream, const char *format, ... )
+int printf( const char *format, ... )
+int sprintf( char *s, const char *format, ... )
+  s is terminated with '\0'
+int is number of written characters without '\0'
+
+                                        /*  \n     newline               */
+printf("i = %d      ",i);               /*  \r     carriage return       */
+printf("i = %d",i);                     /*  \t     horizontale tab       */
+printf("\n");                           /*  \v     verticale tab         */
+printf("i = %d\n",i);                   /*  \b     backspace             */
+printf("%6d\n",i);                      /*  \f     formfeed              */
+printf("%d\n",i);                       /*  \\     backslash             */
+printf("%6d,%d\n",i,j);                 /*  \'     apostrof              */
+printf("%f\n",a);                       /*  \DDD   octaal bitpatroon     */
+printf("%8f\n",a);                      /*  \*HHH  hexadec bitpatroon    */
+printf("%9.4f\n",a);                    /*  %#d    int     #   width     */
+printf("%d,%8.4f\n",5*i,a+i/2);         /*  %#.#f  float   #.# width     */
+printf("%1d\n",ii);                     /*  %o     octal                 */
+printf("%1f\n",aa);                     /*  %x     hexadecimal           */
+printf(a>b ? "groter" : "kleiner");     /*  %c     character             */
+printf("\n");                           /*  %s     character string      */
+                                        /*  %%     %                     */
+
+if ( f!=NULL ) { fprintf(f,"\nde laatste regel\n"); }
+fprintf(f,"de eerste regel\n");
+fprintf(f,"5 1.234");
+fprintf(f,"5 1.234 -5");
+
+bes=fopen("democ.bes","wb");
+printf("hoeveel namen  :  "); scanf("%d",&n);
+for (i=1 ; i<=n ; i++)
+{ 
+  printf("achternaam  :  "); scanf("%s",rec.naam);
+  printf("leeftijd    :  "); scanf("%d",&rec.leeftijd);
+  fwrite(&rec,sizeof(rec),1,bes);
+}
+fclose(bes);
+
+bes=fopen("democ.bes","rb");
+for (i=1 ; i<=n ; i++)
+{ 
+  fread(&rec,sizeof(rec),1,bes);
+  printf("%s %d",rec.naam,rec.leeftijd);
+  printf("\n");
+}
+fclose(bes);
+
+======================================================================
+input
+
+int fscanf( FILE *stream, const char *format, ... )
+int scanf( const char *format, ... )
+int sscanf( char *s, const char *format, ... )
+
+fscanf(f,"%d,%f",&i,&a);
+while (fscanf(f,"%f",b),b>0) ii++; 
+scanf("%d",&i);
+scanf("%d,%d,%f",&i,&j,&a);
+scanf("%c",&c1);
+sscanf(line,"%d,%f",&i,&a);
+
+======================================================================
+character input and output
+
+int fgetc( FILE *stream )       int is EOF if end-of-file occurs
+int getc( FILE *stream )        macro for fgetc()
+int ungetc ( int c, FILE *stream )
+                  pushes c back onto stream
+                  can be used only once !!
+int getchar( void )
+                  = getc(stdin)
+char *fgets( char *s, int n, FILE *stream )
+                  reads n-1 characters
+                  returns NULL if EOF is reached
+int fputc ( int c, FILE *stream )
+int putc ( int c, FILE *stream )
+int putchar ( int c )    
+                  = putc(c,stdout)
+int fputs ( const char *s, FILE *stream )
+                  : <0 or EOF for an error
+
+c = getc(f)
+ungetc(c,f)    
+putc(c,f);
+while ( (c=getc(f) ) != EOF ) {..}
+c = getc(f); while ( c!=EOF ) { ..; c = getc(f); }
+c1 = getchar(); 
+putchar(c1); 
+
+while ((c=getc(filein))!=EOF)
+{ if (c=='a')
+       putc('b',fileout);
+  else putc(c,fileout);
+}
+
+======================================================================
+reading from standard input (keyboard) and from a file
+
+int getline(FILE *f, *char line, int maxlen)
+  :  line-length (max maxlen-1; without \0)
+     <0  if EOF is reached
+int getword(FILE *f, char *word, char lastch, char sep, int lim)
+
+***********************************************************************
+functions
+
+functions may be defined globally
+functions must precede functions which use them
+
+prototype declaration:
+<type> functionname (arguments)
+<type> functionname ()
+<type> functionname (types of arguments)
+statements
+
+......................................................................
+
+double normv(double *v, int n);
+double normv(double v[], int n);
+double normv();
+double normv(double,int);
+
+----------------------------------------------------------------------
+
+definition :
+<type> functionname (arguments) {}
+<type> functionname (void) {}                   empty argument list
+
+......................................................................
+
+double normv(double *v, int n)      *v==v[0]; *(v+1)==v[1]; v+1==&v[1] 
+double normv(*v,n) double v; int n;
+double normv(double v[], int n);
+{
+  int i; double sqsum, h;
+  sqsum = 0;
+  for (i=0 ; i<n ; i++ ) sqsum = sqsum + v[i]*v[i];
+  h = sqrt(sqsum);
+  return h;
+}
+
+void fillv(double *v, int n)
+{
+  int i;
+  for (i=0 ; i<n ; i++ ) v[i]=sin((float)i/10);
+}
+
+======================================================================
+string manipulation functions in <string.h>
+
+int = strlen(*char)
+strcpy(*char, *char)
+strncpy(..)
+strcat(*char, *char)
+strcat(*char, "string")
+strcmp(*char, *char) == 0 if strings are equal
+
+strcpy(s,"abc");
+strcpy(naam,argv[1]); strcat(naam,".txt");
+strncat(s,"toevoegen",3); 
+strcat(s,"toevoegen");
+
+----------------------------------------------------------------------
+string manipulation functions in 'include-directory'
+
+int strrepl(*char instr, *char outstr, *char searchstr, *char replstr)
+  :  number of replacements
+void srtstar(char *strarr[], int *sortindex, int nrows)
+  :  sorting of string array
+void stcpy(char *newstr, char *oldstr, int startind, int endind)
+void revwrd(char s[])
+  :  reverse characters in string
+
+======================================================================
+some mathematical functions
+
+int = div(int,int).rem
+int = atoi(*char)
+
+======================================================================
+miscellaneous functions
+
+void pause(void)
+void lwccnt(FILE *f, int *nlin, int *nwor, int *ncha, int *nspa, int ndig[])
+int cins(char c, char *s)
+  : 0 (c in s) of 1 (c niet in s)
+void srtinar(int intarr[], int nrows)
+  : sorting of integer array
+
+**********************************************************************
+
+demo programs
+
+***********************************************************************
+
+======================================================================
+**********************************************************************
+/********************************************************************/
+/****
+/****    Test-program for the function '...' 
+/****
+/****    Copy the part between ..-1-1-1-.. and ..+1+1+1+.. to a file 
+/****    Do not include these lines !!
+/****    Delete this file after testing.
+/***/
+/********************************************************************/
+**********************************************************************
+
+Usefull tools
+
+----------------------------------------------------------------------
+apnl.c
+
+Appends '\\' at the end (EOL) of each (empty) line.
+The new file is "apnl.tmp".
+
+Usage :  apnl "filename"
+
+----------------------------------------------------------------------
+chc.c
+
+Counts the number of lines (nlin), words (nwrd),        
+characters (nchr), spaces (nspc) and digits (nd[ ]) in a file.
+
+Usage :  chc "filename"
+
+----------------------------------------------------------------------
+
+dirlst.c
+
+This program can be used to read a list of filenames from
+a file 'filein' and write the filenames to a file
+'fileout' after changing their extention.
+The filenames must appear as the first item of a new line.
+The program must be configured and compiled.
+
+Usage :  dirlst "filein" "fileout"
+
+----------------------------------------------------------------------
+
+fr.c
+
+
+
+Usage :  fr "filename"
+
+----------------------------------------------------------------------
+
+p.c
+
+Prints an ASCII-file on the screen, deleting the
+leading blanks of each line.
+
+Usage :  p "filename"
+
+----------------------------------------------------------------------
+
+prcol.c
+
+Prints input-file in a number of columns of specified length.
+
+Usage :  prcol "file" "column-length" "number-of-columns"
+
+----------------------------------------------------------------------
+
+rp.c
+
+Replaces a 'searchstring'
+in an ASCII-file with a 'replacestring'.
+The line number of the line where the replacement has to
+start must be given as an argument to the program.
+The number of replacements is printed on the screen.
+
+Usage :  rp "file" "searchstring" "replacestring" "firstline"
+
+----------------------------------------------------------------------
+
+rpw.c
+
+Reads a text file 'tt.txt' and convert the words to string, 
+integer and float.
+Numbers and strings are put in a structure.
+
+----------------------------------------------------------------------
+
+sort.c
+
+Sorts a text-file.
+The "filename" is asked, after which a the first lines are printed on the
+screen.
+The column on which sorting takes place is asked for.
+The sorted file is printed on the screen.
+
+**********************************************************************
+======================================================================
+links
+
+macams1.bo.infn.it:80/C/clang.html  : C
+macams1.bo.infn.it:80/cpp/Tutorial.html  : C++
+
+**********************************************************************

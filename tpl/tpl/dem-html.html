@@ -1,0 +1,778 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!------------------------------------------------------------------------->
+<!-- <inf> examples of html commands
+What you see here is comment.
+We also use the comment tags to make some lines in the page source.
+In HTML the < and > symbols are used to include HTML commands.
+If we want to use this items in the page, we have to use the special names
+for these items : &lt; and &gt;
+-->
+<!------------------------------------------------------------------------->
+<HTML>
+<HEAD>
+<!------------------------------------------------------------------------->
+<TITLE>This is the title of the page</TITLE>
+<!------------------------------------------------------------------------->
+<meta name="DESCRIPTION" content="a describing sentence">
+<meta name="KEYWORDS" content="template,example">
+<meta name="ROBOTS" content="noindex,nofollow">
+<!------------------------------------------------------------------------->
+<!--
+Pages may be rerouted :
+-->
+<!--
+<meta http-equiv="content-type" content="texr/html">
+<meta http-equiv="refresh" content="0;url=gotopage.html">
+-->
+<!------------------------------------------------------------------------->
+<!--
+Styles may be defined in each HTML page.
+-->
+<style>
+A.pdf:link {color:red}
+A.pdf:visited {color: red}
+A.pdf:active {color: red}
+A.www:link {color: blue}
+A.www:visited {color: blue}
+A.www:active {color: blue}
+A.tag:link {color: green}
+A.tag:visited {color: green}
+A.tag:active {color: green}
+A.mlf:link {color: brown}
+A.mlf:visited {color: brown}
+A.mlf:active {color: brown}
+A.dat:link {color: orange}
+A.dat:visited {color: orange}
+A.dat:active {color: orange}
+</style>
+
+<!--
+It may be advantageous to define them in a separate file <>.css and to 
+include this file
+-->
+<!--
+<LINK REL="stylesheet" TYPE="text/css" HREF="Pstyle.css">
+-->
+<!------------------------------------------------------------------------->
+<!--
+JavaScript functions can be defined in each HTML page.
+It may be better to define them in a separate file <>.js and include this
+file.
+Here one JavaScript functions is defined for opening of a window.
+Suggested sizes : pdf-single-page :  w = 525 ; h = 725
+                  pdf-double-page :  w = 935 ; h = 690
+                  data            :  w = 450 ; h = 600
+                  program source  :  w = 650 ; h = 400
+                  reference       :  w = 700 ; h = 50
+-->
+<script language="JavaScript">
+<!--
+function winwin(file,filename,wdt,hgt)
+{ win = window.open(file,filename,"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=" + wdt + ",height=" + hgt)
+  if (navigator.appName == 'Netscape') {win.focus()}
+}
+//-->
+</script>
+<!------------------------------------------------------------------------->
+</HEAD>
+<!------------------------------------------------------------------------->
+<!--
+Instead of opening a page, we can open a frame.
+
+<FRAMESET cols="20%,*" border="0" frameborder="0" framespacing="0">
+  <FRAME src="menu.html" noresize marginwidth="10" name="menuframe">
+  <FRAME src="main.html"          marginwidth="10" name="mainframe">
+</FRAMESET>
+
+The page menu.html is just a list of links.
+The frame is closed :
+
+</HTML>
+-->
+<!------------------------------------------------------------------------->
+<BODY bgcolor="#FFFFFF" text="black" link="blue" alink="blue" vlink="magenta">
+<!------------------------------------------------------------------------->
+
+<HEADER>
+<H2>HTML demo file</H2>
+</HEADER>
+
+
+<P><HR size=5></P>
+
+<P>
+The body of the page is started here.
+The background and text colors and also the color of links can be specified for
+the complete page.
+The background can be composed of an image, but this is already very fancy for
+our purpose.
+(It could be done with : &lt;/BODY background="img.gif" &gt;)
+</P>
+
+<!------------------------------------------------------------------------->
+<A name="TOP">
+<HR size=5>
+<!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+
+<CENTER><FONT color="red"><B>Contents</B></FONT></CENTER>
+
+<UL type="bullit">
+<LI> <A href="#info" class="tag">General information</A>
+<LI> <A href="#link" class="tag">Links</A>
+</UL>
+
+<!------------------------------------------------------------------------->
+
+<P>
+<!------------------------------------------------------------------------->
+<A name="info"></A>
+<HR size=2>
+<TABLE border=0 width=100%>
+<TR><TD valign="top"><FONT color="red"><B>General information</B></FONT></TD><TD valign="top" align="right">
+<A href="#TOP" class="tag">TOP</A></TD></TR></TABLE>
+<HR size=2>
+<!------------------------------------------------------------------------->
+
+
+<!------------------------------------------------------------------------->
+<P></P><HR><P></P>
+<H3>ALIGNMENTS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+<HR>
+After this horizontal rule (&lt;HR&gt;) a new line is now started with
+&lt;BR&gt;.
+
+<BR>
+A new paragraph is now started with &lt;P&gt; which skips a line.
+<P>
+<P align=right>
+A paragraph can be aligned to the right with &lt;P align=right&gt;.
+<BR>
+Then all text is aligned to the right.
+<P align=center>
+A paragraph can be aligned in the center with &lt;P align=center&gt;.
+<BR>
+Then all text is aligned in the center.
+</P>
+
+<CENTER>
+Centered text is placed between &lt;CENTER&gt; and &lt;/CENTER&gt;
+</CENTER>
+
+<P align=justify>
+Text can be aligned at the right side of the page.
+This is done with 
+&lt;P align=justify&gt;.
+Of course there has be enough text in the paragraph and that is why we
+add some nonsence:
+blabla bla blabla bla bla blablabla blablablabla blabla bla bla
+bla blabla bla bla blablabla bla blablabla blablablabla bla bla
+bla blabla bla bla blablabla bla blablabla blablablabla bla bla
+bla blabla bla bla blablabla bla blablabla blablablabla bla bla
+</P>
+
+You can break words (&lt;WBR&gt;) or prevent this to happen (&lt;NOBR&gt;).
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>FONTS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+some fonts are shown below.
+See the page source for the commands.
+
+<BR>
+<BR><STRONG> This is 'STRONG emphasised'   </STRONG> 
+<BR><EM>     This is 'EMphasized'          </EM>
+<BR><B>      This is 'Bold'                </B>
+<BR><I>      This is 'Italic'              </I>
+<BR><TT>     This is 'TeleType'            </TT>
+<BR><KBD>    This is 'Keyboard'            </KBD>
+<BR><CODE>   This is 'Program code'        </CODE>
+<BR><SAMP>   This is 'Computer message'    </SAMP>
+<BR><PRE>    This is 'PRE'formatted text'  </PRE>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>COLORS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+<P>
+We can change the color of the text by placing it between
+&lt;FONT color="color"&gt; and &lt/FONT&gt;.
+A few examples.
+</P>
+
+<P>
+<FONT color="black">   black    </FONT>,
+<FONT color="gray">    gray     </FONT>,
+<FONT color="silver">  silver   </FONT>,
+<FONT color="white">   white    </FONT>,
+<FONT color="maroon">  maroon   </FONT>,
+<FONT color="green">   green    </FONT>,
+<FONT color="olive">   olive    </FONT>,
+<FONT color="teal">    teal     </FONT>,
+<FONT color="lime">    lime     </FONT>,
+<FONT color="navy">    navy     </FONT>,
+<FONT color="blue">    blue     </FONT>,
+<FONT color="aqua">    aqua     </FONT>,
+<FONT color="purple">  purple   </FONT>,
+<FONT color="fuchsia"> fuchsia  </FONT>,
+<FONT color="red">     red      </FONT>,
+<FONT color="yellow">  yellow   </FONT>.
+</P>
+
+<!------------------------------------------------------------------------->
+<P><HR></P>
+<H3>FONT SIZES</H3>
+<P><HR></P>
+<!------------------------------------------------------------------------->
+
+<P>
+The 'BASEFONT' size can be set.
+Here it is made &lt;BASEFONT size=4&gt;
+<BASEFONT size=4>
+
+<P>
+The size of the font can be set between &lt;FONT&gt; and &lt;/FONT&gt;.
+A few examples are shown below.
+
+<P>
+<FONT size=5> &lt;FONT size=5&gt;  xxxxxxxxxx &lt;/FONT&gt;</FONT>
+<BR>
+<FONT size=6> &lt;FONT size=6&gt;  xxxxxxxxxx &lt;/FONT&gt;</FONT>
+<BR>
+<FONT size=+1>&lt;FONT size=+1&gt; xxxxxxxxxx &lt;/FONT&gt;</FONT>
+<BR>
+<FONT size=-3>&lt;FONT size=-3&gt; xxxxxxxxxx &lt;/FONT&gt;</FONT>
+<BR>
+<BASEFONT size=3>normal basefont size = 3
+
+<P>
+
+Sections with different fonts
+
+<H1>Size H1</H1>
+<H2>Size H2</H2>
+<H3>Size H3</H3>
+<H4>Size H4</H4>
+<H4 align=center>Size H4</H4>
+<H5>Size H5</H5>
+<H6>Size H6</H6>
+
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>TABLES</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+The table below shows how special characters can be made.
+The table is made with
+
+<P>
+&lt;CENTER&gt;
+<BR>
+&lt;TABLE border=1 cellspacing=5 cellpadding=5 width=30%&gt;
+&lt;/TABLE&gt;
+<BR>
+&lt;/CENTER&gt;
+
+<P>
+
+Several "align" options (see page source) can be used.
+
+<P>
+With 
+<BR>
+&lt;CAPTION align=bottom&gt; &lt;CAPTION&gt; 
+the table gets a caption at the bottom.
+
+<P>
+<CENTER>
+<TABLE border=1 cellspacing=5 cellpadding=5 width=30%>
+<CAPTION align=bottom>Special character codes</CAPTION>
+<TR><TH colspan=4>Special characters</TH></TR>
+
+<TR><TD width=10% align=left>&aacute;   </TD><TD>&amp;aacute;</TD>
+    <TD width=10% align=left>&#225;     </TD><TD>&amp;#225;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&agrave;   </TD><TD>&amp;agrave;</TD>
+    <TD width=10% align=left>&#224;     </TD><TD>&amp;#224;  </TD></TR>
+<TR><TD width=10% align=left>&acirc;    </TD><TD>&amp;acirc; </TD>
+    <TD width=10% align=left>&#226;     </TD><TD>&amp;#226;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&atilde;   </TD><TD>&amp;atilde;</TD>
+    <TD width=10% align=left>&#227;     </TD><TD>&amp;#227;  </TD></TR>
+<TR><TD width=10% align=left>&auml;     </TD><TD>&amp;auml;  </TD>
+    <TD width=10% align=left>&#228;     </TD><TD>&amp;#228;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&aring;    </TD><TD>&amp;aring; </TD>
+    <TD width=10% align=left>&#229;     </TD><TD>&amp;#229;  </TD></TR>
+<TR><TD width=10% align=left>&Aacute;   </TD><TD>&amp;Aacute;</TD>
+    <TD width=10% align=left>&#193;     </TD><TD>&amp;#193;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Agrave;   </TD><TD>&amp;Agrave;</TD>
+    <TD width=10% align=left>&#192;     </TD><TD>&amp;#192;  </TD></TR>
+<TR><TD width=10% align=left>&Acirc;    </TD><TD>&amp;Acirc; </TD>
+    <TD width=10% align=left>&#194;     </TD><TD>&amp;#194;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Atilde;   </TD><TD>&amp;Atilde;</TD>
+    <TD width=10% align=left>&#195;     </TD><TD>&amp;#195;  </TD></TR>
+<TR><TD width=10% align=left>&Auml;     </TD><TD>&amp;Auml;  </TD>
+    <TD width=10% align=left>&#196;     </TD><TD>&amp;#196;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Aring;    </TD><TD>&amp;Aring; </TD>
+    <TD width=10% align=left>&#197;     </TD><TD>&amp;#197;  </TD></TR>
+<TR><TD width=10% align=left>&ccedil;   </TD><TD>&amp;ccedil;</TD>
+    <TD width=10% align=left>&#231;     </TD><TD>&amp;#231;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Ccedil;   </TD><TD>&amp;Ccedil;</TD>
+    <TD width=10% align=left>&#199;     </TD><TD>&amp;#199;  </TD></TR>
+<TR><TD width=10% align=left>&eacute;   </TD><TD>&amp;eacute;</TD>
+    <TD width=10% align=left>&#233;     </TD><TD>&amp;#233;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&egrave;   </TD><TD>&amp;egrave;</TD>
+    <TD width=10% align=left>&#232;     </TD><TD>&amp;#232;  </TD></TR>
+<TR><TD width=10% align=left>&ecirc;    </TD><TD>&amp;ecirc; </TD>
+    <TD width=10% align=left>&#234;     </TD><TD>&amp;#234;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&euml;     </TD><TD>&amp;euml;  </TD>
+    <TD width=10% align=left>&#235;     </TD><TD>&amp;#235;  </TD></TR>
+<TR><TD width=10% align=left>&Eacute;   </TD><TD>&amp;Eacute;</TD>
+    <TD width=10% align=left>&#201;     </TD><TD>&amp;#201;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Egrave;   </TD><TD>&amp;Egrave;</TD>
+    <TD width=10% align=left>&#202;     </TD><TD>&amp;#202;  </TD></TR>
+<TR><TD width=10% align=left>&Ecirc;    </TD><TD>&amp;Ecirc; </TD>
+    <TD width=10% align=left>&#200;     </TD><TD>&amp;#200;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Euml;     </TD><TD>&amp;Euml;  </TD>
+    <TD width=10% align=left>&#203;     </TD><TD>&amp;#203;  </TD></TR>
+<TR><TD width=10% align=left>&iacute;   </TD><TD>&amp;iacute;</TD>
+    <TD width=10% align=left>&#237;     </TD><TD>&amp;#237;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&igrave;   </TD><TD>&amp;igrave;</TD>
+    <TD width=10% align=left>&#236;     </TD><TD>&amp;#236;  </TD></TR>
+<TR><TD width=10% align=left>&icirc;    </TD><TD>&amp;icirc; </TD>
+    <TD width=10% align=left>&#238;     </TD><TD>&amp;#238;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&iuml;     </TD><TD>&amp;iuml;  </TD>
+    <TD width=10% align=left>&#239;     </TD><TD>&amp;#239;  </TD></TR>
+<TR><TD width=10% align=left>&Iacute;   </TD><TD>&amp;Iacute;</TD>
+    <TD width=10% align=left>&#205;     </TD><TD>&amp;#205;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Igrave;   </TD><TD>&amp;Igrave;</TD>
+    <TD width=10% align=left>&#204;     </TD><TD>&amp;#204;  </TD></TR>
+<TR><TD width=10% align=left>&Icirc;    </TD><TD>&amp;Icirc; </TD>
+    <TD width=10% align=left>&#206;     </TD><TD>&amp;#206;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Iuml;     </TD><TD>&amp;Iuml;  </TD>
+    <TD width=10% align=left>&#207;     </TD><TD>&amp;#207;  </TD></TR>
+<TR><TD width=10% align=left>&ntilde;   </TD><TD>&amp;ntilde;</TD>
+    <TD width=10% align=left>&#241;     </TD><TD>&amp;#241;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Ntilde;   </TD><TD>&amp;Ntilde;</TD>
+    <TD width=10% align=left>&#209;     </TD><TD>&amp;#209;  </TD></TR>
+<TR><TD width=10% align=left>&oacute;   </TD><TD>&amp;oacute;</TD>
+    <TD width=10% align=left>&#243;     </TD><TD>&amp;#243;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&ograve;   </TD><TD>&amp;ograve;</TD>
+    <TD width=10% align=left>&#242;     </TD><TD>&amp;#242;  </TD></TR>
+<TR><TD width=10% align=left>&ocirc;    </TD><TD>&amp;ocirc; </TD>
+    <TD width=10% align=left>&#244;     </TD><TD>&amp;#244;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&ouml;     </TD><TD>&amp;ouml;  </TD>
+    <TD width=10% align=left>&#245;     </TD><TD>&amp;#245;  </TD></TR>
+<TR><TD width=10% align=left>&otilde;   </TD><TD>&amp;otilde;</TD>
+    <TD width=10% align=left>&#245;     </TD><TD>&amp;#245;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&oslash;   </TD><TD>&amp;oslash;</TD>
+    <TD width=10% align=left>&#248;     </TD><TD>&amp;#248;  </TD></TR>
+<TR><TD width=10% align=left>&Oacute;   </TD><TD>&amp;Oacute;</TD>
+    <TD width=10% align=left>&#211;     </TD><TD>&amp;#211;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Ograve;   </TD><TD>&amp;Ograve;</TD>
+    <TD width=10% align=left>&#210;     </TD><TD>&amp;#210;  </TD></TR>
+<TR><TD width=10% align=left>&Ocirc;    </TD><TD>&amp;Ocirc; </TD>
+    <TD width=10% align=left>&#212;     </TD><TD>&amp;#212;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Ouml;     </TD><TD>&amp;Ouml;  </TD>
+    <TD width=10% align=left>&#214;     </TD><TD>&amp;#214;  </TD></TR>
+<TR><TD width=10% align=left>&Otilde;   </TD><TD>&amp;Otilde;</TD>
+    <TD width=10% align=left>&#213;     </TD><TD>&amp;#213;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Oslash;   </TD><TD>&amp;Oslash;</TD>
+    <TD width=10% align=left>&#216;     </TD><TD>&amp;#216;  </TD></TR>
+<TR><TD width=10% align=left>&uacute;   </TD><TD>&amp;uacute;</TD>
+    <TD width=10% align=left>&#250;     </TD><TD>&amp;#250;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&ugrave;   </TD><TD>&amp;ugrave;</TD>
+    <TD width=10% align=left>&#249;     </TD><TD>&amp;#249;  </TD></TR>
+<TR><TD width=10% align=left>&ucirc;    </TD><TD>&amp;ucirc; </TD>
+    <TD width=10% align=left>&#251;     </TD><TD>&amp;#251;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&uuml;     </TD><TD>&amp;uuml;  </TD>
+    <TD width=10% align=left>&#252;     </TD><TD>&amp;#252;  </TD></TR>
+<TR><TD width=10% align=left>&Uacute;   </TD><TD>&amp;Uacute;</TD>
+    <TD width=10% align=left>&#218;     </TD><TD>&amp;#218;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Ugrave;   </TD><TD>&amp;Ugrave;</TD>
+    <TD width=10% align=left>&#217;     </TD><TD>&amp;#217;  </TD></TR>
+<TR><TD width=10% align=left>&Ucirc;    </TD><TD>&amp;Ucirc; </TD>
+    <TD width=10% align=left>&#219;     </TD><TD>&amp;#219;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&Uuml;     </TD><TD>&amp;Uuml;  </TD>
+    <TD width=10% align=left>&#220;     </TD><TD>&amp;#220;  </TD></TR>
+<TR><TD width=10% align=left>&yacute;   </TD><TD>&amp;yacute;</TD>
+    <TD width=10% align=left>&#253;     </TD><TD>&amp;#253;  </TD><TD><BR></TD>
+    <TD width=10% align=left>&yuml;     </TD><TD>&amp;yuml;  </TD>
+    <TD width=10% align=left>&#255;     </TD><TD>&amp;#255;  </TD></TR>
+<TR><TD width=10% align=left>&Yacute;   </TD><TD>&amp;Yacute;</TD>
+    <TD width=10% align=left>&#221;     </TD><TD>&amp;#221;  </TD><TD><BR></TD>
+    <TD width=10% align=left><BR>       </TD><TD><BR>        </TD>
+    <TD width=10% align=left><BR>       </TD><TD><BR>        </TD></TR>
+
+<TR><TH colspan=4>Ligaturs</TH></TR>
+
+<TR><TD>&szlig;</TD><TD>&amp;szlig;</TD>
+    <TD>&#223; </TD><TD>&amp;#223; </TD><TD><BR></TD>
+    <TD>&aelig;</TD><TD>&amp;aelig;</TD>
+    <TD>&#230; </TD><TD>&amp;#230; </TD></TR>
+<TR><TD>&Aelig;</TD><TD>&amp;Aelig;</TD>
+    <TD>&#198; </TD><TD>&amp;#198; </TD><TD><BR></TD>
+    <TD><BR>   </TD><TD><BR>       </TD>
+    <TD><BR>   </TD><TD><BR>       </TD></TR>
+
+<TR><TH colspan=4>Mathematical symbols</TH></TR>
+
+<TR><TD>&#131;</TD><TD>-</TD><TD>-</TD><TD>&amp;#131;</TD></TR>
+<TR><TD>&#163;</TD><TD>-</TD><TD>-</TD><TD>&amp;#163;</TD></TR>
+<TR><TD>&#215;</TD><TD>-</TD><TD>-</TD><TD>&amp;#215;</TD></TR>
+<TR><TD>&#247;</TD><TD>-</TD><TD>-</TD><TD>&amp;#247;</TD></TR>
+<TR><TD>&#176;</TD><TD>-</TD><TD>-</TD><TD>&amp;#176;</TD></TR>
+<TR><TD>&#177;</TD><TD>-</TD><TD>-</TD><TD>&amp;#177;</TD></TR>
+<TR><TD>&#185;</TD><TD>-</TD><TD>-</TD><TD>&amp;#185;</TD></TR>
+<TR><TD>&#178;</TD><TD>-</TD><TD>-</TD><TD>&amp;#178;</TD></TR>
+<TR><TD>&#188;</TD><TD>-</TD><TD>-</TD><TD>&amp;#188;</TD></TR>
+<TR><TD>&#189;</TD><TD>-</TD><TD>-</TD><TD>&amp;#189;</TD></TR>
+<TR><TD>&#190;</TD><TD>-</TD><TD>-</TD><TD>&amp;#190;</TD></TR>
+
+<TR><TH colspan=4>Various symbols</TH></TR>
+
+<TR><TD>&copy;</TD><TD>&amp;copy;</TD><TD>&#169;</TD><TD>&amp;#169;</TD></TR>
+<TR><TD>&reg; </TD><TD>&amp;reg; </TD><TD>&#174;</TD><TD>&amp;#174;</TD></TR>
+<TR><TD>&quot;</TD><TD>&amp;quot;</TD><TD>&#34; </TD><TD>&amp;#34; </TD></TR>
+<TR><TD>&nbsp;</TD><TD>&amp;nbsp;</TD><TD>&#160;</TD><TD>&amp;#160;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#153;</TD><TD>&amp;#153;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#124;</TD><TD>&amp;#124;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#167;</TD><TD>&amp;#167;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#182;</TD><TD>&amp;#182;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#168;</TD><TD>&amp;#168;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#171;</TD><TD>&amp;#171;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#187;</TD><TD>&amp;#187;</TD></TR>
+<TR><TD>-</TD><TD>-</TD><TD>&#8364;</TD><TD>&amp;#8364;</TD></TR>
+
+<TR><TH colspan=4>HTML-tekens</TH></TR>
+
+<TR><TD>&lt; </TD><TD>&amp;lt; </TD><TD>&#60;</TD><TD>&amp;#60;</TD>
+    <TD>&gt; </TD><TD>&amp;gt; </TD><TD>&#62;</TD><TD>&amp;#62;</TD></TR>
+<TR><TD>&amp;</TD><TD>&amp;amp;</TD><TD>&#38;</TD><TD>&amp;#38;</TD>
+    <TD><BR> </TD><TD><BR>     </TD><TD><BR> </TD><TD><BR>     </TD></TR>
+
+</TABLE>
+</CENTER>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>LINES</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+some horizontal lines :
+
+<HR>
+<HR size=5 noshade>
+<HR width=100 size=5 shade align=right>
+<HR width=75% size=10 noshade align=left>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>LISTS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+We can make several lists.
+
+<P>
+Unordered list, possibely with argument
+&lt;UL type=square|circle|disc&gt; &lt;/UL&gt;
+
+<UL>
+<LI>item (&lt;LI&gt;) one
+<LI>item two
+<UL>
+<LI>nested list item
+</UL>
+</UL>
+
+Ordered list, possibely with argument
+&lt;OL type=1|a|i|A|I start=5&gt;  &lt;/OL&gt;
+
+<OL>
+<LI>item one
+<LI>item two
+</OL>
+
+Definition list 
+&lt;DL&gt; &lt;/DL&gt;
+
+<DL>
+<DT>definition term one
+<DD>definition data one
+<DT>definition term two
+<DD>definition data two
+</DL>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>FIGURES</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+Figures can be included in the page.
+Its recommended to include the 'alt'-tag.
+<P>
+
+<IMG src=".." width=100 height=80>
+&lt;IMG src=".." width=100 height=80&gt;
+<P>
+<IMG src=".." alt="text"> 
+&lt;IMG src=".." alt="text"&gt;
+<P>
+<IMG src=".." alt="text" border="5"> 
+&lt;IMG src=".." alt="text" border="5"&gt;
+<P>
+<IMG src=".." align=left> 
+&lt;IMG src=".." align=left&gt; picture left, text right
+<P>
+<IMG src=".." align=right> 
+&lt;IMG src=".." align=right&gt; picture right, text left
+<P>
+<IMG src=".." align=left> 
+&lt;IMG src=".." align=left&gt;
+picture left,text right
+<BR clear=left>
+&lt;BR clear=left&gt; (|right|all) text under picture
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>LINKS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+You can include <A name="links">LINKS</A> :
+
+<P>
+This is a link to the home page of the TUE 
+<A href="http://www.tue.nl/">Homepage TUE</A>
+This is a link to the position (LINKS) in this page
+<A href="#links">jump to LINKS</A>
+<BR>
+A picture may be a link
+<A href=""> <IMG src=""> </A>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>FORMS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+A form is made with
+<BR>
+&lt; FORM method=post action=CGI-application &gt;
+<FORM method=post action=CGI-applicaton>
+
+<BR>
+&lt; INPUT type="checkbox" name="uid" value="9935010" &gt;
+<INPUT type="checkbox" name="uid" value="9935010">
+
+<BR>
+&lt; INPUT type="radio" name="radio1" value="value1" &gt;
+<INPUT type="radio" name="radio1" value="value1"> 
+
+<BR>
+&lt; INPUT type="radio" name="radio2" value="value2" checked &gt; 
+<INPUT type="radio" name="radio2" value="value2" checked> 
+
+<BR>
+&lt; INPUT type="text" name="inputtext1" &gt;
+<INPUT type="text" name="inputtext1">
+
+<BR>
+&lt; INPUT type="text" name="inputtext2 value="niks" &gt;
+<INPUT type="text" name="inputtext2" value="niks">
+
+<BR>
+&lt; INPUT type="text" name="inputtext3" size=30 maxlength=50 &gt;
+<INPUT type="text" name="inputtext3" size=30 maxlength=50>
+
+<BR>
+&lt; INPUT type="password" name="password" &gt;
+<INPUT type="password" name="password">
+
+<BR>
+&lt; INPUT type="submit" value="submit" &gt;
+<INPUT type="submit" value="submit">
+
+<BR>
+&lt; INPUT type="reset" value="reset" &gt;
+<INPUT type="reset" value="reset">
+
+<BR>
+&lt; SELECT name="list" &gt; 
+&lt; OPTION &gt; item &lt; /SELECT &gt;
+<SELECT name="list">
+  <OPTION> item1
+  <OPTION> item2
+  <OPTION> item3
+  <OPTION> item4
+  <OPTION> item5
+</SELECT>
+
+<BR>
+&lt; SELECT name="list" size=3 &gt; 
+&lt; OPTION &gt; item &lt; /SELECT &gt;
+<SELECT name="list" size=3>
+  <OPTION> item1
+  <OPTION> item2
+  <OPTION> item3
+  <OPTION> item4
+  <OPTION> item5
+</SELECT>
+
+<BR>
+&lt; SELECT name="list" multiple &gt; 
+&lt; OPTION &gt; item &lt; /SELECT &gt;
+<SELECT name="list" multiple>
+  <OPTION> item1
+  <OPTION> item2
+  <OPTION> item3
+  <OPTION> item4
+  <OPTION> item5
+</SELECT>
+
+
+</FORM>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>COLORS</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+<TABLE border="1">
+<TR>
+<TD>black  </TD><TD bgcolor=black>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#000000</TD><TD bgcolor=#000000>&nbsp;&nbsp;&nbsp;</TD>
+<TD>gray   </TD><TD bgcolor=gray>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#969696</TD><TD bgcolor=#969696>&nbsp;&nbsp;&nbsp;</TD>
+<TD>silver </TD><TD bgcolor=silver>&nbsp;&nbsp;&nbsp;</TD>
+<TD>white  </TD><TD bgcolor=white>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FFFFFF</TD><TD bgcolor=#FFFFFF>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>red    </TD><TD bgcolor=red>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FF0000</TD><TD bgcolor=#FF0000>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FF2400</TD><TD bgcolor=#FF2400>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FF7F00</TD><TD bgcolor=#FF7F00>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FF9933</TD><TD bgcolor=#FF9933>&nbsp;&nbsp;&nbsp;</TD>
+<TD>orange </TD><TD bgcolor=orange>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>yellow </TD><TD bgcolor=yellow>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FFFF00</TD><TD bgcolor=#FFFF00>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>olive  </TD><TD bgcolor=olive>&nbsp;&nbsp;&nbsp;</TD>
+<TD>green  </TD><TD bgcolor=green>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#00FF00</TD><TD bgcolor=#00FF00>&nbsp;&nbsp;&nbsp;</TD>
+<TD>lime   </TD><TD bgcolor=lime>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#99CC32</TD><TD bgcolor=#99CC32>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>navy   </TD><TD bgcolor=navy>&nbsp;&nbsp;&nbsp;</TD>
+<TD>blue   </TD><TD bgcolor=blue>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#0000FF</TD><TD bgcolor=#0000FF>&nbsp;&nbsp;&nbsp;</TD>
+<TD>teal   </TD><TD bgcolor=teal>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#3299CC</TD><TD bgcolor=#3299CC>&nbsp;&nbsp;&nbsp;</TD>
+<TD>aqua   </TD><TD bgcolor=aqua>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#70DB93</TD><TD bgcolor=#70DB93>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>purple </TD><TD bgcolor=purple>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#9932CD</TD><TD bgcolor=#9932CD>&nbsp;&nbsp;&nbsp;</TD>
+<TD>magenta</TD><TD bgcolor=magenta>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FF00FF</TD><TD bgcolor=#FF00FF>&nbsp;&nbsp;&nbsp;</TD>
+<TD>fuchsia</TD><TD bgcolor=fuchsia>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FFC0CB</TD><TD bgcolor=#FFC0CB>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+<TD>maroon </TD><TD bgcolor=maroon>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#AA600C</TD><TD bgcolor=#AA600C>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#B87333</TD><TD bgcolor=#B87333>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#CFB53B</TD><TD bgcolor=#CFB53B>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#FFB468</TD><TD bgcolor=#FFB468>&nbsp;&nbsp;&nbsp;</TD>
+<TD>#EAEAAE</TD><TD bgcolor=#EAEAAE>&nbsp;&nbsp;&nbsp;</TD>
+</TR><TR>
+
+</TR>
+</TABLE>
+
+<!------------------------------------------------------------------------->
+<P><HR><P>
+<H3>MORE</H3>
+<P><HR><P>
+<!------------------------------------------------------------------------->
+
+We open a new window of size 650 x 400
+<A href=javascript:winwin("","new","650","400") class="mlf">here</A>.
+
+
+<P>
+<!------------------------------------------------------------------------->
+<A name="link"></A>
+<HR size=2>
+<TABLE border=0 width=100%>
+<TR><TD valign="top"><FONT color="red"><B>Links</B></FONT></TD><TD valign="top" align="right">
+<A href="#TOP" class="tag">TOP</A></TD></TR></TABLE>
+<HR size=2>
+<!------------------------------------------------------------------------->
+
+<P>HTML</P>
+
+<A href="http://werbach.com/barebones" target="_blank">
+werbach.com/barebones : guide to HTML</A>
+<BR>
+<A href="http://www.cssref.be/attributen/attributenlijst.asp"  target="_blank">
+attributenlijst</A>
+<BR>
+<A href="http://www.htmlhelp.com/reference/html40/" target="_blank">
+HTML reference</A>
+<BR>
+<A href="http://validator.w3.org/" target="_blank">
+W3C HTML Validation Service</A>
+
+<P>CSS</P>
+
+<A href="http://css.pagina.nl" target="_blank">
+css.pagina.nl : CSS start page</A>
+<BR>
+<A href="http://www.w3schools.com/css" target="_blank">
+www.w3schools.com/css</A>
+<BR>
+<A href="http://www.w3.org/Style/CSS" target="_blank">
+www.w3.org/Style/CSS : css standards</A>
+<BR>
+<A href="http://jigsaw.w3.org/css-validator"  target="_blank">
+jigsaw.w3.org/css-validator</A>
+
+<P>Javascript</P>
+
+<A href="http://developer.netscape.com/docs/manuals/communicator/jsguide4/index.htm" target="_blank">
+Javascript manual</A>
+
+
+<!------------------------------------------------------------------------->
+<P><HR size=5><P>
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
+<P>
+<HR size=5>
+<!--
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+<P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR>
+-->
+<!------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------->
+</BODY></HTML>

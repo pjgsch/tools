@@ -1,0 +1,158 @@
+# The current screen is cleared
+
+set terminal x11
+#set output 
+
+clear
+pwd
+!pwd
+
+#help ?
+#help load
+#help expressions
+#help functions
+#help operators
+
+#pause -1
+
+#set
+
+print 2 ; pause -1
+
+print 'some examples of plot'; pause -1
+
+plot sin(x) ; pause -1
+plot sin(x) title 'with lines' with lines; pause -1
+plot sin(x) title 'with points' with points; pause -1
+plot sin(x) title 'with linespoints' with linespoints; pause -1
+plot sin(x) title 'with dots' with dots; pause -1
+plot sin(x) title 'with impulses' with impulses; pause -1
+
+show data style
+show function style
+show functions
+show surface
+show all 
+
+# Output plot to fig-style
+#
+#set terminal fig
+#set output "gnp.fig"
+#plot sin(x)
+#
+#set terminal x11
+#set output 
+
+#set parametric; 
+#plot sin(t), t**2 ; pause -1
+#set noparametric;
+
+#set parametric; 
+#plot [-pi:pi] [-1.3:1.3] sin(t), t**2 ; pause -1
+#set noparametric;
+
+#set parametric
+#splot cos(u)*cos(v),cos(u)*sin(v),sin(u) ; pause -1
+#set noparametric
+
+#plot [0:1] \
+#t, (-(t-0.5)**(2) + 0.25) , \
+#t, (0.5+0.2*t) , \
+#t, ( (0.5+0.2*t) - (-(t-0.5)**2 + 0.25) ) ,\
+#t, ( (0.5+0.2*t) - (-(t-0.5)**2 + 0.25) + (-(t-0.5)**2 + 0.25) );
+
+#pause -1 "Press Return"
+
+reset
+
+set terminal x11
+clear
+
+plot sin(x) title 'with lines' with lines; 
+
+#======================================================================
+
+print 'Plot sin(x) to ex-gnp.fig'
+
+set terminal fig
+set output "ex-gnp.fig"
+plot sin(x) with lines; 
+
+#======================================================================
+
+print 'Plot sin(x) to ex-gnp.eepic'
+
+set terminal eepic
+set output "ex-gnp.eepic"
+set size 5/5.,4/3.                  # 5 in. x 4 in. size
+set xlabel '$\alpha$'
+set format x '$%.2f$'
+set format y '$%g$'
+set title 'This is a plot of $y=\sin(x)cos(\frac{x}{2})$'
+set xtics 0, pi/2, 2*pi
+set grid 
+plot [0:2*pi] [0:1] sin(x)*cos(x/2) title 'sinus(x)'
+
+#======================================================================
+reset
+
+print 'Plot sin(x) to ex-gnp.ps'
+
+set terminal postscript
+set output "ex-gnp.ps"
+set grid 
+plot [0:2*pi] [0:1] sin(x)*cos(x/2) title 'sinus(x)'
+
+#======================================================================
+reset
+
+set terminal pop;
+set title 'xy-plot'
+set xlabel 'x'
+set ylabel 'y'
+set grid
+plot 'testxy' with lines
+
+#======================================================================
+reset
+
+set terminal pop;
+set xlabel 'x'; 
+set ylabel 'sin(x)';
+set format xy "%g"
+print 'Sine function'
+plot [0:2*pi] sin(x) title 'with lines' with lines; pause -1
+
+#======================================================================
+unset key
+
+plot sin(x) title 'sine' with points , \
+     tan(x) title 'tan'; pause -1
+
+#======================================================================
+set format y "%g"
+set format x "%.2f"
+set xtics -pi, pi/4, pi
+plot [-pi:pi] sin(x) title 'with linespoints' with linespoints; pause -1
+
+unset xtics; set xtics;
+set size 1,0.5
+plot [-pi:pi] sin(x) title 'with dots' with lines; pause -1
+
+set key at 4,0.5 
+set label "data point" at 0.5,0.5 right
+set arrow from 0.7,0.7 to 0.9,0.9
+print 'plot 5'
+plot [0:2*pi] sin(x) title 'with impulses' with impulses;
+
+
+#======================================================================
+reset; clear; set output; set terminal pop
+set multiplot;
+set size 1,0.5;
+print 'plot 6'
+set origin 0.0,0.5; plot sin(x);
+print 'plot 7'
+set origin 0.0,0.0; plot cos(x);
+unset multiplot
+
