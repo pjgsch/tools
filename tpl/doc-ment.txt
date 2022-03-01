@@ -1,0 +1,314 @@
+|**********************************************************************
+| <inf> commands for Mentat
+|----------------------------------------------------------------------
+| Version : MSC.Marc Mentat 2001/2003
+
+*new_model
+yes
+*reset
+*reset_view
+
+|----------------------------------------------------------------------
+
+*set_proc_echo off
+|*draw_manual
+|*draw_automatic
+
+|----------------------------------------------------------------------
+
+*define b a           |  b = a (value)
+*eval_define b a      |  b = a (parameter)
+
+*define emod 100000
+*define pois 0.3
+*define yiel 100
+*define elnr 9
+
+|----------------------------------------------------------------------
+
+*add_nodes
+<list>
+
+*set_element_class    quad4|line2|hex8
+*add_elements
+<list>
+
+|----------------------------------------------------------------------
+
+*set_sweep_tolerance
+<value>
+
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+
+*check_upside_down
+
+*set_grid off
+*fill_view
+
+|----------------------------------------------------------------------
+
+*new_table
+*table_name
+sine
+*set_table_type
+time
+*set_table_xmax
+1000
+*set_table_xstep
+1000
+*set_table_ystep
+1000
+*table_formula
+sin(2*pi*200/1000*x)
+*table_reeval
+*table_fit
+
+*new_md_table 1 1
+*table_name
+tabpres
+*set_md_table_type 1
+time
+*set_md_table_method_formula
+*md_table_formula v1
+
+|----------------------------------------------------------------------
+
+*new_apply
+*apply_type fixed_displacement
+*apply_dof x
+*apply_value y
+<value>
+*apply_table y0
+sine
+*add_apply_nodes
+<list>
+# | End of List
+
+*new_apply
+*apply_type face_load
+*apply_value p
+<value>
+*add_apply_faces
+<list>
+# | End of List
+
+|----------------------------------------------------------------------
+
+*new_table
+*table_name
+hard
+*set_table_type
+plastic_strain
+*table_formula
+1+((emod/30)/yiel)*x
+*table_reeval
+*table_fit
+
+*new_md_table 1 1
+*table_name
+tabhardsh
+*set_md_table_type 1
+eq_plastic_strain
+*set_md_table_method_formula
+*md_table_formula 
+1 + ((emodsh/30)/yielsh)*v1
+*table_fit
+*material_type mechanical:isotropic
+
+|----------------------------------------------------------------------
+
+*new_material
+*material_type mechanical:isotropic
+*material_value isotropic:youngs_modulus
+emod
+*material_value isotropic:poissons_ratio
+pois
+*material_option isotropic:plasticity:elastic_plastic *material_type plasticity
+*material_value plasticity:yield_stress
+yiel
+*material_table plasticity:yield_stress1
+hard
+*add_material_elements
+<list>
+# | End of List
+
+|----------------------------------------------------------------------
+
+*new_geometry
+*geometry_type mech_three_truss
+*geometry_value area
+area
+
+*new_geometry
+*geometry_type mech_planar_pstress
+*geometry_value thick
+thck
+
+*new_geometry
+*geometry_type mech_three_beam_ela
+*geometry_value area
+area
+*geometry_value ixx
+(thck^4)/12
+*geometry_value iyy
+(thck^4)/12
+*geometry_value orientx
+0 0 1
+*add_geometry_elements
+all_existing
+
+*add_geometry_elements
+<list>
+# | End of List
+
+|----------------------------------------------------------------------
+
+*sub_divisions
+10 1 1 
+*subdivide_elements
+*sub_divisions
+2 1 1
+*subdivide_elements
+<list>
+# | End of List
+
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+
+|----------------------------------------------------------------------
+
+*new_loadcase
+*loadcase_type static
+
+*clear_loadcase_loads
+*add_loadcase_loads apply1
+
+*loadcase_value force
+0.001
+*loadcase_value time
+1000
+*loadcase_value nsteps
+4000
+
+
+|----------------------------------------------------------------------
+
+*element_type 9
+<list>
+# | End of List
+
+|----------------------------------------------------------------------
+
+*new_job
+*job_class mechanical
+
+*add_job_loadcases lcase1
+
+*clear_job_applys
+*add_job_applys apply1
+
+
+*job_option dimen:pstrain
+
+*job_option large:on
+*job_option update:on
+
+|----------------------------------------------------------------------
+
+*add_post_tensor stress
+*add_post_tensor strain
+*add_post_var bm_axi_for
+*add_post_var von_mises
+
+|----------------------------------------------------------------------
+
+*select_elements_type
+elnr
+*store elements 
+trusses
+all_selected
+*select_clear
+
+*invisible_set 
+trusses
+
+|----------------------------------------------------------------------
+
+*save_as_model model.mud yes
+
+|======================================================================
+| postprocessing
+|----------------------------------------------------------------------
+
+*set_deformed on *find_solid_outline
+
+*set_automag off
+*set_defmag
+3
+
+*edges_outline  *find_solid_outline *regen
+*set_nodes off
+*regenerate
+
+|----------------------------------------------------------------------
+| make a postscript plot
+
+*draw_legend off          | PLOT > MORE > legend
+*fill_view                | FILL
+
+*postscript_resolution 300    | UTILS > (postscript)SETTINGS > 300 dpi
+|*postscript_resolution 150
+*postscript_portrait          | UTILS > (postscript)SETTINGS > portrait
+*postscript_vector            | UTILS > (postscript)SETTINGS > vector
+*colormap 1               | default
+*colormap 2               | white background
+*colormap 8               | 
+*colormap 5               | grey scale on white background
+*contourmap 8             |
+*contourmap 1             | default
+
+*write_postscript_gray tmp.ps   | UTILS > GRAY FILE > 
+yes
+
+|300 dpi / not compressed / portrait / vector / color 8 / contour 6
+
+|----------------------------------------------------------------------
+| make a history plot
+
+*history_collect                     | COLLECT DATA
+0 111111 1
+
+*history_add                         | ADD 1-NODE CURVE
+<node>
+<X-axis variable>
+<Y-axis variable>
+*history_fit                         | FIT
+*set_history_increment_id            | SIGID
+0
+
+*history_write <file> yes            | saves x-y values to <file>
+
+|----------------------------------------------------------------------
+| make a movie
+
+MPEG ANIMATION
+
+*animation_name
+anim/anim
+*animation_index_save
+0
+*movie_first_increment
+1
+*movie_last_increment
+1000
+*movie_step_increment
+4
+*post_rewind
+
+*movie_gen_files on
+*mpeg_animation_make
+
+|**********************************************************************
