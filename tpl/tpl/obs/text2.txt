@@ -1,9 +1,0 @@
-Dit is de tekst in text.in
-Deze tekst moet geschreven worden naar text.out
-Deze flauwekul wordt uitgevoerd met en Fortran-programmaatje, dat goed
-werkt voor regels die niet langer zijn dan 256 karakters.
-Als aan het eind van de regel spaties voorkomen worden die bij     
-het wegschrijven genegeerd.
-
-Hierboven stond een lege regel.
-De file text.in wordt bovendien afgesloten met een lege regel.
