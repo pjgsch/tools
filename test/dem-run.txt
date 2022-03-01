@@ -1,0 +1,353 @@
+#######################################################################
+# Environment and aliases for bash are set in
+# $BASEDIR/envirXXX where XXX is the computer name.
+#### Additional settings may be needed
+# export BASEDIR="/home/piet"
+# export FILSDIR="/home/piet"
+# export FILSDIR="/media/piet/FD2"
+# export WORKDIR="$BASEDIR/run"
+# export WORKDIR="$HOMEDIR/run"
+# export TMPLDIR="$FILSDIR/wcos/cpl/tpl"
+# export TESTDIR="$FILSDIR/wcos/test"
+# alias m='source $FILSDIR/bin/m'
+# alias s='source $FILSDIR/bin/s'
+#######################################################################
+# Commands are available in the script 'm' in ~/bin
+# Type 'm l' and try all commands
+# Some programs (.exe files) are opened with 'wine'
+#######################################################################
+# Scripts are used in some cases. They are in $TOOLDIR
+# Archive :
+  cd $TOOLDIR
+  tar cvf tooldir.tar \
+   cep \
+   convertfiles.sh \
+   dsh.sh \
+   figs2html.sh \
+   figs2txi.sh \
+   grepit \
+   lsp \
+   pat \
+   seldsh.sh \
+   taritt.sh 
+#######################################################################
+#### Always go to the $WORKDIR
+cd $WORKDIR
+#######################################################################
+#### HTML
+/bin/cp $TMPLDIR/dem-html.html $WORKDIR/DEM.html
+#######################################################################
+#### MATLAB & OCTAVE
+/bin/cp $TMPLDIR/test-octave.m $WORKDIR/.
+octave test-octave.m
+cp test-matlab.m startup.m
+/usr/local/matlab2015b/bin/matlab -nodesktop -nosplash -r 'opengl neverselect'
+/bin/cp $TMPLDIR/dem-matlab.m $WORKDIR/.
+octave dem-matlab.m
+
+# $TMPLDIR/doc-octave.txt
+# $TMPLDIR/doc-matlab.txt
+#######################################################################
+#### XFIG
+/bin/cp $TMPLDIR/dem-xfig.fig $WORKDIR/IN.fig
+xfig IN.fig 
+#### XFIG WITH OPTIONS
+m xfig 
+#######################################################################
+#### FIG2DEV AND 'cep'
+/bin/cp $TMPLDIR/dem-xfig.fig $WORKDIR/IN.fig
+fig2dev -L eepic IN.fig EX.eepic              # fig2dev
+$FILSDIR/wcos/tls/cep EX.eepic                # scaling of figure
+fig2dev -L eps IN.fig EX.eps
+fig2dev -L jpeg IN.fig EX.jpg
+fig2dev -L pdf IN.fig EX.pdf
+fig2dev -L ps IN.fig EX.ps
+m fig2eepic 'input.fig' > 'output.eepic'
+m fig2eps   'input.fig' > 'output.eps'
+#######################################################################
+#### GNUPLOT
+/bin/cp $TMPLDIR/test-gnuplot.gnp $WORKDIR/IN.gnp
+gnuplot IN.gnp 
+
+# $TMPLDIR/doc-gnuplot.txt
+#######################################################################
+#### LATEX, XDVI, DVIPS
+
+/bin/cp $TMPLDIR/test-eepic.eepic $WORKDIR/.
+/bin/cp $TMPLDIR/test-eps1.eps $WORKDIR/.
+/bin/cp $TMPLDIR/test-eps2.eps $WORKDIR/.
+/bin/cp $TMPLDIR/test-gnp.tex $WORKDIR/.
+
+#/bin/cp $FILSDIR/wcos/cpl/tex/texbas.inp $WORKDIR/.
+/bin/cp $TMPLDIR/test-tex.tex $WORKDIR/tex.tex
+
+latex tex     
+xdvi tex
+dvips tex
+ps2pdf tex.ps tex.pdf
+######################################################################
+#### MANAGE TXT FILE(S)
+####
+/bin/cp $TMPLDIR/test-txt1.txt $WORKDIR/IN.txt
+pr --columns=3 --separator='|' --omit-header --omit-pagination --page-width=71 IN.txt 
+tr [opt] set1 set2             # translate or delete characters
+fold --width=40 -c IN.txt      # wrap each input line 
+split --lines=3 IN.txt         # split a file into pieces => x#
+csplit [opt] file pattern      # split a file into sections
+paste [opt] file               # merge lines of files
+cut [opt] file                 # remove sections from each line of file
+#### TXT => PS
+/bin/cp $TMPLDIR/test-txt1.txt $WORKDIR/IN.txt
+a2ps --portrait  --no-header --columns=1 --output=EX.ps IN.txt
+a2ps --landscape --no-header --borders no --output=EX.ps IN.txt
+a2ps --landscape --no-header --columns=1 --font-size=11 --output=EX.ps IN.txt
+a2ps --portrait  --no-header --columns=1 --font-size=10 --output=EX.ps IN.txt
+a2ps --landscape --no-header --columns=1 --borders no --chars-per-line=165 --output=EX.ps IN.txt
+enscript -1 -B --media=A4 --landscape --language=PostScript --output=EX.ps IN.txt 
+#### TXT => HTML
+/bin/cp $TMPLDIR/test-txt1.txt $WORKDIR/IN.txt
+enscript -1 -B -h --media=A4 --language=html --output=EX.html IN.txt 
+#### TXT => PRINTER
+#a2ps --portrait  --columns=1 --no-header --borders no -P<printer> IN.txt
+######################################################################
+#### MANAGE HTML FILE(S)
+####
+#### HTML => PDF
+/bin/cp $TMPLDIR/dem-html.html $WORKDIR/IN.html
+htmldoc --continuous --fontsize 11 -t pdf14 -f EX.pdf IN.html 
+htmldoc --continuous --fontsize 11 -t ps3 -f EX.pdf IN.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --no-links -f EX.pdf IN.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --no-links --nup 2 -f EX.pdf IN.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --links --linkcolor blue --linkstyle underline -f EX.pdf IN.html 
+######################################################################
+#### MANAGE PS FILE(S)
+####
+#### MULTIPLE PAGES ON ONE PAGE
+/bin/cp $TMPLDIR/test-tex.ps $WORKDIR/IN.ps
+psnup -d -pA4 -b5 -m5 -nup 2 IN.ps EX.ps
+psnup -d -pA4 -b5 -m5 -nup 16 IN.ps >! EX.ps 
+psnup -d -b5 -m5 -nup 2 IN.ps >! EX.ps
+psnup -d -pA4 -b5 -m5 -nup 4 IN.ps >! EX.ps    
+psnup -d -pA4 -b5 -m5 -nup 2 IN.ps >! EX.ps
+psnup -d -pA4 -b5 -m5 -nup 16 IN.ps >! EX.ps 
+#### (OBS : mpage)
+#mpage -2 -f IN.txt >! EX.ps
+#mpage -2 -f <file> >! <file.ps>        % -f:  folds lines
+#mpage -1 -l <file> >! <file.ps>        % -l:  landscape mode (1 page)
+#mpage -1 -bA4 <file> >! <file.ps>      % -bA4:  A4 paper size
+#mpage -2 -Pps1 <file.txt>              % prints to printer
+#### PS => PDF
+ps2pdf IN.ps EX.pdf
+gs -dBATCH -dNOPAUSE -dQUIET -sPAPERSIZE=a4 -sDEVICE=pdfwrite -sOutputFile=EX.pdf IN.ps 
+#### tex.ps => tex.pdf
+m texps2pdf 
+#### PS => GIF
+convert IN.ps EX.gif                       # not good
+#### SELECT PAGES
+/bin/cp $TMPLDIR/test-tex.ps $WORKDIR/IN.ps
+psselect -p1-1 IN.ps EX.ps
+psselect -e IN.ps EXeven.ps
+psselect -o IN.ps EXodd.ps
+psselect -r IN.ps EXreversed.ps
+######################################################################
+#### MANAGE PDF FILE(S)
+####
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+pdfshuffler IN.pdf &                       # interactive
+pdftk --help                               # list options
+#### ANOTATE
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+xournal IN.pdf &     
+#### UPSIDE => UPSIDEDOWN (ROTATE 180 DEGREES)
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+pdftk IN.pdf cat 1-endS output EX.pdf 
+#### SPLIT
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+pdftk IN.pdf burst output EX-%d.pdf
+#### JOIN
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+/bin/cp IN.pdf IN1.pdf
+/bin/cp IN.pdf IN2.pdf
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=EX.pdf IN1.pdf IN2.pdf
+convert -append IN1.pdf IN2.pdf EX.pdf  # DO NOT USE : bad result and increased file size 
+#### MAKE PNG PREVIEW OF EACH PAGE
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m '-sOutputFile=EX-%03d.png' IN.pdf  
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m -dFirstpage=1 -dLastpage=1 '-sOutputFile=EX.png' IN.pdf 
+#### EXTRACT
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+gs -dBATCH -dNOPAUSE -dQUIET -dSAFER -sDEVICE=pdfwrite -dFirstPage=2 -dLastPage=2 -sOutputFile=EX.pdf IN.pdf 
+#### EXTRACT EVEN/ODD PAGES
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+pdftk A=IN.pdf cat Aeven output EXeven.pdf
+pdftk A=IN.pdf cat Aodd output EXodd.pdf
+#### MERGE (AFTER SCANNING EVEN AND ODD PAGES
+pdftk A=EXodd.pdf B=EXeven.pdf shuffle A B output EX.pdf 
+pdftk A=EXodd.pdf B=EXeven.pdf shuffle A Bend-1 output EX.pdf 
+#### PDF => PS
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+pdf2ps IN.pdf EX.ps 
+#### PDF => GIF
+/bin/cp $TMPLDIR/test-pdf.pdf $WORKDIR/IN.pdf
+convert IN.pdf EX.gif                          # not good
+/bin/cp $TMPLDIR/test-scan.pdf $WORKDIR/IN.pdf
+convert -density 300 IN.pdf EX.gif
+###convert IN.pdf EX.jpg
+# PDF => JPG
+convert IN.pdf EX.jpg
+#### PDF => PNG for each page
+/bin/cp $TMPLDIR/test-scan.pdf $WORKDIR/IN.pdf
+convert -density 500 IN.pdf out.png            # density: PPI
+#######################################################################
+#### MANAGE IMAGE FILE(S)
+####
+####
+xv 
+gimp &
+#### MONTAGE ; IMAGES CAN BE 'CROPPED' IN GIMP FIRST
+/bin/cp $TMPLDIR/test-scan.pdf $WORKDIR/IN.pdf
+/bin/rm out-*
+convert -density 200 IN.pdf out.png            # density: PPI 
+#
+montage out-*.png -geometry 2000x2000 -mode Concatenate montage.jpg
+montage out-3.png out-4.png out-1.png out-2.png -geometry 2000x2000 -mode Concatenate montage.jpg
+montage out-*.png -geometry 2000x2000 -mode Concatenate montage.gif
+#### JPG => GIF
+/bin/cp $TMPLDIR/test-jpg.jpg $WORKDIR/IN.jpg
+convert IN.jpg EX.gif               
+#### MERGE JPG FILES
+/bin/cp $TMPLDIR/test-jpg.jpg $WORKDIR/IN.jpg
+/bin/cp IN.jpg IN1.jpg
+/bin/cp IN.jpg IN2.jpg
+convert -append IN1.jpg IN2.jpg EX.jpg
+convert +append IN1.jpg IN2.jpg EX.jpg
+#######################################################################
+#### ENCRIPTION
+openssl enc -aes-256-cbc -e -in IN.txt -out INenc -p -pass pass:"tja"
+openssl enc -aes-256-cbc -d -in INenc -out EX.txt -p -pass pass:"tja" 
+cat IN.txt EX.txt > EX2.txt
+#######################################################################
+#### PROGRAMMING
+# In the demo-scripts (dem-..) a database is written to a file.
+# It has 5 records and each record has 4 fields.
+# The script reads each line in the generated database
+# and isolates the fields (items).
+# System calls are used to make a temporary trash file.
+#
+# Function y=sin(x) is calculated for x=1:360 degrees.
+# Value-pairs x,y are written to a file.
+# The values can be plotted with gnuplot.
+
+/bin/cp $TMPLDIR/dem-bash.sh $WORKDIR/.
+source dem-bash.sh
+# $TMPLDIR/doc-bash.txt
+
+/bin/cp $TMPLDIR/test-perl.pl $WORKDIR/.
+perl test-perl.pl
+/bin/cp $TMPLDIR/dem-perl.pl $WORKDIR/.
+perl dem-perl.pl
+
+/bin/cp $TMPLDIR/test-f77.f $WORKDIR/.
+/bin/cp $TMPLDIR/test-txt1.txt $WORKDIR/IN1.txt
+/bin/cp $TMPLDIR/test-txt2.txt $WORKDIR/IN2.txt
+f77 test-f77.f && ./a.out
+g77 test-f77.f && ./a.out
+/bin/cp $TMPLDIR/dem-f77.f $WORKDIR/.
+f77 dem-f77.f && ./a.out
+# $TMPLDIR/doc-f77.txt
+
+/bin/cp $TMPLDIR/test-gcc.c $WORKDIR/.
+/bin/cp $TMPLDIR/test-txt2.txt $WORKDIR/IN.txt
+gcc test-gcc.c && ./a.out
+/bin/cp $TMPLDIR/dem-c.c $WORKDIR/.
+gcc dem-c.c && ./a.out
+# $TMPLDIR/doc-c.txt
+
+/bin/cp $TMPLDIR/test-python.py $WORKDIR/.
+python test-python.py
+/bin/cp $TMPLDIR/dem-python.py $WORKDIR/.
+python dem-python.py
+
+##
+# $TMPLDIR/doc-pas.txt
+
+#######################################################################
+#### utilities
+
+mtools
+
+#######################################################################
+#### archive and encript
+
+/bin/cp $TMPLDIR/test-txt1.txt $WORKDIR/IN1.txt
+/bin/cp $TMPLDIR/test-txt2.txt $WORKDIR/IN2.txt
+
+tarf="$WORKDIR/tarfile.tar"
+zipf="$WORKDIR/zipfile.7z"
+
+tar cvf $tarf $TMPLDIR/IN1.txt $TMPLDIR/IN2.txt
+$ZZ a -p $zipf $tarf
+
+# Change contents and save
+
+#######################################################################
+#### TOOLS (IN $TOOLDIR)
+
+#### LIST DIRECTORY WITH FULL PATHNAMES
+
+lsp $FILSDIR/run
+
+#### COLLECT FILES IN FILE LIST (SELECT IN SCRIPT)
+
+#### SEARCH PATTERN IN FILES FROM FILELIST
+
+cd $WORKDIR
+lsp $WORKDIR > filelist.txt
+grepit -H 'file' filelist.txt
+
+#### MAKE TAR-FILE FROM FILELIST WITH PATH
+
+tar cvf tarfile.tar -T filelist.txt
+
+#### MAKE TAR-FILE FROM FILELIST WITHOUT PATH
+
+source $TOOLDIR/taritt.sh tarfile.tar filelist.txt
+
+#### CONVERT FILES IN FILE LIST (=> $WORKDIR/tmpdir) (EXAMPLE FILE LIST)
+
+find ~/wdoc/fig/dos/ -name "*.eps" -print  > filelist.txt
+source $TOOLDIR/convertfiles.sh filelist.txt gif
+
+#### MAKE TEX INPUT FILE WITH FIGURES (EXAMPLE FILE LIST)
+
+find ~/wdoc/fig/dos/ -name "*.eps" -print  > filelist.txt
+source $TOOLDIR/figs2txi.sh filelist.txt eps
+find ~/wdoc/fig/doc/ -name "*.eepic" -print  > filelist.txt
+source $TOOLDIR/figs2txi.sh filelist.txt eepic
+# Run LaTeX
+
+#### COLLECT JPG OR GIF IN HTML FILE (EXAMPLE FILE LIST)
+
+find ~/wdoc/fig/dos/ -name "*.eps" -print  > filelist.txt
+source $TOOLDIR/convertfiles.sh filelist.txt gif
+source $TOOLDIR/figs2html.sh filelistcnv.txt
+
+#### MANAGE DSH FILES
+####
+#### SELECT ITEMS FROM DSH FILE
+#### CHECK/EDIT DSH.SH FIRST
+
+/bin/cp $TMPLDIR/test-dsh.dsh IN.dsh 
+source $TOOLDIR/dsh.sh IN.dsh EX.dsh
+
+#### SELECT COLUMNS FROM DSH FILE
+
+/bin/cp $DATADIR/test-dsh.dsh IN.dsh
+source $TOOLDIR/seldsh.sh 13 IN.dsh EX.dsh
+
+####
+
+######################################################################
+
+
+

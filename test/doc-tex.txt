@@ -1,0 +1,548 @@
+**********************************************************************
+* <inf> commands for LaTeX
+######################################################################
+www.ctan.org           | TeX archive                
+www.ntg.nl/            | Ned.talige TeX Gbrkrsgrp. 
+www.tug.org            | TeX Users Group            
+ftp.funet.fi/pub/TeX/  | TeX : ftp 
+######################################################################
+**********************************************************************
+\documentclass[11pt,fleqn]{article}%
+\documentclass[10pt,xcolor=svgnames,t,compress]{beamer}
+\documentclass[10pt,xcolor=svgnames,t,handout]{beamer}
+======================================================================
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{dynamic}
+\setbeamercolor{normal text}{bg=Beige}
+======================================================================
+\usetheme{default}
+\usetheme{Boadilla}
+----------------------------------------------------------------------
+\usepackage{handoutWithNotes}
+\usepackage{beamerarticle}
+\usepackage{pgfpages}
+\usepackage{multimedia}
+\usepackage[absolute,overlay]{textpos} 
+\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
+\pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+======================================================================
+\usepackage{a4wide,verbatim,exscale,epsf,epsfig,psfrag,epic,eepic}% 
+\usepackage[dutch,english]{babel}%
+\usepackage{color,texmac}%
+\usepackage{mathtime}
+======================================================================
+\newenvironment{reference}[2]{% 
+ \begin{textblock*}{\textwidth}(#1,#2) 
+ \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}} 
+======================================================================
+\setlength{\parindent}{0em} 
+\pagestyle{empty}
+\pagestyle{myheadings}
+%======================================================================
+\begin{document}
+%======================================================================
+%======================================================================
+\end{document}
+%**********************************************************************
+#######################################################################
+%======================================================================
+\documentclass[11pt]{article} 
+\usepackage{a4wide}
+% cite
+% verbatim
+% exscale
+% epic eepic epsf epsfig psfrag
+% a4full 
+% longtable pstricks rotating doublespace
+% alltt
+% times euler helvet ygoth
+% amsmath amssymb layout
+%%\documentstyle[11pt,dvips,picinpar,supertab,a4wide,sheets,sheets2,verbatim,
+%%               fleqn,epsf,epic,eepic,texmac]{article}
+%%\documentclass[english,werktuigbouw]{tueletter}
+%%\documentclass[nederlands,werktuigbouw]{tueletter}
+%%\documentclass[english,werktuigbouw]{tuefax}
+\documentclass[10pt]{article} % a4paper intlimits oneside fleqn dvips
+\usepackage[usenames,dvips]{color}
+\usepackage[mtbold,mtplusscr,T1]{mathtime}
+\usepackage{epic,eepic,epsf,epsfig,psfrag} % graphics graphixs
+\usepackage[dvips]{graphicx}
+\usepackage{subfigure,rotating}
+\usepackage[dutch,english]{babel}
+\usepackage[usenames,dvips,monochrome]{color}
+\usepackage[a4paper,width=14.0cm,height=20 cm]{geometry}
+\usepackage{texmac} % texmac1 texmac2 grid 
+\usepackage[urlcolor=blue,colorlinks=true]{hyperref}
+%======================================================================
+\setlength{\parindent}{0em} 
+\pagestyle{empty}
+%\pagestyle{myheadings}
+%\makeindex
+%======================================================================
+%\usepackage{euler,sheets}\begin{document}\input{texsht.sty}\input{tex.sht}
+\usepackage{a4wide}\begin{document}%\input{tex.rep}
+%======================================================================
+\renewcommand{\FIG}[3]{\begin{center}\fbox{FIG figure}\end{center}}
+\FIG{1}{\PSC}{\input fig.eepic}
+
+\renewcommand{\FPS}[2]{\begin{center}\fbox{EPS figure}\end{center}}
+%======================================================================
+%\input tex.mac
+%======================================================================
+% \input tex.ins
+%======================================================================
+\end{document}
+%======================================================================
+%**********************************************************************
+
+
+
+%**********************************************************************
+%**********************************************************************
+%**********************************************************************
+% directory definition
+%
+\newcommand{\DIRA}{$HOME/prml/disco/fig}
+\newcommand{\DIRB}{$HOME/prml/disco/eps}
+%======================================================================
+imgf = ['../img/delas']; chp; print('-djpeg','-r50',[imgf '1']);
+epsf = ['../eps/delas']; chp; print('-depsc2','-r300',[epsf '1']);
+%======================================================================
+% title pages
+%
+\newcommand{\SEA}[1]{\newpage\vspace*{5cm}\begin{center} #1 \end{center}}
+\newcommand{\SEB}[1]{
+\newpage\vspace*{5cm}\begin{center} #1 \end{center}\thispagestyle{empty}}
+
+%======================================================================
+% some (re)new commands
+%
+%\newcommand{\TAB}[2]{\hspace*{#1cm}\parbox[t]{\tw}{#2}\\[1ex]}
+%\renewcommand{\D}[1]{\stackrel{\bm{.}}{#1}\!}%
+%\renewcommand{\I}{\,\bm{\cdot}}
+%\renewcommand{\NPA}{\rule{\tw}{0.1mm}\\}
+%\newcommand{\EXC}[1]{\BIL{exc ::m} \ITL{\bf exc :}\sf #1 \mbox{} \EIL}
+%\newcommand{\FEP}[2]{\epsfxsize=#1ex $$\epsffile{#2}$$}
+%\newcommand{\FEP}[2]{\begin{center} \fbox{EPS figure} \end{center}}
+%\newcommand{\ACL}[1]{\addcontentsline{toc}{section}{\protect\numberline{}{\SA #1}}}
+%\setcounter{secnumdepth}{2}
+%======================================================================
+\renewcommand{\INP}[1]{\newpage\markboth{#1}{#1}\setcounter{page}{1}\input #1}
+\renewcommand{\INP}[1]{
+  \newpage\markboth{#1 [\today]}{#1 [\today]}\setcounter{page}{1}\input #1}
+\renewcommand{\TXT}[1]{\newpage #1}
+%\renewcommand{\BOX}[1]{\newpage \setcounter{equation}{0} #1}
+\renewcommand{\BOX}[1]{\newpage #1}
+%\newcommand{\VRG}[1]{#1}
+%\newcommand{\ANT}[1]{\newpage #1}
+%\newcommand{\ANTT}[1]{}
+%\newcommand{\UTW}[1]{\newpage #1}
+%======================================================================
+% new section and FBT (used in e.g. mcm)
+%
+\makeatletter
+\renewcommand{\section}{\@startsection
+ {section}{1}{0mm}{0mm}{1mm}{\headfontsize\sf}}
+%\renewcommand{\@pnumwidth}{-1mm}
+\makeatother
+
+\renewcommand{\FBT}[1]{\NPA%
+\setlength{\fboxsep}{0.75em}%
+%\framebox{\section{#1}}\mbox{}%
+\section[\sf #1]{\fbox{#1}}\mbox{}\vspace*{-\baselineskip}%
+%\setcounter{page}{\thesection}%
+\setlength{\fboxsep}{\DEFfboxsep}}
+
+\renewcommand{\FBT}[1]{%
+%\setlength{\fboxsep}{1em}%
+\newpage
+%\section*{\fbox{\headfontsize #1}}\mbox{}%
+\section*{\headfontsize {\color{blue}#1}}\vspace*{-\baselineskip}\mbox{}%
+%\setlength{\fboxsep}{\DEFfboxsep}
+}
+%======================================================================
+% Enlarge figures for sheets
+
+\newlength{\PSAO}\setlength{\PSAO}{\PSA}\setlength{\PSA}{1.5\PSAO}
+\newlength{\PSBO}\setlength{\PSBO}{\PSB}\setlength{\PSB}{1.5\PSBO}
+\newlength{\PSCO}\setlength{\PSCO}{\PSC}\setlength{\PSC}{1.5\PSCO}
+
+%======================================================================
+% macros for hyperlink
+
+% \usepackage[dvips]{hyperref}   % For use with dvips or dvipdf 
+% \usepackage[dvips,colorlinks,urlcolor={red},linkcolor={blue},
+%             hyperfigures=true,
+%             bookmarks=false]{hyperref}
+
+\hypersetup{a4paper=true,pdfpagemode=None,pdfstartview=FitH} 
+\hypersetup{pdftitle={TITLE},pdfauthor={AUTHOR},pdfkeywords={KEYWORDS}} 
+
+\hyperdef{category}{name}{target-text}              % in test2.pdf
+\hyperref{test2.pdf}{category}{name}{text}
+
+\hypertarget{label}{text}               % define target 
+\hyperlink{label}{text}                 % link to target
+\hyperlink{label}{{color{red}text}}     % link (in red) to target
+
+\newcommand{\extfile}{\path-to-dir}
+\href{\extfile/file}{file-name}         % link to external file
+\label{label}
+\ref{label}
+
+%======================================================================
+\begin{comment}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{comment}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{epsfig}
+% include a figure : ps or eps
+
+\includegraphics[width=90mm]{figure.eps}
+\includegraphics*[width=90mm]{figure.eps}
+
+\setlength{\loclen}{0.48\textwidth}
+
+\includegraphics[width=\loclen]{/home/piet/work/edu/cmm/mlf/run/fig1.eps}
+\includegraphics[width=\loclen]{/home/piet/work/edu/cmm/mlf/run/fig2.eps}
+
+\includegraphics[width=\loclen]{/home/piet/work/edu/cmm/mlf/run/fig3.eps}
+\includegraphics[width=\loclen]{/home/piet/work/edu/cmm/mlf/run/fig4.eps}
+
+% \usepackage{psfrag}
+% psfrag replaces figure text with new text
+
+\psfragscanon
+\psfrag{f}[bc][bc]{force [N]}
+\psfrag{u}[tc][tc]{disp [mm]}
+\psfrag{random RVE}[lc][lc]{\Large irregular }
+\includegraphics[width=90mm]{figure.eps}
+\psfragscanoff
+
+% Figure environment
+
+\begin{figure}[htb!]
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[height=6 cm]{figure1.eps} &
+\includegraphics[height=6 cm]{figure2.eps} &
+\includegraphics[height=3.5 cm]{figure3.eps} 
+\end{tabular}
+\caption{Text}\label{fig:label}
+\end{center}
+\end{figure} 
+
+% Placement at the spot is easy as follows
+
+\begin{center}
+\includegraphics[height=6 cm]{figure1.eps} 
+\end{center}~\\[-3\baselineskip]
+\begin{figure}[h!]
+\caption{Text}\label{tab:chzpar}
+\end{figure}
+
+\newcommand{\doublefigure}[4]
+{
+    \begin{figure}[hbt]
+        \centering
+        \begin{minipage}[t]{.45\textwidth}
+            \includegraphics[width=\textwidth]{d:/pictures/#1.eps}
+        \end{minipage}
+        \hspace{.05\textwidth}
+        \begin{minipage}[t]{.45\textwidth}
+            \includegraphics[width=\textwidth]{d:/pictures/#2.eps}
+        \end{minipage}
+        \begin{minipage}[t]{.45\textwidth}
+            \caption{#3}
+            \label{fig:#1}
+        \end{minipage}
+        \hspace{.05\textwidth}
+        \begin{minipage}[t]{.45\textwidth}
+            \caption{#4}
+            \label{fig:#2}
+        \end{minipage}
+    \end{figure}
+}
+
+%======================================================================
+
+imgf = ['../img/przcycc1' num2str(mat)];
+print('-djpeg','-r50',[imgf '1']);
+
+%======================================================================
+\newcommand{\FBOX}[1]{%
+\setlength{\fboxsep}{1em}\fbox{#1}\setlength{\fboxsep}{\DEFfboxsep}}
+%\setlength{\fboxsep}{1em} ~\\ \fbox{\parbox[t]{0.9\textwidth}{#1}} ~\\}
+%======================================================================
+\newcommand{\capsfnt}[1]{{\em #1 }}
+\newcommand{\FGR}[1]{#1}
+%\renewcommand{\FGR}[1]{}
+%======================================================================
+%\newcommand{\COM}[1]{
+% \setlength{\fboxsep}{1em}
+% ~\\ \fbox{\parbox[t]{0.9\textwidth}{#1}}~\\ 
+%}
+\newcommand{\COM}[1]{{\bf\em #1}}
+%======================================================================
+\renewcommand{\thesection}{\large\arabic{section}}
+%======================================================================
+\setlength{\textwidth}{140mm}
+\addtolength{\oddsidemargin}{-30pt}
+\addtolength{\oddsidemargin}{3.5mm}
+\addtolength{\voffset}{3.5mm}
+\setlength{\textheight}{200mm}
+\setlength{\textfloatsep}{2ex}
+\setlength{\intextsep}{1ex}
+%======================================================================
+% defining the font sizes: no numbers are allowed in the names!
+\newcommand{\fveertien}{\fontsize{14pt}{\baselineskip}\rmfamily}
+\newcommand{\ftien}{\fontsize{10pt}{\baselineskip}\rmfamily}
+\newcommand{\fnegen}{\fontsize{9pt}{\baselineskip}\rmfamily}
+\newcommand{\facht}{\fontsize{8pt}{\baselineskip}\rmfamily}
+%======================================================================
+   \parbox{5mm}{\vspace*{2\baselineskip} 
+    \(\ds \L.\rule[-\baselineskip]{0mm}{\baselineskip}\R\} \SA\Ar\SA \)}
+%======================================================================
+\renewcommand{\theequation}{$\ast$}
+\begin{equation}
+\end{equation}
+\renewcommand{\theequation}{\arabic{equation}}
+%======================================================================
+% math symbols
+%\newcommand{\Tr}[1]{{\stackrel{\mbox{\small  $\bm{\bigtriangledown}$}}{#1}}}
+%\newcommand{\Cr}[1]{{\stackrel{\mbox{\small  $\bm{\bigtriangleup}$}}{#1}}}
+%\newcommand{\Jr}[1]{{\stackrel{\mbox{\large $\bm{\circ}$}}{#1}}}
+%\newcommand{\Or}[1]{{\stackrel{\mbox{\tiny $\bm{\bigodot}$}}{#1}}}
+%\newcommand{\Br}[1]{{\stackrel{\mbox{\scriptscriptstyle $\bm{\bullet}$}}{#1}}}
+%\newcommand{\Dr}[1]{{\stackrel{\mbox{\large $\bm{\diamond}$}}{#1}}}
+
+%======================================================================
+
+
+######################################################################
+##### tex.mps ########################################################
+######################################################################
+#!/bin/sh
+######################################################################
+##### this is for separate files  ####################################
+#echo "{\\sf \\SEB{$TXTL}              \\INP{$FILE.txi} }" > tex.ins     
+echo "{\\sf \\SEB{$TXTL} \\SEB{$TXTL} \\INP{$FILE.txi} }" > tex.ins 
+######################################################################
+##### this is for one single file ####################################
+#echo "{                               \\INP{$FILE.txi} }" >> tex.ins 
+#echo "{\\sf \\SEB{$TXTL} \\SEB{$TXTL} \\INP{$FILE.txi} }" >> tex.ins
+######################################################################
+#latex tex
+latex tex && dvips tex 
+######################################################################
+##### strip first page of ps-file
+psselect -p2-100000 tex.ps tex1.ps
+######################################################################
+#/bin/cp tex.ps ps/S$FILE.ps
+#/bin/cp tex.ps ps/$FILE.ps
+######################################################################
+#psnup -d -b5 -m5 -nup 4 tex.ps >! Ttex.ps
+#psnup -d -b5 -m5 -nup 4 Ttex.ps >! Tps/T$FILE.ps
+#psnup -d -pA4 -b5 -m5 -nup 4 tex.ps >! Tps/T$FILE.ps     # for pc423
+psnup -d -pA4 -b5 -m5 -nup 4 tex.ps >! Ttex.ps     # for pc423
+######################################################################
+gs -dQUIET -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -sDEVICE=pdfwrite -sOUTPUTFILE=$HOME/wwww/edu/mcm/pdf/$FILE.pdf tex1.ps
+#gs -dQUIET -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -sDEVICE=pdfwrite -sOUTPUTFILE=$HOME/wwww/edu/mcm/pdf/T/T$FILE.pdf Ttex.ps
+#ps2pdfwr tex.ps $HOME/wwww/edu/mcm/pdf/$FILE.pdf
+######################################################################
+###lpr -Pps1 Ttex.ps
+###lpr -Pps1 Tps/T$FILE.ps
+###lpr -Pps1 Tps/T*.ps
+######################################################################
+
+######################################################################
+##### tex.scr ########################################################
+######################################################################
+#!/bin/sh
+/bin/rm tex.ins
+BASE='/mnt/usb/'; export BASE;
+######################################################################
+######################################################################
+### Input
+#TXTL='text for title';  FILE='file';    export TXTL FILE; sh tex.mps;
+######################################################################
+######################################################################
+
+######################################################################
+##### letter : template ##############################################
+######################################################################
+% To      : 
+% From    : 
+% Subject : 
+% Date    : 
+%======================================================================
+\documentclass[11pt]{article}
+\usepackage{a4wide,verbatim,exscale}
+\usepackage[english,dutch]{babel}
+%\usepackage{texmac}
+%======================================================================
+\setlength{\parindent}{0em} 
+\pagestyle{empty}
+\begin{document}
+%----------------------------------------------------------------------
+% afzender 
+\parbox[b]{40ex}{
+P.J.G. Schreurs\\Gesseltweg 9\\6089 NT, Heibloem
+}
+%----------------------------------------------------------------------
+% plaats en datum
+\hfill                         
+Heibloem, \today 
+
+%----------------------------------------------------------------------
+% onderwerp
+\vspace*{6ex}
+{\large\bf                     
+Betreft : een belangrijk onderwerp
+}
+
+%----------------------------------------------------------------------
+% aan
+\vspace*{6ex}                  
+\begin{tabular}{@{}l@{\hspace{1cm}}l}
+Aan : & de lezer,\\
+      & straat nr\\
+      & plaats\\
+\end{tabular}
+
+%----------------------------------------------------------------------
+% tekst
+\vspace*{6ex}                  
+Dit is de tekst.
+
+%----------------------------------------------------------------------
+% groet
+\vspace*{10ex}\hspace*{20ex}   
+Gegroet
+
+%----------------------------------------------------------------------
+% ondertekening
+\vspace*{15ex}                 
+\hspace*{40ex}\parbox[t]{4cm}{
+Piet Schreurs
+}
+
+%----------------------------------------------------------------------
+\end{document}
+######################################################################
+##### tuefax : template ##############################################
+######################################################################
+% Uw gegevens :
+\telefoon{040-2472778}
+\telefax{040-2447355}
+\email{piet@wfw.wtb.tue.nl}
+\internadres{WH 0.113}
+\faculteit{Werktuigbouwkunde}
+\handtekening{Piet Schreurs}
+
+% Gegevens geadresseerde :
+\naam{\LaTeX\ gebruiker}
+\bedrijf{Technische Universiteit}
+\afdeling{Alle faculteiten}
+\faxnummer{040-2442489}
+
+\aantalpaginas{1}
+\datum{\today}
+\onderwerp{Huisstijl}
+\refno{345}
+
+\begin{fax}
+
+  \opening{Hallo}
+ 
+  Dit moet nu goed werken. Merk op dat de volgende opties in de 
+  \verb~\documentclass~ regel meegegeven kunnen worden:
+  \begin{itemize}
+  \item \verb~english~ of \verb~nederlands~ geeft de taal aan. De default
+    instelling is nederlands,
+  \item \verb~wiskunde~, \verb~informatica~, \verb~electrotechniek~,
+    \verb~bouwkunde~, \verb~natuurkunde~, \verb~sai~, \verb~ipo~,
+    \verb~scheikunde~, \verb~tema~ of \verb~werktuigbouw~ geeft de faculteit
+    of het instituut aan. Standaard worden er onderaan de pagina geen 
+    faculteit of instituut aangegeven.
+  \end{itemize}
+  Merk op dat dit een eerste poging is om de huisstijl in \LaTeX\ te
+  implementeren. Problemen graag bij ondergetekende melden en ik zal
+  proberen het zo snel mogelijk op te lossen.
+
+  \closing{Met vriendelijke groet,}
+  
+  \cc{mezelf}
+
+  \encl{geen}
+\end{fax}
+######################################################################
+##### tueletter : template ###########################################
+######################################################################
+\telefoon{040-2472378}
+\telefax{040-2442489}
+\email{A.A.Stoorvogel@tue.nl}
+\internadres{HG 8.10}
+\handtekening{Anton Stoorvogel}
+
+\onskenmerk{}
+\uwkenmerk{}
+\datum{\today}
+\onderwerp{Huisstijl}
+
+
+\begin{letter}{\LaTeX\ gebruikers\\
+    Technische Universiteit Eindhoven\\
+    Postbus 513\\
+    5600 MB Eindhoven}
+
+  \opening{Beste \LaTeX\ gebruiker,}
+ 
+  Dit moet nu goed werken. Merk op dat de volgende opties in de 
+  \verb~\documentclass~ regel meegegeven kunnen worden:
+  \begin{itemize}
+  \item \verb~english~ of \verb~nederlands~ geeft de taal aan. De default
+    instelling is nederlands,
+  \item \verb~wiskunde~, \verb~informatica~, \verb~electrotechniek~,
+    \verb~bouwkunde~, \verb~natuurkunde~, \verb~sai~, \verb~ipo~,
+    \verb~scheikunde~, \verb~tema~ of \verb~werktuigbouw~ geeft de faculteit
+    of het instituut aan. Standaard worden er onderaan de pagina geen 
+    faculteit of instituut aangegeven.
+  \end{itemize}
+  Merk op dat dit een eerste poging is om de huisstijl in \LaTeX\ te
+  implementeren. Problemen graag bij ondergetekende melden en ik zal
+  proberen het zo snel mogelijk op te lossen.
+
+  \closing{Met vriendelijke groet,}
+  
+  \cc{Martin Rem}
+
+  \encl{geen}
+\end{letter}
+######################################################################
+%======================================================================
+\SHT{\BOX{
+\vspace*{5\baselineskip} {\color{red}\begin{center}{\Huge%
+LINEAR PLATE BENDING
+} \end{center}}
+}}
+
+%======================================================================
+\usepackage{listings,comment}
+\lstset{basicstyle=\footnotesize,language=Matlab,
+        breaklines=true,
+%        frame=single, 
+        frame=L, xleftmargin=1em,
+        rulecolor=\color{black},
+        commentstyle=\color{blue},
+%        backgroundcolor=\color{white}
+       }
+\excludecomment{listing}
+\includecomment{listing}
+\begin{listing}
+\begin{lstlisting}
+\end{lstlisting}
+\end{listing}
+%======================================================================
+
+
+%**********************************************************************
