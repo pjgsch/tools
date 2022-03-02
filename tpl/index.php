@@ -18,7 +18,7 @@ The files downloadable from this page are:
            ($file != "index.html") &&
            ($file != "default.htm"))
        {
-          echo "<LI> <A HREF=\"$file\">$file</A></LI>\n";
+          echo "<LI> <A HREF=\"$file\">dir.txt</A></LI>\n";
        }
     }
     closedir($handle);
