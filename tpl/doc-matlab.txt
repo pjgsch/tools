@@ -6,7 +6,7 @@ opengl neverselect
 ======================================================================
 === PATH
 path('addtopath',path);
-path(path,'/home/piet/piet/ps');
+path(path,'...');
 ======================================================================
 === PRINT
 epsf = ['filename']; print('-deps2',epsf);
@@ -48,7 +48,7 @@ load(ggg,'-ascii'); foo = eval(ggg); col = 'b';
 xlabel('time [s]'); ylabel('disp x [mm]'); % title('');
 xlabel('time [s]'); ylabel('force y [N]'); % title('');
 legend('top','bottom');
-run('/home/piet/work/mlf/mbib/chp');
+run('<path>/chp');
 %----------------------------------------------------------------------
  epsfile = [' '];
  print('-depsc2',[epsfile]);
@@ -66,22 +66,22 @@ for i=1:1:ic-1,
 end;
 save stadam1 M;
 % load stadam1; axis off; movie(M,3,50);
-load stadam1; path('/home/piet/src/tmp/',path); mpgwrite(M,jet,name);
+load stadam1; path('...',path); mpgwrite(M,jet,name);
 % load stadam1; movie2avi(M,'stadam1.avi','compression','none') % in matlab72
 ======================================================================
 === RUN MENTAT AND/OR MARC
 mentprg = '/usr/local/marck2005r3-emt64/mentat2005r3/bin/mentat';
-prcfile = '/home/piet/wdoc/tex/syl/mmm/tnt/mrc/mmN1101a.proc';
+prcfile = '$BASEDIR/wdoc/tex/syl/mmm/tnt/mrc/mmN1101a.proc';
 fff = [mentprg,' -pr ',prcfile]; unix(fff);
 ======================================================================
 === PLOT FROM MENTAT TO MATLAB
-=== /home/piet/work/mlf/mbib/me2maplot.m
-addpath('/home/piet/work/mlf/mbib'); 
+=== $BASEDIR/work/mlf/mbib/me2maplot.m
+addpath('<path>/mlf/mbib'); 
 [x1,y1] = me2maplot('<x-y-file>');   
 [x2,y2] = me2maplot('<x-y-file>'); 
 plot(x1,y1,x2,y2);
 grid on;xlabel('');ylabel('');title('');legend('');   
-run('/home/piet/work/mlf/mbib/chp');
+run('$BASEDIR/work/mlf/mbib/chp');
 epsdir='';epsfile='';
 print('-depsc2',[epsdir,epsfile]);
 ======================================================================
@@ -96,6 +96,10 @@ disp('Print matlab.eps');
 print('-depsc2','-r50','ex-matlab.eps');
 disp('Print matlab.jpg');
 print('-djpeg','-r50','ex-matlab.jpg');
+======================================================================
+grid on;xlabel(' ');ylabel(' ');
+run('<path>/mbib/chp')
+print('-depsc2',' .eps')
 
 ======================================================================
 
