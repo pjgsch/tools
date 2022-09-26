@@ -85,6 +85,13 @@ slmgr.vbs /dli  --> License
 Start > Settings > Update & Security > Activation
 ----------------------------------------------------------------------
 
+# Password
+======================================================================
+in Linux :
+
+cd WINDOWS/system32/config/ > sudo chntpw SAM > select
+----------------------------------------------------------------------
+
 # Windows 10 Slow
 ======================================================================
 Restart
@@ -114,14 +121,28 @@ search box : 'View advanced system settings' > Advanced > Settings > Performance
 # Windows Cleanup
 ======================================================================
 Start > Settings > Storage 
-        => Temporary Docs --> overzicht tijdelijke bestanden => Remove Docs
+        => Temporary Docs -> overzicht tijdelijke bestanden 
+        => remove Docs
+
 [Win+r] > 'temp' --> Windows Temp  => remove
 [Win+r] > '%temp%' --> AppData\Local\Temp => remove
 [Win+r] > 'prefetch' --> Prefetch => remove
-Start > Settings > Apps > Apps and parts --> apps op computer (=> remove apps)
+
+Start > Settings > Apps > Apps and parts -> apps op computer (
+        => remove apps
+
 <Browser> [Ctrl+Shift+Del]  -->  saved items  (=> remove)
+
 Task Manager > Startup
+
 [Win+r] > msconfig.exe  -->  Startup apps and services
+
+Start > Computer > Properties > general > disk cleanup
+
+Start > SEARCH defragment > SELECT DISK > defragment disk
+
+Settings > System > Storage > Storage sense > configure s.s. > clean now
+
 ----------------------------------------------------------------------
 
 # Maintenance
@@ -198,10 +219,10 @@ Start > Settings > Control Panel >
 
 # Windows Troubleshooter
 ======================================================================
-= Start > Settings > Update & Security > Troubleshoot =>
-    Additional troubleshooters > [select] > 'Run the troubleshooter'
+= Start > Settings > Update & Security > Troubleshoot 
+  => Additional troubleshooters > [select] > 'Run the troubleshooter'
 = Start > Settings > Update & Security > Advanced Startup
-= Restart with Advanced Options
+= cmd > shutdown /r /o => Restart with Advanced Options
 ----------------------------------------------------------------------
 
 # Windows Startup Repair
@@ -259,6 +280,7 @@ Enable test mode
 Only possible if Secure Boot is disabled
 
   cmd.exe as administrator
+  [Bcdedit.exe -set loadoptions ENABLE_INTEGRITY_CHECKS &&]
   bcdedit.exe -set TESTSIGNING ON
   restart
   => watermark in lower-right corner of the screen
