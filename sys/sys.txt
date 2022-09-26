@@ -1,0 +1,2590 @@
+**********************************************************************
+##====================================================================
+##= sys.txt         : information on computer systems and commands
+
+help         boot 
+
+hardware     processor    memory        disk        floppy    video
+display      keyboard     mouse         modem       optical   speakers
+usb          network      printer       scanner
+
+kernel       drivers      devices       
+
+computer     partition    file system   services    startup   mount  
+system       register     processes     events      tasks       
+
+power        environ      security      malware     virus     time      
+software     updates      rpm           maintain
+user         home         login         close       settings  
+
+desktop      themes       window        panel       colors    menu
+hotkeys      sounds       autoplay      default
+
+shell        terminal     file manager  backup      archive  
+files        find         indexing      cd/dvd  
+viewer       editor       pdf           ghostview   spreadsheet  
+pictures     music        movies  
+internet     browser      email         ftp         
+
+text         ghostscript  convert       character 
+tex          draw         calculator    programming     
+virtual      clock                      
+======================================================================
+win:  C\WINDOWS\System32  *.cpl         #Configuration Panel Extension
+======================================================================
+win:  help.exe     control.exe                                   #help
+wxp:  C:/WINDOWS/pchealth/helpctr/binaries/helpctr.exe           #help
+======================================================================
+wi7:  F8                        select boot mode                 #boot
+wi7:  ( rundll32.exe user32.dll,LockWorkStation )  #screen#system#lock
+wi7:  ( shutdown /l )                              #system#logoff#stop
+wi7:  ( rundll32 powrprof.dll,SetSuspendState )  #system#sleep#suspend
+wi7:  ( shutdown /h )                                #system#hibernate
+wi7:  powercfg -h off                                       #hibernate 
+wi7:  ( shutdown /s /t 1 )           #now        #system#shutdown#stop
+wi7:  ( shutdown /s )                #slow       #system#shutdown#stop
+wi7:  ( shutdown /a )                #cancel    #system#shutdown#abort
+wi7:  ( shutdown /r )                                  #system#restart
+win:  wmic os get OSArchitecture                    #arch#32/64-bit#OS
+win:  wmic csproduct get vendor, version                       #system
+win:  wmic computersystem get model,name,manufacturer,systemtype #system
+win:  systeminfo | findstr /C:"System Boot Time"                 #boot
+win:  wmic os get lastBootUpTime                                 #boot
+lin:  xlock -nice 0 -mode blank &                  #screen#system#lock
+lin:  sudo /usr/sbin/pm-suspend                  #system#sleep#suspend
+lin:  sudo /usr/sbin/pm-hibernate                    #system#hibernate
+lin:  /sbin/shutdown -h now  |  halt             #system#shutdown#stop
+lin:  /sbin/shutdown -r now                            #system#restart
+lin:  xinputs list => xinputs --disable/--enable <id>          #system
+lin:  arch                                        #architecture#system
+lin:  sudo visudo                                           #sudo#root
+----------------------------------------------------------------------
+lin:  sudo -u piet id                                            #sudo
+======================================================================
+win:  hdwwiz.cpl     Add Hardware Wizard                     #hardware
+wxp:  dcomcnfg       Component Services                      #hardware
+lto:  hwbrowser                                              #hardware
+lpc:  hwbrowser                                              #hardware
+lhp:  sensors  sensors-detect                                #hardware
+======================================================================
+lin:  [ more /proc/cpuinfo ]                                #processor
+======================================================================
+win:  systeminfo | findstr /C:"Total Physical Memory"          #memory
+win:  wmic memorychip list full                                #memory
+win:  wmic ComputerSystem get TotalPhysicalMemory              #memory
+win:  mem.exe  taskmgr.exe                                     #memory
+lin:  top                                                      #memory
+lin:  pmap -d <PID>                                            #memory
+lin:  free -m                                                  #memory
+======================================================================
+win:  dfrgui.exe                                 #defrag#clean   #disk
+win:  $APPSDIR/CCleanerPortable/CCleaner.exe     #maintain#system#disk
+win:  $APPSDIR\000cthelper\Organize\[EasyCleaner]#maintain#system#disk
+wxp:  diskpart                                   #partition      #disk
+wxp:  diskmgmt.msc                               #management     #disk
+wxp:  chkdsk.exe  /?                             #check          #disk
+wxp:  $APPSDIR\000cthelper\Organize\[DiskCleaner]#cleanup        #disk
+wxp:  $APPSDIR\000cthelper\Organize\[ICSweep]    #cleanup        #disk
+wxp:  cleanmgr.exe                               #cleanup        #disk
+wxp:  dfrg.msc                                   #defrag#clean   #disk
+wxp:  wmimgmt.msc    Windows Management Infrastructure         #system
+wvi:  CtrPnl>AdmTls>CmpMan>DskMan                #management     #disk
+wvi:  CnfSch>PrsOnd>SysBeh                       #management     #disk
+wvi:  defrag <drive:> -a -v >                    #defrag#clean   #disk 
+wvi:  Programs>SystemTools>Scheme -> defrag off  #defrag#clean   #disk
+wvi:  cleanmgr.exe                               #cleanup        #disk
+wvi:  Vsp1cln.exe                                #cleanup #servicepack
+wi7:  diskpart                                   #partition      #disk
+wi7:  diskmgmt.msc                               #management     #disk
+wi7:  $TOOLDIR/bat/diskmgmt.bat &
+wi7:  defrag /?  [switch on defrag service first]#defrag#clean   #disk
+wi7:  chkdsk.exe  /?                             #check          #disk
+wi7;  winsat disk                                #assessment     #disk
+wi7:  wmimgmt.msc    Windows Management Infrastructure         #system
+lin:  du                                         #space usage    #disk 
+lpc:  /usr/bin/baobab                                        #sys#disk
+lhp:  /usr/bin/baobab    System_Disk_Usage              #menu#sys#disk
+lhp:  /usr/bin/palimpsest           Disk Utility        #menu#sys#disk
+lin:  gnome-disks                                                #disk
+----------------------------------------------------------------------
+lin:  du -shk                                         #filesystem#info
+lin:  du -h --max-depth=1                             #filesystem#info
+lin:  df -ahkT                                        #filesystem#info
+lin:  watch -n 60 df -Thk      # run 'df' repeatedly  #filesystem#info
+lin:  watch -n 1 date +%T                             #filesystem#info
+lin:  man hier                                        #filesystem#info
+win:  C:\Windows\Installer                    # resten install scripts
+win:  C:\ProgramData                          # data 
+win:  C:\Windows\Downloaded Installations           # 
+win:  C:\Windows\SoftwareDistribution\Downloads     # 
+win:  C:\Windows\System32\DriverStore               # standard drivers
+win:  C:\perflogs\System\Diagnostics                # logbooks
+win:  %TEMP%
+win:  office versions : http://tipsentrucs.link.idg.nl/off1
+wi7:  winsat disk -read -seq -seqsize 65536 -drive D
+wi7:  winsat disk -read -ran -ransize 4096 -drive D
+wi7:  winsat disk -write -seq -seqsize 65536 -drive D
+======================================================================
+lin:  /usr/bin/mtools                                          #floppy
+wto:  "$UTILDIR/gfloppy" &
+----------------------------------------------------------------------
+mcopy <file> a:
+======================================================================
+lhp:  /usr/bin/nvidia-settings                         #menu#set#video
+----------------------------------------------------------------------
+lhp:  nouveau -> nvidia : read next lines in this file
+      /etc/grub.conf  
+        add  rdblacklist=nouveau  after quiet
+      /etc/modprobe.d/blacklist.conf (nvidia driver generates file)
+        blacklist nouveau
+        options nouveau modeset=0
+      mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak 
+      dracut -v /boot/initramfs-$(uname -r).img $(uname -r)
+      reboot
+      /sbin/lsmod | grep nouveau
+      sudo init 3
+      sudo sh <NVIDIA driver> 
+      sudo init 5
+======================================================================
+lhp:  cheese                      Webcam Booth            #tool#webcam
+lto:  /usr/bin/gphoto                                     #tool#camera
+lin:  identify <image>                                     #tool#image
+----------------------------------------------------------------------
+identify -list format
+======================================================================
+win:  desk.cpl     control color                              #display
+wxp:  control desktop           Display Properties            #display
+wxp:  color.cpl                 Color Management              #display
+wvi:  Control Panel > Personalization > Display Settings      #display
+wi7:  color.cpl                 Color Management              #display
+wi7:  control desktop           Display Properties            #display
+lin:  [ /etc/X11/XF86Config-4 ]   /usr/showrgb                #display
+lin:  xrefresh                                        #refresh#display
+lin:  xsetroot                                                #display
+lin:  glxgears            Acceleration                        #display
+lin:  glxinfo             Acceleration                        #display
+lto:  background-properties-capplet                           #display
+lpc:  gnome-display-properties                            #sys#display
+lpc:  gnome-background-properties                             #display
+lhp:  gnome-display-properties                       #menu#sys#display
+lhp:  gnome-background-properties                             #display
+lhp:  xfce4-display-settings                         #menu#sys#display
+lhp:  nvidia-settings                 Display NVIDIA X    #sys#display
+lhp:  krandrtray                                     #menu#sys#display
+lmt:  mate-display-properties                                 #display
+lmt:  disper -l / -s / -S                                     #display
+lin:  lxrandr                                                 #display
+......................................................................
+xsetroot -solid DeepSkyBlue4
+xsetroot -solid snow
+xsetroot -solid SlateBlue
+xsetroot -solid BlanchedAlmond
+xsetroot -solid "saddle brown"
+xsetroot -solid gray10
+xsetroot -solid black
+xsetroot -solid \#8B6969
+xsetroot -bitmap /usr/include/X11/bitmaps/wingdogs \
+         -bg black -fg DeepSkyBlue4
+xsetroot -bitmap /usr/include/X11/bitmaps/xsnow \
+         -bg azure -fg "lemon chiffon"
+xsetroot -bitmap /usr/include/X11/bitmaps/escherknot  \
+         -bg gray20 -fg gray40
+======================================================================
+win:  Ctrl+Shift: change keyboard   control keyboard         #keyboard
+wxp:  control keyboard          Keyboard Properties          #keyboard
+wi7:  control keyboard          Keyboard Properties          #keyboard
+lin:  [ /etc/sysconfig/keyboard ] { ls /lib/kbd/keymaps/ }   #keyboard
+lto:  keyboard-properties                                    #keyboard
+lpc:  gnome-accessibility-keyboard-properties                #keyboard
+lpc:  gnome-keybinding-properties           #menu#set#keyboard#hotkeys
+lpc:  gnome-keyboard-properties                     #menu#set#keyboard
+lhp:  gnome-keyboard-properties                     #menu#set#keyboard
+lhp:  gnome-keybinding-properties           #menu#set#keyboard#hotkeys
+lhp:  xfce4-keyboard-settings                       #menu#set#keyboard
+lhp:  gswitchit-plugins-capplet                              #keyboard
+lhp:  system-config-keyboard                        #menu#set#keyboard
+lhp:  gnome-wacom-properties                          #menu#set#tablet
+lhp:  iok                 on-screen-keyboard            #menu#keyboard
+lin:  lxinput                                                #keyboard
+w10:  Settings>TijdEnTaal>                                   #keyboard
+======================================================================
+wi7:  <shortcut-rm>|Properties|Shc.Pr.|Shc.tab|Shc.key        #hotkeys
+======================================================================
+win:  main.cpl    control mouse                                 #mouse
+wi7:  main.cpl    control mouse                                 #mouse
+lin:  [ /etc/X11/XF86Config-4 ]                                 #mouse
+lin:  lxinput                                                   #mouse
+lpc:  gnome-mouse-properties                       #menu#sys#set#mouse
+lhp:  gnome-mouse-properties                            #sys#set#mouse
+lhp:  xfce4-mouse-settings                         #menu#sys#set#mouse
+dos:  c:\mouse\mouse.sys      (from mouse820.zip)           #sys#mouse
+======================================================================
+lhp:  wacomcpl                         Tablet Wacom            #tablet
+lhp:  gnome-wacom-properties           Tablet Wacom       #menu#tablet
+======================================================================
+lto:  /usr/bin/kppp                                             #modem
+lhp:  /usr/bin/kppp                                        #menu#modem
+======================================================================
+win:  $APPSDIR\optinfo.exe                                    #optical
+lto:  /usr/cd-info  /usr/cd-drive   /usr/eject                #optical
+lhp:  brasero %U         Disc Burner           #menu#optical#disk#tool
+======================================================================
+lpc:  /usr/bin/speaker-test                                  #speakers
+lhp:  /usr/bin/speaker-test                                  #speakers
+======================================================================
+win:  $APPSDIR\[Usbdeview]                                        #usb
+win:  winsat disk -drive <drivenr>                    #speed#usb#drive
+======================================================================
+wxp:  modem.cpl              Modems                         #net#modem
+======================================================================
+win:  netcpl.cpl                Network Properties            #network
+win:  ping <hostname|ip-address>                              #network
+win:  fing  -r 1 -o table,text,console               #discover#network
+win:  ipconfig /all | more         #IP addresses for interface#network
+win:  route                                  #IP routing table#network
+win:  "%APPSDIR%\Smartsniff\x86\smsniff.exe"     #port sniffer#network
+win:  "%APPSDIR%\Socketsniff\SocketSniff.exe"    #port sniffer#network
+win:  "%APPSDIR%\Dnsdataview\DNSDataView.exe"        #DNS info#network
+win:  fing -r 1 -o table,text,console       #network discovery#network
+win:  "%APPSDIR%\Awatch\awatch.exe"           #monitor traffic#network
+win:  netstat -a -s | more                       #network info#network
+win:  ping www.goggle.com            #ping to resolved address#network
+win:  nslookup localhost.localdomain                         #IP-address of domain name#network
+win:  "%APPSDIR%\Wirelessnetview\WirelessNetView.exe"       #inspect packages (sniffer)#network
+win:  "%APPSDIR%\Wirelessnetview\WirelessNetView.exe"                #Wireless Net View#network
+win:  "%APPSDIR%\Namebench\namebench-1.3.1-Windows.exe"                 #DNS speed test#network
+win:  "%APPSDIR%\Homedale\Homedale.exe"                         #list wireless networks#network
+win:  "C:\Program Files\MetaGeek\inSSIDer 2.0\inSSIDer.exe"     #list wireless networks#network
+win:  "%APPSDIR%\CurrPorts\CurrPorts.exe"                              #list open ports#network
+win:  fing -r 1 -o table,text,console                         #network
+win:  "C:\Program Files\Wireshark\wireshark.exe"              #network
+win:  "%APPSDIR%\Wirelessnetview\WirelessNetView.exe"         #network
+win:  "%APPSDIR%\Awatch\awatch.exe"           #monitor traffic#network
+win:  "%APPSDIR%\Dnsdataview\DNSDataView.exe"        #DNS info#network
+win:  "%APPSDIR%\Namebench\namebench-1.3.1-Windows.exe"                 #DNS speed test#network
+win:  "%APPSDIR%\Homedale\Homedale.exe"                         #list wireless networks#network
+win:  "C:\Program Files\MetaGeek\inSSIDer 2.0\inSSIDer.exe"     #list wireless networks#network
+win:  airsnare                                #monitor network#network
+win   getmac.exe                                              #network
+wxp:  control netconnections Network Connections              #network
+wxp:  netsetup.cpl                       #Network Setup Wizard#network
+wxp:  ncpa.cpl                            #netcork#connections#network
+wxp:  net netsh netstat (path)ping nmap tracert ipconfig      #network
+wxp:  ipconfig /all                  #Connection Configuration#network
+wvi:  ncpa.cpl                                                #network
+wvi:  %windows%\system32\drivers\etc\hosts                #DNS network
+wi7:  control netconnections Network Connections              #network
+wi7:  ncpa.cpl                                                #network
+wi7:  ipconfig /all             Connection Configuration      #network
+wi7:  inSSIDer             #scan for wireless networks and GPS#network
+wi7:  wireshark                               #monitor network#network
+wi7:  $APPSDIR/Wnetwatcher/WNetWatcher.exe &
+lin:  nslookup  netstat  nmap  ping  arp-scan                 #network
+lin:  traceroute  tracepath  <host>     #trace to network host#network
+lin:  /sbin/ifconfig              #configure network interface#network
+lin:  /sbin/route                            #IP routing table#network
+lin:  /sbin/arp                                               #network
+lin:  mtr                                         #diagnostics#network
+lin:  /usr/sbin/mtr pc423.wfw.wtb.tue.nl                      #network
+lin:  fing                                           #discover#network
+lin:  sudo /usr/bin/fing -r 1 -o table,text,console           #network    
+lin:  sudo /usr/sbin/tcpdump -i wlan0                         #network
+lin:  sudo /etc/init.d/network restart                #restert#network
+lin:  /sbin/iwconfig     #configure wireless network interface#network
+lin:  host                    #information quest to DNS-server#network
+lin:  dig                     #information quest to DNS-server#network
+lin:  ping <hostname|ip-address>                              #network
+lin:  dmesg | grep NETDEV                    #cable connected?#network
+lin:  cat /proc/net/dev          #check network interface name#network
+lin:  /sbin/arp                                 #detect router#network
+lin:  sudo iwlist wlan0 scanning | grep -A 7 Cell #search access point#network
+lin:  dmesg | grep wlan0   #check for access point association#network
+lin:  wpa_cli status                  #WPA command line client#network
+lin:  cat /var/log/syslog                      #info from DHCP#network
+lin:  ifconfig wlan0               #IP addresses for interface#network
+lin:  iwconfig wlan0               #IP addresses for interface#network
+lin:  ip addr show wlan0           #IP addresses for interface#network
+lin:  /sbin/route               #default gateway (default via)#network
+lin:  ip route list             #default gateway (default via)#network
+lin:  ip route replace default via <address>  #change default gateway#network
+lin:  nslookup localhost.localdomain       #IP-address of domain name#network
+lin:  cat /etc/resolv.conf                         #nameserver#network
+lin:  host www.google.com               #resolve address with local nameserver#network
+lin:  host www.google.com 8.8.8.8               #resolve address with Google nameserver#network
+lin:  ping -c 5 8.8.8.8                       #ping to address#network
+lin:  ping -c 5 www.google.com       #ping to resolved address#network
+lin:  traceroute -n 8.8.8.8           #trace route of packages#network
+lin:  dig 8.8.8.8                                             #network
+lin:  sudo netstat -tulpan                       #list traffic#network
+lin:  sudo netstat -an                           #list traffic#network
+lin:  sudo nethogs wlan0              #list to network traffic#network
+lin:  tcpdump                      #inspect packages (sniffer)#network
+lin:  sudo wireshark               #inspect packages (sniffer)#network
+lin:  nmap -A 131.155.224.90            #map and trace traffic#network
+lin:  nmap -sV -p 80 131.155.224.90  #map traffic on selected ports#network
+lin:  nmap -v -A -PN pc423.wfw.wtb.tue.nl           #port scan#network
+lin:  sudo /usr/sbin/tcpdump -D                               #network
+lin:  sudo /usr/sbin/tcpdump -i wlan0                         #network
+lin:  netstat -anlpt | grep LISTEN                            #network
+lin:  /etc/hosts                                          #DNS#network
+lto:  /usr/bin/usernet                                #monitor#network 
+lto:  /usr/bin/neat  neat-control               #configuration#network 
+lpc:  /usr/bin/system-control-network                         #network
+lhp:  /usr/bin/system-config-network                          #network
+lhp:  /usr/bin/system-control-network                         #network
+lhp:  nm-connection-editor         Network               #menu#network
+lhp:  nm-applet                                               #network
+lhp:  nmcli                                                   #network
+lhp:  nm-online                                               #network
+lhp:  nm-tool                                                 #network
+lhp:  wireshark                          #monitor network#menu#network
+lhp:  aircrack-ng                #crack WEP and WPA2 passwords#network
+lhp:  rfkill list | (un)block <device number>                 #network
+----------------------------------------------------------------------
+lhp:  man net : admin. of Samba and remote CIFS servers
+netsh int ipv6 install                 
+netsh int tcp show global
+netsh wlan show networks mode=bssid
+netsh wlan set hostednetwork mode=allow ssid=<name> key=<password>
+netsh wlan start hostednetwork
+netsh firewall
+netsh firewall set portopening tcp 445 smb enable
+netsh advfirewall firewall show rule name=all
+nmcli nm                          # NetworkManager status
+nmcli con                         # list connections
+nmcli con up uuid <uuid>          # connect
+nmcli con up id <essid>           # connect ('FRITZ!Box 7490')
+nmcli dev wifi connect <essid> password <passwd>  # for new connection
+nmcli con down id <essid>         # disconnect ('FRITZ!Box 7490')
+sudo ifconfig wlan0 down          # disconnact
+win:  nslookup                      pc423.wfw.wtb.tue.nl
+host                          pc423.wfw.wtb.tue.nl
+dig                           pc423.wfw.wtb.tue.nl
+ping  diskserver1.wfw.wtb.tue.nl
+      pc423.wfw.wtb.tue.nl        =  131.155.53.173
+      diskserver1.wfw.wtb.tue.nl  =  131.155.54.86
+      linuxserver.wfw.wtb.tue.nl  =  131.155.55.13
+      linuxserver.wfw.wtb.tue.nl  =  131.155.54.19
+      wfwweb.wfw.wtb.tue.nl       =  131.155.54.17
+      sg30.wfw.wtb.tue.nl         =  131.155.54.70
+      proxy.wfw.wtb.tue.nl        =  131.155.54.3
+      pc3.wfw.wtb.tue.nl          =  131.155.54.3
+      noise.wfw.wtb.tue.nl        =  131.155.53.167
+wget -p --tries=3 --timeout=1 --recursive --level=2 --convert-links http://www.nos.nl
+/sbin/ifconfig  -> MAC address
+/sbin/ifconfig <eth0> <myip> netmask <mask>
+/sbin/ifconfig eth0 131.155.54.183 netmask 255.255.252.0
+/sbin/ip addr show
+/sbin/route add default gw <gateway> dev <eth0>
+/sbin/route add default gw 127.0.0.1 dev eth0
+/etc/init.d/network restart
+/bin/netstat -g
+/bin/netstat -a -s | more
+/bin/ping                     pc423.wfw.wtb.tue.nl
+/bin/ping6                    ping naar ipv6 servers
+/bin/traceroute               pc423.wfw.wtb.tue.nl
+/usr/bin/host                 pc423.wfw.wtb.tue.nl
+/usr/bin/dig                  pc423.wfw.wtb.tue.nl
+/usr/bin/nmap -v -A -T4 -PN   pc423.wfw.wtb.tue.nl
+/usr/sbin/aireply-ng 
+/usr/bin/gpsmap
+/sbin/iwconfig                 #configure a wireless network interface
+/sbin/iwgetid                  #Report wireless network address
+/usr/sbin/mtr --interval=10 
+cat /etc/sysconfig/network                          
+cat /etc/sysconfig/network-scripts/ifcfg-eth0       
+cat /etc/resolv.conf                             
+more /etc/hosts                              
+cat /etc/ntp.conf                             
+ntpdate                                        
+sudo /sbin/iwconfig                          
+sudo /sbin/ifconfig                          
+win:  netstat -a -s | more
+wi7:  netstat -a -s -o | more
+lin:  netstat -a -s | more
+lin:  netstat -untap               #see active TCP and UDP connections
+win:  route
+127.0.0.1  stats.postbus51.nl            #ip adres voor 'postbus51.nl'
+lin:  nmap -sP 192.168.2.0/24      #reports hostnames and IP addresses
+lin:  nmap -sP 192.168.1.*
+lin:  nmap -sP 131.155.54.183/24
+lin:  nmap -sn 192.168.2.0/24
+lin:  nmap -sn 131.155.54.183/24
+lin:  sudo arp-scan --interface=eth0 --localnet
+lin:  sudo nmap -sS IP                                #scan open ports
+lin:  sudo nmap -O 131.155.54.183/24           #scan open ports on LAN
+lin:  sudo nmap -sP 192.168.178.1/24 | grep -e 'Nmap' -e 'MAC'
+lin:  fping -cl -gds 131.155.54.0/24 2 | grep -v "ICMP|xmt"
+lhp:   sudo service network stop
+lhp:   sudo service wpa_supplicant stop
+lhp:   sudo chkconfig --level 12345 network off
+lhp:   sudo chkconfig --level 12345 wpa_supplicant off
+lhp:   sudo chkconfig --level 2345 NetworkManager on
+lhp:   sudo service NetworkManager restart
+lhp:  lsmod | sort | grep iwl4965
+lhp:   sudo rmmod iwl4965 && sudo modprobe iwl4965
+======================================================================
+win:  "%APPSDIR%\CurrPorts\CurrPorts.exe"                       #ports
+win:  "%APPSDIR%\Smartsniff\x86\smsniff.exe"                    #ports
+win:  "%APPSDIR%\Socketsniff\SocketSniff.exe"                   #ports
+======================================================================
+wi7:  "$APPSDIR/Bluetoothview/BluetoothView.exe" &          #bluetooth
+wi7:  fsquirt.exe           Bluetooth settings              #bluetooth
+lhp:  bluetooth-properties                        #menu#tool#bluetooth
+lhp:  bluetooth-sendto <files>                         #tool#bluetooth
+lin:  blueman-manager                                       #bluetooth
+======================================================================
+wi7:  dialer                 Phone Dialer                    #net#dial
+lhp:  gnome-network-properties     Proxy preferences         #menu#net
+lhp:  gnome-file-share-properties                    #menu#files#share
+lhp:  kppp                         Dial up                   #net#dial
+lhp:  kppplogview                  Dial up log               #net#dial
+lhp:  krfb                         Remote desktop                 #net
+lhp:  krdc -caption "%c" %u        Remote desktop client          #net
+lhp:  vino-preferences             Remote desktop                 #net
+lhp:  sudo /usr/NX/bin/nxclient    NX client       #menu#util#internet
+lhp:  sudo /usr/NX/bin/nxclient  -wizard           #menu#util#internet
+lhp:  sudo /usr/NX/bin/nxclient  -admin            #menu#util#internet
+======================================================================
+win:  printers                  Printers Folder               #printer
+wxp:  control printers       Printers and Faxes               #printer
+wvi:  printmanagement.msc       control printers              #printer
+wi7:  printui                   Printer Settings              #printer
+wi7:  control printers       Printers and Faxes               #printer
+lin:  /etc/printcap                                           #printer
+lto:  /usr/bin/cupsconfig  printconf-gui                      #printer
+lpc:  gnome-default-printer                           #sys#set#printer
+lhp:  /usr/bin/my-default-printer                     #sys#set#printer
+lhp:  sudo system-config-printer (after xhost +) #menu#sys#set#printer
+lhp:  system-config-printer-applet --no-tray-icon     #sys#set#printer
+lhp:  gnome-config-printer                            #sys#set#printer
+----------------------------------------------------------------------
+lpr -Pxxx <file> [opt]        xxx = ps1,ps3,
+    opt = -p                  page titles
+          -p -T <title>                  
+          -w#                 line-length #
+          -i#                 indent # spaces
+lpq <printer> [opt]
+    opt = +#                  every # secs
+lpstat -a
+lprm #                        cancel job #
+lprm -P<printer> #<job-id>    cancel job #
+lprm -                        cancel all
+lpkl <-Php[1][2]> <file(s)>   print in small font
+
+net print <filename> lpt2
+
+wi7: powershell get-WmiObject -class Win32_printer       #list#printer
+----------------------------------------------------------------------
+lpq -Pps1
+lpq -Pwtbmfc09
+======================================================================
+lto:  xsane                                                   #scanner
+lpc:  /usr/bin/kooka  /usr/bin/xsane                          #scanner
+lhp:  /usr/bin/kooka  /usr/bin/xsane                          #scanner
+======================================================================
+lin:  /usr/src/kernels/                                        #kernel
+lin:  /lib/modules/                                            #kernel
+lin:  /sbin/lsmod     /sbin/rmmod     /sbin/insmod        #info#kernel
+lin:  /sbin/modinfo    < modulename >:  info on module         #kernel
+lin:  /sbin/modprobe   < modulename >:  load kernel driver     #kernel
+lin:  /sbin/modprobe   -c:           :  list available modules #kernel
+lin:  [ ls /etc/sysconfig/modules/ ]                           #kernel
+lin:  [ ls /etc/rc5.d/K* ] [ ls /etc/rc5.d/S* ]                #kernel
+lin:  /sbin/chkconfig                                          #kernel
+lin:  sysctl                                        #parameters#kernel 
+lin:  more /etc/modprobe.conf                             #info#kernel
+----------------------------------------------------------------------
+sudo /sbin/lsmod
+sudo /sbin/rmmod usb-storage
+sudo /sbin/insmod usb-storage
+ls /lib/modules/`uname -r`                # list modules
+ls /lib/modules/`uname -r`/kernel         # list modules
+cat /etc/modprobe.conf
+rmmod iwlagn
+modprobe iwlagn
+/sbin/chkconfig --list                            
+/sbin/chkconfig --list | grep "5:on"              
+lin:  iptables -L                                           
+======================================================================
+win:  verifier.exe                                            #drivers
+win:  $APPSDIR\dinfo.exe                                      #drivers
+wvi:  driverquery /v /fo csv > drivers.csv                    #drivers
+wi7:  driverquery /v /fo csv > drivers.csv                    #drivers
+lhp:  [ sudo /etc/rc.d/init.d/vboxdrv setup ]      #VirtualBox#drivers
+lhp:  /lib/firmware/                                     #wifi#drivers
+======================================================================
+win:  devmgmt.msc                                             #devices
+wi7:  $TOOLDIR/bat/devmgmt.bat &                              #devices
+lin:  /sbin/lspci    #PCI devices (-n -> nummers)         #pci#devices
+lin:  [ /usr/share/hwdata/pci.ids ]                       #pci#devices
+lin:  [ more /proc/devices ]                                  #devices
+lin:  /sbin/lsusb [ /sys/bus/usb/devices/busnum ]         #usb#devices
+lin:  [ /usr/share/hwdata/usb.ids ]                       #usb#devices
+lhp:  sudo dmidecode --help                                   #devices
+======================================================================
+dos:  ver.exe                                                #computer
+win:  getmac.exe   hostname.exe   winver.exe                 #computer
+win:  echo %COMPUTERNAME%                                    #computer
+win:  control admintools                                     #computer
+wxp:  compmgmt.msc           Computer Management             #computer
+wxp:  control admintools     Administrative Tools            #computer
+wi7:  compmgmt.msc           Computer Management             #computer
+wi7:  control admintools     Administrative Tools            #computer
+lin:  /bin/hostname  /bin/uname -a                      #info#computer
+lin:  [ /etc/redhat-release ] [ /proc/version ]              #computer
+lin:  ls /selinux/                                               #info
+lin:  cat /etc/sysconfig/selinux                                 #info
+lin:  sestatus                                                   #info
+win:  $TOOLDIR/bat/compmgmt.bat &                            #computer
+lin:  pcmanfm                                                #computer
+======================================================================
+win:  Start>ConfigSystemAdvanced>Performance>Settings>..    #partition
+lin:  [ /proc/partitions ]                                  #partition
+lin:  system-config-lvm                                     #partition
+lin:  /sbin/fdisk -l                                        #partition
+lin:  cfdisk                                                #partition
+lin:  /sbin/sfdisk                                          #partition
+lin:  parted   gparted      re-partitioning / no data loss  #partition
+lin:  nparted               re-partitioning / no data loss  #partition
+lin:  dosfsck               check and repair FAT partitions #partition
+lhp:  system-config-lvm                                #menu#partition
+lhp:  unetbootin            Bootable Disk              #menu#partition
+======================================================================
+fsck                              #check/repair ext2/3     #filesystem
+fsck -y /dev/hda2                 #check/repair            #filesystem
+fsck -y /dev/hda5                 #check/repair            #filesystem
+e2fsck                            #check/repair            #filesystem
+mkfs                              #make                    #filesystem
+ext2                              #check/repair ext2/3     #filesystem
+tune2fs                           #finetuning ext2/ext3    #filesystem
+dosfsck                           #check/repair FAT        #filesystem
+jfsutils                          #tools for JFS           #filesystem
+reiserfsprogs                     #tools for ReiserFS      #filesystem
+xfsprogs                          #tools for XFS           #filesystem
+ntfsresize                        #resize NTFS             #filesystem
+mkdosfs,mkntfs                    #make FAT/NTFS           #filesystem
+debugfs                           #repair                  #filesystem
+dumpe2fs                          #check                   #filesystem
+----------------------------------------------------------------------
+ext2 ext3 reiserfs xfs(SGI) jfs(IBM) fat16 fat32 hpfs ntfs #filesystem
+[ /etc/fstab ]                    #file system table       #filesystem
+[ /etc/mtab ]                     #file system table       #filesystem
+======================================================================
+wxp:  services.msc /s          Services                      #services
+wvi:  Control Panel > Administrative Tools > Services        #services
+wvi:  sc   msconfig.exe   services.msc                       #services
+wvi:  "%SystemRoot%\system32\services.msc"                   #services
+wvi:  "C:\Program Files\Martin Fuchs\servicemgr.exe"         #services
+wi7:  srvmgr.cpl             Services and Devices            #services
+wi7:  services.msc           Services                        #services
+wi7:  $TOOLDIR/bat/services.bat &
+lin:  /sbin/service --status-all   /sbin/chkconfig           #services
+lin:  /usr/bin/serviceconf  [ /etc/services ]                #services
+lin:  sudo service --status-all                              #services
+lin:  sudo /sbin/service pcmcia stop                         #services
+lin:  sudo /sbin/service pcmcia start                        #services
+lin:  sudo /sbin/chkconfig --list                            #services
+lin:  sudo /sbin/chkconfig --level 5 <service> on|off        #services
+lto:  /usr/bin/serviceconf                                   #services
+lpc:  /usr/bin/system-config-services [root]                 #services
+lhp:  /usr/bin/serviceconf                                   #services
+lhp:  /usr/bin/system-config-services                   #menu#services
+lhp:  /etc/init.d:  services to stop/start/restart           #services
+lhp:  sudo ntsysv                                            #services
+----------------------------------------------------------------------
+sc
+sc pause <servicename>
+sc continue <servicename>
+sc stop/start <servicename>
+sc config <servicename> start=demand
+======================================================================
+win:  $APPSDIR\000cthelper\Analyze\[AutoRuns]                 #startup
+win:  services.msc   msconfig.exe                             #startup
+wvi:  CtrPnl>AdmTls>DevMgr (CnfSch>AppBeh)                    #startup
+wvi:  devmgmt.msc                                             #startup
+wvi:  msconfig                                                #startup
+wi7:  $TOOLDIR/bat/msconfig.bat &
+lpc:  gnome-session-properties                           #menu#startup
+lhp:  /usr/bin/gnome-session-properties                  #menu#startup
+lhp:  xfce4-session-settings                             #menu#startup
+lhp:  xfce4-session-logout                      #menu#shutdown#startup
+----------------------------------------------------------------------
+C:\Users\<user name>\AppData\Roaming\Microsoft\Windows\Start Menu
+C:\ProgramData\Microsoft\Windows\Start Menu
+======================================================================
+win:  mountvol                                                  #mount
+lin:  /bin/mount [ /etc/mount ]                                 #mount
+lto:  /usr/bin/usermount                                        #mount
+lpc:  /usr/bin/kwikdisk                                         #mount
+lhp:  /usr/bin/usermount                                        #mount
+lhp:  thunar-volman-settings                    #drives#sys#menu#mount
+----------------------------------------------------------------------
+cat /proc/mounts                                                #mount
+cat /etc/fstab
+sudo blkid                                           #UUID for devices
+sudo mount <device> <mountpoint> 
+sudo mount -t usbfs none /sys/bus/usb/drivers 
+sudo umount /mnt/software
+sudo umount /src
+sudo mount -t vfat /dev/sda1 /mnt/usb
+sudo mount -t vfat /dev/sdb1 /mnt/usb2
+sudo umount /dev/sda1
+sudo umount /dev/sdb1
+sudo mount -o rw /dev/sdb1 /media/usb1 
+sudo mount -o remount,rw /dev/sdb1 /media/usb1 
+sudo umount /media/usb1 
+sudo mount -o rw,noexec,nosuid,nodev,shortname=winnt,uid=501 /dev/sdb1 /media/usb1 
+/src/marck2005r3/mentat2005r3/bin/mentat &
+/src/marck2008r1/mentat2008r1/bin/mentat &
+sudo mount -o loop /media/MULTIBOOT/casper-rw /home/piet/tmp/casper/
+sudo mount -o loop=/dev/loop0 /media/MULTIBOOT/casper-rw /home/piet/mnt/casper/ 
+sudo umount /home/piet/tmp/caspermnt/
+----------------------------------------------------------------------
+sudo mount -t nfs diskserver1.wfw.wtb.tue.nl /src 
+sudo mount diskserver1:/home/staff/piet  /home/piet/mnt/software
+sudo mount linuxserver:/mnt/raid/software  /mnt/software
+sudo mount linuxserver:/mnt/raid/software  /src
+sudo mount -t nfs linuxserver:/mnt/raid/software  /src
+sudo mount linuxserver:/src64  /src
+sudo mount wtbfiler.wtb.tue.nl:/software  /src 
+======================================================================
+win:  $APPSDIR\Cpuz\cpuz.exe                                 #sys#info
+win:  $APPSDIR\[siw]                                         #sys#info
+win:  $APPSDIR\[SysExp]                                      #sys#info
+win:  $APPSDIR\[SysSpec]                                     #sys#info
+win:  [Win+break]                                            #sys#info
+win:  perfmon perfmon.msc    taskmgr.exe                  #sys#monitor
+win:  http://www.iana.org/assignments/                            #sys
+             service-names-port-numbers/                          #sys
+             service-names-port-numbers.xml                       #sys
+win:  powercfg -energy (cmd)                                 #sys#info
+w98:  "C:\Program Files\Common Files\Microsoft Shared\Msinfo\Msinfo32.exe"  #sys#info
+wxp:  arp -a      -> IP/MAC addresss                      #MAC address
+wxp:  "C:\Program Files\Common Files\Microsoft Shared\MSInfo\msinfo32.exe"  #sys#info
+wxp:  systeminfo.exe   winmsd.exe   sysdm.cpl                #sys#info
+wxp:  perfmon.msc            Performance Monitor             #sys#info
+wxp:  sysdm.cpl              System Properties [Win+Break]   #sys#info
+wxp:  sfc.exe     System File Checker Utility               #sys#files
+wvi:  systeminfo.exe   winmsd.exe   sysdm.cpl                #sys#info
+wvi:  sfc.exe     System File Checker Utility               #sys#files
+wvi:  msconfig                                             #sys#config
+wvi:  msinfo32.exe                                           #sys#info
+wvi:  sysdm.cpl                                              #sys#info
+wvi:  system diagnosis                                #sys#diagnostics
+wi7:  systeminfo.exe   winmsd.exe   sysdm.cpl                #sys#info
+wi7:  msinfo32.exe  (cmd,bsh,cyg)   [Win+Break]              #sys#info
+wi7:  sysdm.cpl              System Properties [Win-Break]   #sys#info
+wi7:  MACSpoofer  (www/tinyurl.com/macspoofer)     #change MAC address
+wi7:  perfmon.msc            Performance Monitor             #sys#info
+wi7:  sfc.exe     System File Checker Utility               #sys#files
+wi7:  winsat features                                        #sys#info
+wi7:  tasklist /v     (equivalent to 'ps aux')               #sys#info
+win:  optionalfeatures                                       #sys#info
+lin:  /sbin/runlevel                                #info#sys#runlevel
+lto:  /usr/bin/guname                                        #sys#info
+lto:  /usr/bin/top    /usr/bin/gtop                       #sys#monitor
+lpc:  gnome-system-monitor   ksysguard   kpm  top         #sys#monitor
+lhp:  /usr/bin/top    /usr/bin/gtop                       #sys#monitor
+lhp:  /usr/bin/kinfocenter                              #menu#sys#info
+lhp:  gconf-editor   gconftool-2                  #menu#set#sys#config
+lhp:  top  dstat                                        #menu#sys#info
+lhp:  ksysguard %U                              #menu#monitor#sys#info
+lhp:  /usr/bin/gnome-system-monitor &           #monitor#menu#sys#info
+lhp:  ps aux                           Task list             #sys#info
+lhp:  abrt-gui          Automatic Bug Report                 #sys#info
+lin:  itop  atop  lxtask                                     #sys#info
+----------------------------------------------------------------------
+wi7:  SystemPropertiesAdvanced  (cmd) [environment variables, restore point]
+wi7:  SystemPropertiesComputerName (cmd)
+lin:  cat /proc/version      uname -s      lsb_release -a
+lin:  lscpu   free   lspci   lsusb   lsblk
+lin:  sudo fdisk -l | grep '^Disk /dev/'
+lin:  sudo dmidecode | less 
+lin:  info  |   pinfo   |   man -t man > man.ps
+======================================================================
+win:  regedit                Registry Editor                 #register
+win:  regedit32              Registry Editor                 #register
+wxp:  regedit                Registry Editor                 #register
+wi7:  regedit                Registry Editor                 #register
+......................................................................
+HKEY_CURRENT_USER\Control Panel\Desktop
+ MenuShowDelay:  20
+HKEY_CURRENT_USER\Software\MicroSoft\Windows\CurVer\Pol\Expl 
+ New DWORD-value:  NoClose:  1|0
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\CDROM 
+ Autorun:  1|0
+=== cleanup software
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+=== cleanup menus
+HKEY_CLASSES_ROOT\Directory\shell
+HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers
+=== faster shutdown
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control
+ WaitToKillServiceTimeout:  20000 -> 1000
+HKEY_CURRENT_USER\Control Panel\Desktop
+ WaitToKillAppTimeout:  20000 -> 1000
+ HungAppTimeout:  5000 -> 1000
+HKEY_USERS\.DEFAULT\Control Panel\Desktop
+ WaitToKillAppTimeout:  20000 -> 1000
+ HungAppTimeout:  5000 -> 1000
+HKEY_CURRENT_USER\Control Panel\Desktop
+ AutoEndTasks:  0 -> 1
+wxp:  select window when mouse is over window :
+HKCU\CP\DESKTOP\UserPref   9e 3e 07 80  ->  9f 3e 05 80
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\T
+wi7:  select window when mouse is over window :
+HKEY_CURRENT_USER\Control Panel\Desktop
+ UserPreferenceMask    added 1 : b0 -> b1
+ ActiveWndTrkTimeout   Base value  500 -> 150
+HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Common\General
+ DisableBootToOfficeStart:  0 -> 1
+All Tasks: (class identifier)
+C:\Windows\explorer.exe shell:::{ED7BA470-8E54-465E-825C-99712043E01C
+======================================================================
+win:  $APPSDIR\000cthelper\Analyze\[ProcessExplorer]        #processes
+win:  $APPSDIR\000cthelper\Analyze\[PsTools]                #processes
+win:  $APPSDIR\000cthelper\Analyze\[ProcessMonitor]         #processes
+wxp:  tasklist   taskmgr   Ctrl+Shift+Esc                   #processes
+wxp:  taskkill   tskill                                  #kill#process
+wxp:  eventvwr.msc                                             #events
+wvi:  Pskill                                             #kill#process
+wvi:  eventvwr.msc                                             #events
+wi7:  $TOOLDIR/bat/eventvwr.bat &
+lin:  pstree -hap   ps                                      #processes
+lin:  top                                                    #sys#info
+lin:  xkill                                              #kill#process
+lto:  /usr/X11R6/bin/xkill                               #kill#process
+lhp:  /usr/bin/xkill  killall                            #kill#process
+lhp:  gnome-system-monitor                                  #processes
+lhp:  /usr/bin/xfce4-taskmanager                            #processes
+----------------------------------------------------------------------
+taskkill /F /IM <program>
+ps -aux | more
+ps ax | grep -v " \[.*\]" | more     # process list; no kernel threads
+======================================================================
+win:  schtasks  at                                     #scheduledTasks
+wxp:  control schedtasks                               #scheduledTasks 
+wi7:  schtasks  taskschd.msc                           #scheduledTasks
+wi7:  control schedtasks                               #scheduledTasks 
+lin:  cron   at                                        #scheduledTasks
+wi7:  $TOOLDIR/bat/taskschd.bat &                      #scheduledTasks
+----------------------------------------------------------------------
+schtasks /query /NH /FO TABLE    
+schtasks /delete /?
+schtasks /change /TN <filename> /Disable
+schtasks /change /TN "\Microsoft\Windows\Defrag\ScheduledDefrag" /Enable
+schtasks /change /TN "\Microsoft\Windows\Defrag\ScheduledDefrag" /Disable
+schtasks /change /TN ..\MpIdleTask /disable 
+schtasks /query /NH /FO TABLE
+schtasks /query /NH /FO TABLE | grep Defrag
+----------------------------------------------------------------------
+at TIME                   # at> commands ; CTRL-D
+atq                       # display at queue
+atrm JOB                  # remove JOB from at queue
+at -f comat TIME          # execute script comat
+----------------------------------------------------------------------
+crontab -e                # edit current crontab
+crontab -l                # display current crontab
+crontab -d                # remove current crontab
+#crontab -r                # remove current crontab
+* * * * * $HOME/tmp/basch
+0-59 * * * * date >> MEMA && ps -ef|grep mentatX | grep -v piet | grep -v userpath >> $HOME/MEMA
+======================================================================
+wxp:  powercfg.cpl              Power Configuration             #power
+wvi:  Control Panel > (System & Maintenance >) Power Options    #power
+wvi:  Configuratiescherm > Energie Beheer                       #power
+wvi:  Power Configuration:  powercfg.cpl                        #power
+wi7:  powercfg.cpl              Power Configuration             #power
+lto:  /usr/bin/apm                                              #power
+lhp:  gnome-power-preferences                      #menu#sys#set#power
+lhp:  xfce4-power-manager-settings                 #menu#sys#set#power
+lhp:  sudo /usr/sbin/laptop_mode                                #power
+lhp:  /etc/laptop-mode/laptop-mode.conf                         #power
+......................................................................
+high performance; require password on wakeup
+powercfg /?
+powercfg -h off :    hibernation off|on ;  off -> Hiberfil.sys removed
+powercfg /availablesleepstaes
+======================================================================
+wxp:  set                                       #environment variables
+wvi:  CtrPnl>Sys>EnvVar>edit                    #environment variables
+lin:  setenv  printenv  env                     #environment variables
+----------------------------------------------------------------------
+set
+set devmgr_show_nonpresent_devices=1
+======================================================================
+win:  firewall | anti spam filter | phishing filter      #set#security
+win:  defender                                               #security
+win:  Don't send things to MS                            #set#security
+win:  cdrtmgr.msc            Certificate Manager             #security
+wxp:  firewall.cpl                                  #firewall#security
+wxp:  secpol.msc             Local Security Settings         #security
+wxp:  rsop.msc        Resultant Set of Policy ( xp pro )     #security
+wxp:  syskey                 Windows System Security Tool    #security
+wvi:  Control Panel > (Windows) Security (Center)            #security
+wvi:  wf.msc    iptables                                     #security
+wvi:  secpol.msc                                             #security
+wi7:  firewall.cpl                                  #firewall#security
+wi7:  rsop.msc        Resultant Set of Policy ( xp pro )     #security
+wi7:  syskey                 Windows System Security Tool    #security
+wi7:  azman.msc              Authorization Manager           #security
+wi7:  $TOOLDIR/bat/firewall.bat &
+lin:  firewall | anti spam filter | phishing filter      #set#security
+lto:  firewall-config                                        #security
+lhp:  system-config-firewall               #menu#sys#firewall#security
+lhp:  seahorse                    Passwords & Encryption     #security
+======================================================================
+lin:  openssl s_client -connect servername:port
+lin:  openssl s_client -starttls smtp -connect smtpserver:port
+======================================================================
+win:  $APPSDIR\000cthelper\Clean Up\[MaliciousSoftwareRemoval]#malware
+win:  $APPSDIR\000cthelper\Clean Up\[Blacklight]              #malware
+win:  $APPSDIR\000cthelper\Clean Up\[RootkitRevealer]         #malware
+win:  $APPSDIR\000cthelper\Clean Up\[CatchMe]                 #malware
+win:  $APPSDIR\[McAfeeRootkitDetect]                          #malware
+win:  $APPSDIR\000cthelper\Clean Up\[Gmer]                    #malware
+wxp:  mrt       Malicious Software Removal            #cleanup#malware
+wi7:  mrt       Malicious Software Removal            #cleanup#malware
+wi7:  msr       Malicious Software Removal Tool       #cleanup#malware
+======================================================================
+win:  $APPSDIR\000cthelper\Clean Up\[AvastVirusCleaner]         #virus
+win:  $APPSDIR\000cthelper\Clean Up\[McAfeeStinger]             #virus
+win:  $APPSDIR\aswMBR.exe                                       #virus
+win:  http://www.virustotal.com                                 #virus
+----------------------------------------------------------------------
+www:  free.avg.com                                              #virus
+======================================================================
+wxp:  timedate.cpl                                          #date#time
+wxp:  control date/time      Data/Time properties           #date#time
+wvi:  timedate.cpl                                          #date#time
+wi7:  timedate.cpl                                          #date#time
+wi7:  control date/time      Data/Time properties           #date#time
+lto:  /usr/bin/dateconfig                                   #date#time
+lpc:  /usr/bin/dateconfig                                   #date#time
+lhp:  /usr/bin/dateconfig                                   #date#time
+lhp:  /usr/bin/system-config-date                  #menu#sys#date#time
+lin:  time-admin                                            #date#time
+----------------------------------------------------------------------
+date MMDDhhmmYY ; clock -w
+date 1118142103; clock -w
+date +%M%D%h%m%Y ; clock -w
+date 103110452007; 
+======================================================================
+lin:  ldd <program>                             #software dependencies
+lin:  ldd [option] <file>                 #shared library dependencies
+======================================================================
+lin:  compiling:                         #compile and install software
+----------------------------------------------------------------------
+      unzip <archive>           # unpack
+      more README               # read information (sometimes INSTALL)
+      ./configure               # generates Makefiles and config.h
+      make                      # compiles source
+      make install              # installs (mostly in /usr/local)
+======================================================================
+win:  psinfo -s    [Pstools]                  #list installed software
+wxp:  appwiz.cpl               Add/Remove Programs           #software
+wvi:  Control Panel > Programs and Features                  #software
+wvi:  Windows Installer Cleanup Utility                      #software
+wi7:  appwiz.cpl               Add/Remove Programs           #software
+wi7:  certmgr.msc              Certificate Manager           #software
+wi7:  wmic PRODUCT                            #list installed software
+lin:  compgen -c                              #list installed software
+lhp:  gpk-prefs                   Software update prefs      #software
+lhp:  gpk-application             Software Add/Remove        #software
+lhp:  gpk-update-viewer           Software Update            #software
+lhp:  gpk-install-catalog         Software Catalog Installer #software
+lhp:  gpk-install-local-file      Software Package Installer #software
+lhp:  yumex                       Software Yum Extender      #software
+cyg:  cygcheck --check-setup --dump-only      #list installed software
+lin:  gdebi-gtk  gnome-software  update-manager              #software
+lin:  synaptic-pkexec  software-properties-gtk               #software
+======================================================================
+lto:  /usr/bin/gnorpm                                             #rpm 
+lpc:  yum                                                         #rpm 
+lhp:  yum                                                         #rpm 
+lhp:  nedit /etc/yum.conf & 
+lhp:  ls /etc/yum.repos.d 
+lhp:  grep enabled /etc/yum.repos.d/*.repo 
+lhp:  /sbin/service yum-updatesd stop
+lin:  <A href="http://www.rpmfind.net">RPM's search and find</A>
+lin:  put RPM's in /usr/local/rpm/
+----------------------------------------------------------------------
+rpm -ql <package-name>
+rpm -qa > installed-software.log
+LIST="$( cat installed-software.log )"
+yum -y install $(cat installed-software.log)
+sudo yum list installed           # use '| more' or '> plist'
+----------------------------------------------------------------------
+rpm -qa | wc -l                                       
+rpm -qa | sort | more     # list installed packages
+rpm -ihv 'name'.rpm       # install
+rpm -Uhv 'name'.rpm       # upgrade
+rpm -qa | grep -i 'name'  # quest
+rpm -qa --qf '%30{NAME}\t%15{VERSION}\t%{SUMMARY}\n' | sort > packages
+rpm -qi 'package-name'    # information
+rpm -e 'package-name'     # delete 
+rpm -qf 'name'            # gives rpm-source of 'name'
+rpm -q --requires gimp    # gives required 'capabilities' for 'gimp'
+
+for d in ${PATH//:/ }/ ; do 
+    for f in $d/* ; do  
+        test -x $f && test -f $f && echo $f 
+    done
+done
+----------------------------------------------------------------------
+win:  wusa = Windows Update Standalone Installer
+win:  dism /online /get-packages
+======================================================================
+and:  Orweb                                                     # apps
+and:  Orweb: Proxy+Privacy Browser                              # apps
+======================================================================
+wxp:  wscui.cpl                                       #windows#updates
+wxp:  wupdmgr.exe                                     #windows#updates
+wxp:  wuaucpl.cpl                                             #updates
+wvi:  Control Panel > Security (Center) > Windows Update      #updates
+wvi:  wscui.cpl                                       #windows#updates
+wi7:  wscui.cpl wuapp.exe                             #windows#updates
+lhp:  yum                                                     #updates
+......................................................................
+win:  ren C:\Windows\SoftwareDistribution C:\Windows\SoftwareDistribution.bak
+......................................................................
+su -
+bash
+/sbin/service yum-updatesd stop
+ps -aux | grep yum   ->   kill helper
+export http_proxy=http://proxy.wfw.wtb.tue.nl:80
+yum shell | repo disable <repo-name>
+yum repolist
+yum check-update
+yum list
+yum install <package>
+yum remove <package>
+yum search <package> | yum info <package> | yum deplist <package>
+yum --tolerant --skip-broken update 
+yum grouplist | yum groupinfo | yum groupremove
+yum clean all
+======================================================================
+lin:  sudo -s                                              #root#shell
+lin:  sudo -i                                        #root#login#shell
+======================================================================
+wxp:  lusrmgr.msc                                               #users
+wxp:  gpedit.msc                                         #groups#users
+wxp:  nusrmgr.cpl            User Account Management    #account#users
+wxp:  control userpasswords  Users and Passwords          #users#passw
+wvi:  lusrmgr.msc                                               #users
+wvi:  gpedit.msc                                         #groups#users
+wvi:  gpedit.msc                                         #groups#users
+wvi:  Control Panel > User Accounts                     #account#users
+wvi:  Control Panel > userpasswords2 -> usres use password      #users
+wi7:  uac                                               #account#users
+wi7:  collab.cpl             Personal Collaboration      #groups#users
+wi7:  control userpasswords  Users and Passwords          #users#passw
+wi7:  whoami                                         #info#login#users
+lin:  last -10                                       #info#login#users
+lin:  who -r                                               #info#users
+lin:  /usr/bin/id                                      #identify#users
+lin:  groups   users-admin                               #groups#users
+lin:  [ /etc/group ]                                     #groups#users
+lto:  /usr/bin/redhat-config-users                      #account#users
+lhp:  /usr/bin/system-config-users             #menu#set#account#users
+lhp:  gnome-about-me           Personal information         #set#users
+lhp:  userpasswd                                      #menupassw#users
+----------------------------------------------------------------------
+win:  icacls /?                                      #pemissions#users
+win:  icacls C:/Users/piet/wcos/tls 
+win:  icacls C:/Users/piet/wcos/tls /t | more
+win:  icacls C:/Users/piet/wcos/tls /grant:r piet:f /t
+win:  icacls C:/Users/piet/wcos/tls /grant:r piet:f /t /inheritance:r
+win:  icacls C:/Users/piet/wcos/tls /grant:r gs:r /t
+win:  icacls C:/Users/piet/wcos/tls /remove gs
+win:  net user <username> <password> /add                    #password
+win:  net localgroup administrators <username> /add          #password
+win:  wmic useraccount where name='<username>' set PasswordRequired=false
+lin:  cat /etc/group    /usr/bin/groups                        #groups
+lin:  sudo usermod -a -G <group> <user>        add             #groups
+lin:  sudo gpasswd -d <user> <group>           remove          #groups
+======================================================================
+wxp:  [ C:\Documents and Settings\<user> ]                       #home
+wvi:  [ C:\Users\<user> ]                                        #home
+lin:  [ /home/<user> ]                                           #home
+======================================================================
+win:  password.cpl           Password Properties             #password
+lin:  logname  finger                                           #login
+lin   passwd  yppasswd                             #sys#login#password
+lin   chfn    ypchfn                               #sys#login#password
+lin   chsh    ypchsh                                  #sys#login#shell
+lin:  halt                                             #sys#stop#close
+lin:  close                                            #sys#stop#close
+lin:  reboot                                        #sys#logout#reboot
+lin:  sudo apm -s                                           #sys#sleep
+lhp:  kdepasswd                               #menu#sys#login#password
+lhp:  halt                                             #sys#stop#close
+lhp:  reboot                                        #sys#logout#reboot
+lin:  lxde-logout                                              #logout
+----------------------------------------------------------------------
+lin:  cat /etc/passwd                                  
+lin:  sudo cat /etc/shadow                            
+======================================================================
+wxp:  shutdown               Shuts Down Windows                 #close
+lin:  shutdown                                                  #close
+lin:  apm                                                       #close
+lhp:  xterm -e sudo pm-suspend                              #sys#close
+lhp:  xfce4-session-logout                              #menu#shutdown
+lin:  lxsession-default quit                                 #shutdown
+----------------------------------------------------------------------
+shutdown -h now
+shutdown -r now
+win:  rundll32.exe user32.dll,LockWorkStation 
+        hibernate must be turned off : powercfg -h off
+======================================================================
+wvi:  Control Panel > Windows Mobility Center                #settings
+wi7:  control &                Control Panel                 #settings
+lpc:  kcontrol  kcontroledit                                 #settings
+lto:  kcontrol                                               #settings
+lhp:  gnome-control-center                               #sys#settings
+lhp:  xfce4-settings-editor                             #menu#settings
+lhp:  xfce4-settings-helper                                  #settings
+lhp:  xfce4-settings-manager                                 #settings
+lhp:  system-config-services           Services              #settings
+lhp:  system-config-authentication     Authentication        #settings
+lhp:  system-config-kdump              Kernel crash dumps    #settings
+lhp:  systemsettings -caption "%c"                      #menu#settings
+lhp:  /usr/bin/system-config-lvm                     #menu#sys#setings
+lhp:  gconf-editor                                  #menu#sys#settings
+lhp:  gnome-appearance-properties                   #menu#set#settings
+lin:  lxappearance                                           #settings
+lin:  pcmanfm --desktop-pref                                 #settings
+lin:  obconf                                                 #settings
+----------------------------------------------------------------------
+wi7:  "C:/Windows/explorer.exe shell:::{ED7BA470-8E54-465E-825C-99712043E01C}"
+----------------------------------------------------------------------
+win:  Control Panel Options
+    control access                : accessibility options 
+    control admintools            : administation tools 
+    control appwiz.cpl            : add/remove programs      #software
+    control color                 : color selection
+    control desk.cpl              : display properties        #display
+    control desktop 
+    control findfast.cpl          : findfast 
+    control folders               : folder properties 
+    control fonts                 : fonts folder 
+    control inetcpl.cpl           : internet properties      #internet
+    control intl.cpl              : regional settings 
+    control joy.cpl               : joystick properties
+    control keyboard              : keyboard properties 
+    control main.cpl keyboard     : keyboard properties      #keyboard
+    control mlcfg32.cpl           : microsoft exchange 
+    control modem.cpl             : modem properties 
+    control mouse                 : mouse properties 
+    control main.cpl              : mouse properties            #mouse
+    control mmsys.cpl             : multimedia properties       #sound
+    control mmsys.cpl sounds      : sound properties 
+    control netcpl.cpl            : network properties 
+    control password.cpl          : password properties 
+    control main.cpl pc card      : PC card                    #pccard
+    control main.cpl power        : power management            #power
+    control powercfg.cpl          : power management            #power
+    control printers              : printers folder 
+    control schedtasks            : scheduled tasks 
+    control sticpl.cpl            : scanners and cameras 
+    control sysdm.cpl             : system properties          #system
+    control sysdm.cpl add new hardware :                       #system
+    control timedate.cpl          : date/time properties    #time#date
+    control update                : windows update             #update
+======================================================================
+wxp:  access.cpl  accwiz        Accessibility Controls        #desktop
+lin:  xset  xev  xmodmap  xdpyinfo                            #desktop
+lin:  /usr/bin/gdmflexiserver -n  (of -s)            #m#nested desktop
+lto:  /usr/X11R6/bin/fvwm2                                    #desktop
+lhp:  gnome-at-properties                             #sys#set#desktop
+lhp:  xfce4-accessibility-settings                    #sys#set#desktop
+lhp:  gnome-appearance-properties  Desktop look and feel #menu#desktop
+lhp:  xfce4-appearance-settings    Desktop look and feel #menu#desktop
+lhp:  gnome-panel                                        #menu#desktop
+lhp:  xfce4-panel                                        #menu#desktop
+lhp:  xfwm4-workspace-settings         Workspace         #menu#desktop
+lhp:  xfce4-popup-directorymenu        Directory menu         #desktop
+lhp:  xfce4-popup-windowmenu           Window menu            #desktop
+lhp:  [ /etc/X11/prefdm ][ /usr/bin/startx ]                  #desktop
+lhp:  desktop-effects                  Desktop effects    #set#desktop
+lhp:  xfdesktop-settings                                 #menu#desktop
+----------------------------------------------------------------------
+xf86config                               # generate an XF86Config file
+/usr/bin/xset
+/usr/bin/xset b 0
+/usr/bin/xset c 10
+/usr/bin/xset s 360
+/usr/bin/xmodmap -e "pointer = 3 2 1"
+lin:  xhost                                                     #hosts
+lin:  xhost +  # allowd all users the X-window                  #hosts
+lin:  xload &                                                #load#sys
+xlsfonts       # list fonts
+xfd -fn font   # display font
+xwd            # dump a window image
+                 xwd -out <name>.xwd
+                 xwud -in <name>.xwd
+setterm
+xdpyinfo       # display information about an X  server
+xev            # print X events
+xhost          # (un)set hosts
+xload &        # load plot
+xlsfonts       # list fonts
+xfd -fn font   # display font
+xwd            # dump a window image
+                 xwd -out <name>.xwd
+                 xwud -in <name>.xwd
+xmag           # magnification
+lhp:  xmag                               #menu#magnification#grab#util
+xgamma  -gamma <value 0.1-10>
+"C:/Windows/System32/Magnify.exe"
+"$APPSDIR/VirtualMagnifyingGlassPortable/VirtualMagnifyingGlassPortable.exe" &
+lin:  ~/.config/openbox/menu.xml
+======================================================================
+wvi:  Control Panel > Personalization                          #themes
+wvi:  Control Panel > Personalization > Screen Saver           #themes
+lpc:  gnome-theme-manager  gnome-window-properties             #themes
+lto:  screensaver-properties-capplet                           #themes
+lhp:  gnome-screensaver-preferences                        #set#themes
+lhp:  gnome-theme-manager  gnome-window-properties             #themes
+======================================================================
+lin:  xwininfo                                           #info#windows
+lhp:  /usr/bin/gnome-window-properties                    #set#windows
+lhp:  gnome-window-properties                             #set#windows
+lhp:  xfwm4-settings                                 #menu#set#windows
+lhp:  xfwm4-tweaks-settings                          #menu#set#windows
+======================================================================
+lto:  /usr/bin/kicker   /usr/bin/panel                          #panel
+lpc:  /usr/bin/kicker   /usr/bin/gnome-panel                    #panel
+lhp:  /usr/bin/kicker   /usr/bin/gnome-panel                    #panel
+lin:  lxpanelctl                                                #panel
+======================================================================
+wvi:  Control Panel > Personalization                          #colors
+lto:  /usr/bin/gcolorsel                                       #colors
+lhp:  /usr/bin/kcolorchooser                         #menu#util#colors
+......................................................................
+"cursor over window -> focus"
+======================================================================
+win:  C:\Documents and Settings\All Users\Start Menu             #menu
+win:  C:\Documents and Settings\Default User\Start Menu          #menu 
+win:  C:\Documents and Settings\<user>\Start Menu                #menu
+wvi:  Start Menu > Classic Start Menu > Customize > ...          #menu
+wvi:  Control Panel > Taskbar and Start Menu                     #menu
+wvi:  [ C:\Users\<user>\AppDat\Roaming\Microsoft\Windows\Start Menu ]
+lpc:  /usr/bin/alacarte                                          #menu
+lhp:  /usr/bin/alacarte                                          #menu
+======================================================================
+WINDOWS HOTKEYS
+----------------------------------------------------------------------
+wxp:  fn-Del (sys rq)     screenshot                          #hotkeys
+wxp:  Win-break           System Properties                   #hotkeys
+wi7:  Win+F1              Help                                #hotkeys
+wi7:  Alt                 -> Menus in WE and IE               #hotkeys
+wi7:  Alt-Tab             shows windows                       #hotkeys
+wi7:  Alt-F4              Window: close active window         #hotkeys
+wi7:  Alt-Shift-Num       keyboard mouse                      #hotkeys
+wi7:  Alt-Esc             swap between windows                
+wi7:  Win                 Start                               #hotkeys
+wi7:  Win-Tab             Taskbar                             #hotkeys
+wi7:  Win-ArrowUp         Maximize window                     #hotkeys
+wi7:  Win-ArrowDown       Minimize window                     #hotkeys
+wi7:  Win-ArrowRight      shift window to right               #hotkeys
+wi7:  Win-Space           transparent windows                 #hotkeys
+wi7:  Win-NumPlus         Magnifier                           #hotkeys
+wi7:  Win-Pause           Control Panel -> system             #hotkeys
+wi7:  Win-PauseBreak      Windows Experience Index            #hotkeys
+wi7:  dxdiag.exe          DirextX analysis                    #hotkeys
+wi7:  psr                 record all interaction              #hotkeys
+wi7:  Shift-RightMouse    extended menu                       #hotkeys
+wi7:  Win                 Start menu                          #hotkeys
+wi7:  Ctrl-Esc            Start menu                          #hotkeys
+wi7:  Ctrl-Shift-Esc      Task manager                        #hotkeys
+wi7:  Win-D               Hide/Show Desktop                   #hotkeys
+wi7:  Win-T               Taskbar                             #hotkeys
+wi7:  Win-1,2,            first, second, .. item in Taskbar   #hotkeys
+wi7:  Win-E               Computer (Explorer)                 #hotkeys
+wi7:  Win-R               Run command                         #hotkeys
+wi7:  Win-U               ease of access                      #hotkeys
+wi7:                      changed : utilman.exe -> cmd.exe    #hotkeys
+wi7:  Win-P               choose screen ( = fn-f2 )           #hotkeys
+wi7:  Win-F               search                              #hotkeys
+wi7:  Win-M               minimize all windows                #hotkeys
+wi7:  Win+Shft-M          restore windows                     #hotkeys
+wi7:  Win-L               Switch User / Lock Computer         #hotkeys
+wi7:  Win-X               Windows Mobility Center             #hotkeys
+wi7:  Win-C               First Desktop Pictogram             #hotkeys
+wi7:  Win+Ctrl+Tab        Aero Flip 3D windows                #hotkeys
+wi7:  Ctrl+Alt+Tab        3D windows                          #hotkeys
+wi7:  shell:<dir>               opens <dir>                   #hotkeys
+wi7:  Shft+RM on file     extended file menu                  #hotkeys
+wi7:  explorer : shell:sendto|startup|profile|<dir>           #hotkeys
+wi7:  explorer : Ctrl+E : start search (F3)                   #hotkeys
+wi7:  explorer : Win+E : opens new explorer window            #hotkeys
+wi7:  explorer : Ctrl+W : close window                        #hotkeys
+wi7:  explorer : Alt+[Left] : back to last dir                #hotkeys    
+wi7:  explorer : Alt+[Up] : parent dir                        #hotkeys
+wi7:  Taskber  : CTRL+Shift : start as administrator          #hotkeys
+wi7:  Taskbar  : r-mouse    : opens menu                      #hotkeys
+wi7:  Taskbar  : Win-B      : info menu                       #hotkeys
+wi7:  [CTRL] a            select all                          #hotkeys
+lin:  [CTRL] a            select all                          #hotkeys
+wi7:  [CTRL] c            copy                                #hotkeys
+wi7:  [CTRL] f            find                                #hotkeys                              
+wi7:  [CTRL] v            paste                               #hotkeys                                                              
+lin:  [CTRL] v            paste                               #hotkeys                                                              
+wi7:  [CTRL] z            undo                                #hotkeys
+lin:  [CTRL] z            undo                                #hotkeys
+lin:  [CTRL] c            terminates active process           #hotkeys
+lin:  [CTRL] d (z)        terminate keyboard input (logout)   #hotkeys
+lin:  [CTRL] s            stop output to terminal             #hotkeys
+lin:  [CTRL] q            resume output to terminal           #hotkeys
+lin:  [CTRL] u            remove last input line              #hotkeys
+----------------------------------------------------------------------
+-- Windows Explorer
+alt+ArrowUp               dir up
+alt+ArrowLeft             back to last dir
+alt+ArrowRight            to next dir
+alt+D                     focus to address
+F4                        last visited
+alt+P                     preview selected file
+======================================================================
+wxp:  mmsys.cpl              Sounds and Audio                   #sound
+wxp:  sndvol32                                                  #sound
+wxp:  sndrec32                                           #record#sound
+wvi:  Control Panel > Personalization > Sounds [default]        #sound
+wvi:  mmsys.cpl  (wi7,wxp)                                      #sound
+wvi:  SndVol.exe                                                #sound
+wvi:  SoundRecorder.exe                                  #record#sound
+wi7:  mmsys.cpl              Sounds and Audio                   #sound
+lto:  sound-properties                                          #sound
+lto:  grecord                                            #record#sound
+lto:  /usr/share/sounds                                         #sound
+lto:  /usr/bin/oggenc                                    #encode#sound
+lpc:  gnome-sound-properties  gnome-volume-control              #sound
+lpc:  /usr/bin/oggenc                                    #encode#sound
+lhp:  gnome-audio-profiles-properties        #menu#sys#set#audio#sound
+lhp:  gnome-volume-control                       #menu#set#audio#sound
+lhp:  /usr/bin/lame    /usr/bin/ffmpeg                  #wav2mp3#sound
+lhp:  sound-juicer %u           #menu#player#rip#cd#s#tool#audio#sound
+lin:  pavucontrol                                               #sound
+----------------------------------------------------------------------
+lhp:  cdparanoia -svwB  "1-2" [outfile]                     #rip#sound
+lhp:  sound-juicer : rip cd                                 #rip#sound
+lhp:  lame <file>.wav <file>.mp3                        #convert#sound
+lhp:  ffmpeg <file>.<ext>  <outfile>.mp3                #convert#sound
+lhp:  soundconverter : format conversion (no tags !)    #convert#sound
+lhp:  oggenc -q 4 <file>                                #convert#sound
+lhp:  easytag : mp3-tag                                 #mp3tags#sound
+lhp:  rhythmbox                                                 #sound
+lin:  gtkpod : opens iPod; copy files                      #ipod#sound
+web:  Firefox : Easy Youtube Video Downloader Express  #download#sound
+web:  Firefox : online-audio-converter.com              #convert#sound
+======================================================================
+wvi:  Control Panel > Autoplay                               #autoplay
+wvi:  Control Panel > Default Programs > Change Autoplay Settings   #autoplay
+lpc:  /usr/bin/gnome-volume-properties                       #autoplay
+lhp:  /usr/bin/gnome-volume-properties                       #autoplay
+======================================================================
+wvi:  Control Panel > Default Programs               #default#programs
+wvi:  'open with ..' > [program] > Always Use ..     #default#programs
+wvi:  [select] > Properties > Open With              #default#programs
+lto:  file-types-capplet                             #default#programs
+lhp:  gnome-default-applications-properties      #sys#default#programs
+======================================================================
+win:  "start "TMP" /B C:/WINDOWS/system32/cmd.exe" &            #shell
+lin:  chsh  ypchsh                                              #shell
+lin:  tcsh | bsh  | csh  | bash                                 #shell
+lin:  Bourne shells:  [ /etc/profile ]                          #shell
+lin:  [ /etc/csh.login ] [ /etc/csh.cshrc ] [ /etc/bashrc ]     #shell
+lin:  [ ~/.cshrc ] [ ~/.bashrc ] [ ~/.profile ]                 #shell
+lin:  [ ~/.profile ] [ ~/.bash_profile ]                        #shell
+lin:  [ ~/.bashrc ][ ~/.chsrc ][ ~/.kshrc ]                     #shell
+lin:  [ ~/.bash_login ][ ~/.bash_logout                         #shell
+lin:  C shells:  [ /etc/profile.d/ ]                            #shell
+lin:  [ /etc/profile ][ /etc/bashrc ][ /etc/cshrc ]             #shell
+win:  runas /user:`whoami` "cmd.exe /K whoami"                  #shell
+win:  runas /noprofile /user:<name> cmd                         #shell
+======================================================================
+lin:  sudo more /etc/ssh/ssh_config                               #ssh
+lin:  sudo more /etc/ssh/sshd_config                              #ssh
+cyg:  see : 'wcos/tls/ssh.txt'                                    #ssh
+======================================================================
+ssh <user>@<computerid>
+ssh <computerid> -l <user>
+sudo ss -lnp | grep sshd
+ssh -v localhost
+======================================================================
+win:  hypertrm                  Hyperterminal           #util#terminal
+w98:  "C:\WINDOWS\COMMAND.COM"                          #util#terminal
+wxp:  "%SystemRoot%\system32\cmd.exe"                   #util#terminal
+wvi:  "%SystemRoot%\system32\cmd.exe"                   #util#terminal
+lin:  stty  setterm                                     #util#terminal
+lto:  /usr/bin/gnome-terminal   xterm                   #util#terminal
+lpc:  /usr/bin/gnome-terminal                           #util#terminal
+lhp:  /usr/bin/gnome-terminal                           #util#terminal
+lhp:  gnome-terminal                               #menu#util#terminal
+lhp:  terminal                                          #util#terminal
+lhp:  xterm  xconsole                              #menu#util#terminal
+lhp:  konsole                                      #menu#util#terminal
+lhp:  Terminal                                     #menu#util#terminal
+----------------------------------------------------------------------
+stty erase [-> Backspace]
+xterm -cr gold -hc lightblue -sb -sl 500 -j -ls \
+ -fn '*-courier-medium-r-normal-*-12-*-*-*-*-*-*-*' \
+ -fb '*-courier-bold-r-normal-*-12-*-*-*-*-*-*-*' -title "Xterm" \
+ -e csh &
+xterm -fn *-adobe-courier-bold-r-normal--20-140-100-100-m-110-iso8859-1 \
+      -fb *-courier-bold-r-normal-*-20-*-*-*-*-*-*-* \
+      -geometry 71x18 &
+lin:  /usr/bin/gnome-terminal --geometry=22x1+0+960 --window-with-profile='ct' &
+lin:  gnome-terminal --geometry=81x23                            #menu
+cyg:  /usr/bin/rxvt -geometry 22x2 -sl 1500 -fn "Lucida Console-17" -bg yellow -fg black -sr -e /usr/bin/bash  &
+======================================================================
+w98:  "C:\Windows\Explorer.exe"                           #filemanager
+wxp:  "%SystemRoot%\explorer.exe"                         #filemanager
+wxp:  explorer.exe           Windows Explorer             #filemanager
+wvi:  Control Panel > Folder Options                      #filemanager
+wvi:  "%SystemRoot%\explorer.exe"                         #filemanager
+wvi:  Control Panel > Folder Options > View               #filemanager
+wi7:  explorer.exe           Windows Explorer             #filemanager
+wi7:  freecommander                                       #filemanager
+lto:  xterm -e /home/piet/bin/mc   /usr/bin/konqueror     #filemanager
+lpc:  /usr/bin/nautilus    /usr/bin/konqueror             #filemanager
+lpc:  nautilus-file-management-properties                 #filemanager
+lhp:  /usr/bin/nautilus    /usr/bin/konqueror             #filemanager
+lhp:  nautilus-file-management-properties                 #filemanager
+lhp:  gnome-terminal -e mc -c                             #filemanager
+lhp:  nautilus-file-management-properties                 #filemanager
+lhp:  nautilus --no-desktop --browser                #menu#filemanager
+lhp:  thunar-settings                                 #set#filemanager
+lhp:  /usr/bin/thunar                                #menu#filemanager
+lhp:  /usr/bin/thunar / &                                 #filemanager
+lhp:  /usr/lib64/Thunar/ThunarBulkRename %F          #tool#filemanager
+lhp:  mc                    Midnight commander            #filemanager
+lhp:  /usr/bin/konqueror -profile piet &                  #filemanager
+lhp:  dolphin %i -caption "%c" %u                    #menu#filemanager
+lin:  pcmanfm --desktop-pref                              #filemanager
+win:  explorer =                                          #filemanager
+----------------------------------------------------------------------
+win:  $APPSDIR/FreeCommanderPortable/FreeCommanderPortable.exe" &
+wxp:  [ C:\Documents and Settings\<user>\SendTo ]
+wvi:  [ C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Sendto ]
+      [ Tools -> use windows classic folders ]
+      [ open each folder in the same window ]
+      [ single-click to open an item ]
+      [ show hidden files and folders ]
+      [ do not hide extension ]
+      [ <Alt> Extra > Options > View > use selection boxes ]
+lin:  xterm -cr gold -hc lightblue -sb -sl 500 -j -ls -fn 10x20 -e mc &
+======================================================================
+wxp:  xcopy <source-path> <target-path> [options]              #backup
+wxp:  %SystemRoot%\system32\ntbackup.exe                       #backup
+wxp:  %SystemRoot%\system32\restore\rstrui.exe          #system backup
+wi7:  %SystemRoot%\system32\restore\rstrui.exe          #system backup
+wi7:  back                   Recovery (BackOnTrack)     #system backup
+wi7:  "$UTILDIR/control.exe /name Microsoft.BackupAndRestore"& #backup
+wi7:  $TOOLDIR/bat/backupandrestore.bat &                      #backup
+lin:  rsync                                                    #backup
+======================================================================
+win:  winzip                                                  #archive
+win:  $APPSDIR/7-ZipPortable/7-ZipPortable.exe                #archive
+lin:  tar  zip  unzip  zcat  zless  xarchiver          #menu#s#archive
+lto:  gzip  gunzip                                          #zip,unzip
+lpc:  gzip  gunzip                                          #zip,unzip
+lpc:  /usr/bin/file-roller %U                          #menu#s#archive
+lhp:  gzip  gunzip                                          #zip,unzip
+lhp:  /usr/bin/file-roller %U                          #menu#s#archive
+lhp:  xarchiver                                        #menu#s#archive
+----------------------------------------------------------------------
+tar xvf <tar-file> --show-transformed --strip=<#-leading-pathnames>
+======================================================================
+win:  fsmgmt.msc                                          #shared#file
+win:  attrib <filename>                               #attributes#file
+win:  comp   fc                                          #compare#file 
+wxp:  assoc                  File Type Associations              #file
+wxp:  ftype                  File Extension Associations         #file
+wi7:  assoc                  File Type Associations              #file
+wi7:  ftype                  File Extension Associations         #file
+lin:  rm -i <file>;       shred -z -u <file>              #remove#file
+lin:  extract <file>                                     #info on#file 
+lin:  file                                               #type of#file
+lin:  stat                                             #status of#file
+lin:  strings                 #strings of printable characters in#file
+lin:  md5sum                                     #md5 checksum of#file
+lin:  diff  cmp   comm                                   #compare#file 
+======================================================================
+lin:  find                                                       #find
+lto:  gsearchtool   /usr/bin/kfind                          #menu#find
+lpc:  gnome-search-tool    kfind                       #menu#util#find
+lhp:  gnome-search-tool    kfind                       #menu#util#find
+----------------------------------------------------------------------
+find [startdir] -name [file] -print
+find [startdir] -maxdepth [level] -name [file] -print
+find /home/piet/w* -maxdepth 10 -name '*syl*' -print | grep -v '/tnt'| grep dsc | grep pdf
+find /home/piet/piet -maxdepth 5 -name '*.pdf' -print
+find . -name sed.cmd -print
+find ~/ -name sed.cmd -print
+find ~/ -name pat -print
+find ~/ -name dem -print
+find -name "*.pl" -exec less {} \;
+find -name . -exec grep -l "text" {} \;
+find . -mtime -1
+find ~/ -daystart -type f -atime 1
+ls -al --time-style=+%D | grep `date +%D`
+find /home/piet/piet -type f -print | grep -h '.txt'
+find /home/piet/wdoc -type f -print | grep -h '\.m'
+ls -d -1             # list with full path, 1 per line
+======================================================================
+wvi:  Control Panel > Indexing Options                       #indexing
+wvi:  Configuratiescherm > Opties indexeren aanpassen        #indexing
+wvi:                     > Wijzigen > [x]                    #indexing
+======================================================================
+dos:  c:\cdrom\cdrom.sys  (from cdrom.zip)                         #cd
+lto:  /usr/bin/gtcd       /usr/bin/kscd                            #cd
+lto:  /usr/bin/cdparanoia                                   #cd#ripper
+lpc:  /usr/bin/gnome-cd   /usr/bin/kscd                            #cd 
+lpc:  /usr/bin/kaudiocreator   /usr/bin/sound-juicer        #cd#ripper
+lpc:  /usr/bin/cdparanoia                                   #cd#ripper
+lhp:  /usr/bin/gnome-cd   /usr/bin/kscd                            #cd
+lhp:  /usr/bin/kaudiocreator   /usr/bin/sound-juicer        #cd#ripper
+lhp:  k3b                                                #write#cd/dvd
+lhp:  nautilus --no-default-window --no-desktop burn:///       #cd/dvd
+lin:  xfburn                                                   #cd/dvd
+----------------------------------------------------------------------
+dos:  autoexec.bat : C:\DOS\MSCDEX /d:/cd001
+dos:  config.sys : DEVICE=C:\CDROM\CDROM.SYS /d:/cd001
+======================================================================
+lhp:  evince %U                                     #doc#menu#s#viewer
+lhp:  xpdf                                      #doc#pdf#menu#s#viewer
+lhp:  xdvi                                          #doc#menu#s#viewer
+lhp:  gthumb                                        #pic#menu#s#viewer
+lhp:  gthumb-importer              Import from camera          #viewer
+lhp:  sh -c 'gvfs-mount -u "%U"; exec gthumb --import-photos'  #viewer
+lhp:  gwenview %u -caption "%c" %i                      #menu#s#viewer
+lhp:  xnview                                            #menu#s#viewer
+lhp:  gwenview                                          #menu#s#viewer
+lhp:  xv                                           #menu#grab#s#viewer
+lhp:  eog %U                                            #menu#s#viewer
+lhp:  gs                           Ghostscript                 #viewer
+lhp:  kfontview                    Font Viewer                 #viewer
+lhp:  gnome-font-viewer            Font Viewer                 #viewer
+lhp:  xournal                              #menu#s#util#doc#pdf#viewer
+======================================================================
+w98:  "C:\Windows\Notepad.exe"                               #s#editor
+w98:  "C:\Program Files\Accessories\Wordpad.exe"             #s#editor
+wxp:  "%SystemRoot%\system32\edit.exe"                       #s#editor
+wxp:  "%SystemRoot%\system32\notepad.exe"                    #s#editor
+wxp:  "C:\Program Files\Windows NT\Accessories\wordpad.exe"  #s#editor
+wxp:  "C:\   ...   \wscite\SciTe.exe"                        #s#editor
+wxp:  edit                   MS-Dos Editor                     #editor
+wxp   "C:/WINDOWS/\$NtServicePackUninstall\$/wordpad.exe"    #s#editor
+wvi:  "%SystemRoot%\system32\notepad.exe"                    #s#editor
+wvi:  "%ProgramFiles%\Windows NT\Accessories\wordpad.exe"    #s#editor
+wvi:  "C:\   ...   \wscite\SciTe.exe"                        #s#editor
+wi7:  C:/WINDOWS/system32/notepad.exe                        #s#edotor
+wi7:  edit                                                     #editor
+lin:  sed  vi                                                  #editor
+lto:  /usr/local/bin/nedit                                   #s#editor
+lpc:  /usr/X11R6/bin/nedit    kile (for LaTeX)               #s#editor
+lhp:  kile                                               #tex#s#editor
+lhp:  nedit  [ ~/.nedit ] [ ~/.neditdb ]                #menu#s#editor
+lhp:  vi sed awk nedit                                       #s#editor
+lhp:  sed                                                      #editor
+lhp:  /home/piet/.wine/drive_c/windows/notepad.exe      #menu#s#editor
+lhp:  wordpad                                           #menu#s#editor
+lhp:  kwrite                                            #menu#s#editor
+lin:  texdoctk                                                    #tex
+----------------------------------------------------------------------
+sed -e 's/old/new/'
+sed -e 's/old/new_global/g'
+
+# remove spaces from file/directory names
+ls *\ * | sed -e 's/^/mv \"/' | sed -e 's/$/\"/' >! f1
+ls *\ * | sed -e 's/ /_/g' | sed -e 's/\\//g' >! f2
+paste f1 f2 >! f3
+
+ls <dir>/*.txt | awk '{print toupper($0)}'
+ls <dir>/*.txt | awk -F '/' '{print "mv " $0 " " toupper($0)}'
+more /etc/passwd
+awk -F ':' '/sbin/ {print $1}' /etc/passwd
+awk -F ':' '$7 ~ /\/bin/ {print NR " " $5}' /etc/passwd
+echo Hello world > hello.txt
+awk '{print $0}' hello.txt
+awk '{print $1 " beautiful " $2}' hello.txt
+/bin/rm hello.txt
+======================================================================
+w98:  "C:\Program Files\Adobe\Acrobat 5.0\Reader\AcroRd32.exe"  #s#pdf
+lto:  /usr/bin/acroread   /usr/bin/xpdf                         #s#pdf
+lpc:  /usr/bin/acroread   /usr/bin/xpdf                         #s#pdf
+lhp:  /usr/bin/acroread   /usr/bin/kpdf                    #menu#s#pdf
+lhp:  pdfshuffler   pdftk                                    #menu#pdf
+======================================================================
+w98:  "C:\Program Files\Ghostgum\gsview\gsview32.exe"       #ghostview
+wxp:  "C:\Program Files\Ghostgum\gsview\gsview32.exe"       #ghostview
+lto:  /usr/X11R6/bin/gv     /usr/bin/kghostview             #ghostview
+lpc:  /usr/bin/ggv          /usr/bin/kghostview             #ghostview
+lhp:  /usr/bin/evince       /usr/bin/kghostview             #ghostview
+wi7:  "$PROGDIR/Ghostgum/gsview/gsview32.exe"
+wi7:  $APPSDIR/EvincePortable/EvincePortable.exe "$IN" &
+======================================================================
+lto:  /usr/bin/gnumeric                                   #spreadsheet
+lpc:  /usr/bin/oocalc                                     #spreadsheet
+lhp:  /usr/bin/oocalc                                     #spreadsheet
+======================================================================
+lto:  /usr/X11R6/bin/xv  /usr/bin/kuickshow                  #pictures
+lto:  /usr/bin/kview  /usr/bin/ee  /usr/bin/gqview           #pictures
+lpc:  /usr/bin/xcam  /usr/bin/kview  /usr/bin/eog            #pictures
+lhp:  /home/piet/wcos/linux/Apps/xv                          #pictures
+lhp:  /usr/bin/xcam  /usr/bin/eog                            #pictures
+======================================================================
+lto:  /usr/bin/play  /usr/bin/ogg123  /usr/bin/xmms    #s#player#music
+lto:  /usr/X11R6/bin/realplay  /usr/bin/plaympeg       #s#player#music
+lto:  play    :  .au .wav .ogg                           #player#music
+lto:  realplay:  .au .wav                                #player#music
+lto:  ogg123  :  .ogg                                    #player#music
+lpc:  /usr/bin/play  /usr/bin/ogg123  /usr/bin/xmms    #s#player#music
+#lhp:  /usr/bin/play                                    #s#player#music
+#lhp:  /usr/bin/xmms                                    #s#player#music
+lhp:  /usr/bin/ogg123                                  #s#player#music
+#lhp:  dragon                                           #s#player#music
+#lhp:  juk                                              #s#player#music
+lhp:  totem                       Movie Player    #menu#s#player#movie
+lhp:  /usr/bin/rhythmbox                          #menu#s#player#music
+lhp:  /usr/bin/vlc                                #menu#s#player#media
+#lhp:  xine                        Music Player         #s#player#music
+======================================================================
+w98:  "C:\Program Files\Windows Media Player\wmplayer.exe"     #movies
+wxp:  "C:\Program Files\Windows Media Player\wmplayer.exe" /prefetch:1  #movies
+wxp:  mplay32                                                  #movies
+wvi:  "C:\Program Files\Windows Media Player\wmplayer.exe"     #movies
+lin:  kmix                                                     #movies
+lto:  xanim  (.mpeg .mpg .avi .mov (.mpe) )                    #movies
+lto:  xine  (.avi .flv .mp4 .mpe .mpg .mpeg )                  #movies
+lto:  kboodle:                                                 #movies
+lto:  /usr/local/bin/xanim /usr/bin/xine /usr/bin/kaboodle     #movies
+lpc:  /usr/X11R6/bin/xanim /usr/bin/mplayer /usr/bin/kaboodle  #movies
+lhp:  /usr/X11R6/bin/xanim                              #player#movies
+lhp:  /usr/bin/mplayer /usr/bin/xine                           #movies
+lhp:  /usr/bin/kaboodle                                        #movies
+lhp:  gmplayer  (.flv)  smplayer                          #menu#player
+lhp:  flash-player-properties                    #menu#s#player#movies
+======================================================================
+win:  msnsgs                    Windows Messenger            #internet
+win:  inetwiz                   Internet Setup Wizard        #internet
+win:  icwonn1                   Internet Connection Wizard   #internet
+win:  conf                      Netmeeting                   #internet
+wxp:  inetcpl.cpl               Internet Properties          #internet
+wvi:  Control Panel > (Windows) Security (Center)            #internet
+wvi:  inetcpl.cpl               Internet Properties          #internet
+wi7:  inetcpl.cpl               Internet Properties          #internet
+lhp:  gnome-network-preferences                              #internet
+lhp:  kget                      Download Program             #internet
+lhp:  kopete -caption           Messenger                    #internet
+======================================================================
+lin:  wget                                                   #download
+lin:  curl                                            #upload#download
+----------------------------------------------------------------------
+lin:  wget -r --no-host-directories --cut-dirs=2 \ 
+      --no-parent --reject="index.html*" https://<directory
+======================================================================
+w98:  "C:\Program Files\Internet Explorer\Iexplore.exe"  #util#browser
+wxp:  "C:\Program Files\Internet Explorer\iexplore.exe"  #util#browser
+wvi:  "C:\Program Files\Internet Explorer\iexplore.exe"  #util#browser
+lto:  /usr/bin/firefox  /usr/bin/galeon  /usr/bin/konqueror #s#browser
+lpc:  /usr/bin/firefox  /usr/bin/konqueror               #util#browser
+lhp:  /usr/bin/firefox                   #menu#s#util#internet#browser
+lhp:  /usr/bin/konqueror                 #menu#s#internet#util#browser
+lhp:  /usr/bin/seamonkey                          #menu#s#util#browser
+lhp:  links                              #menu#s#util#internet#browser
+lhp:  xterm -geometry 70x30 -cr -sb -sl 500 -j -fn 10x20 -e /usr/bin/links   #s#browser
+lhp:  /opt/google/chrome/google-chrome   #menu#s#util#internet#browser
+----------------------------------------------------------------------
+win:  RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess <#>    #explorer
+win:  1:hist.;2:cookies;8:temps;16:formdata;32:passwrds;255:pers.data
+lin:  Flash Cookies: ~/.macromedia/Flash_Player/#SharedObjects
+lin:  Flash Cookies: rm -rf ~/.macromedia/Flash_Player/#SharedObjects
+lin:  Flash Cookies: ln -s /dev/null ~/.macromedia/Flash_Player/#SharedObjects
+wi7:  Flash Cookies: %userprofile%\AppData\Roaming\Microsoft\Windows\Cookies
+======================================================================
+lto:  /usr/bin/kmail  /usr/bin/evolution            #menu#s#util#email
+lpc:  /usr/bin/mozilla-thunderbird &                            #email
+lhp:  /usr/bin/thunderbird                                      #email
+lhp:  /usr/bin/evolution                                   #menu#email
+lhp:  /usr/bin/claws-mail                     #menu#util#internet#mail
+lhp:  /usr/bin/seamonkey -mail                #menu#util#internet#mail
+----------------------------------------------------------------------
+wvi:  local mail folders :
+      [ C:\Users\<user>\AppData\Local\Microsoft\Windows Mail ]
+# start a mail notification program
+/usr/sbin/mailbox -S "MY MAIL" -m "/usr/sbin/winterm -c /usr/sbin/Mail"
+======================================================================
+win:  C:\Program Files\WS_FTP\WS_FTP95.exe          #util#internet#ftp
+win:  $APPSDIR/FileZillaPortable/FileZillaPortable.exe            #ftp
+w98:  "C:\Program Files\Ws_ftp\WS_FTP95.exe"                      #ftp
+wxp:  "C:\Program Files\WS_FTP\WS_FTP95.exe"                      #ftp
+wxp:  "%SystemRoot%\system32\ftp.exe"                             #ftp
+wxp:  ftp                    MS-Dos FTP                  #ftp#internet
+wi7:  ftp                    MS-Dos FTP                  #ftp#internet
+lto:  /usr/bin/gftp                                 #util#internet#ftp
+lpc:  /usr/bin/gftp                                 #util#internet#ftp
+lhp:  /usr/bin/gftp %u                         #menu#util#internet#ftp
+======================================================================
+lin:  scp                                                 #ssh#scp#ftp
+wi7:  cd $APPSDIR/FileZillaPortable/ ; "./FileZillaPortable.exe" &
+
+======================================================================
+scp <sourcefile> <computerid>:<targetfile>
+scp <sourcefile> <<user>@<computerid>:<targetfile>
+scp -rp <multiple source files> <computerid>:<target directory>
+======================================================================
+win:  findstr                                              #text#tools
+wxp:  notepad.exe            Notepad                     #tools#editor
+wi7:  notepad.exe            Notepad                     #tools#editor
+lin:  pr  expand  unexpand  tr  nl  wc  cat  more  less    #text#tools
+lin:  man ascii fmt                          #ascii codes  #text#tools
+lin:  sort                                                 #text#tools
+lpc:  a2ps           psnup  grep                           #text#tools
+lhp:  a2ps   mpage   psnup  grep                           #text#tools
+lhp:  ispell -t <file> | aspell -H -c <file>               #text#tools
+lhp:  acroread                                  #pdf#doc#text#s#viewer
+lhp:  kile           (La)TeX development env.         #tex#text#editor
+lhp:  awk            Pattarn scanning/processing            #text#tool
+lhp:  okular                               #pdf#menu#doc#text#s#viewer
+cyg:  aspell -t -c <file> | aspell -H -c <file>            #text#tools
+----------------------------------------------------------------------
+convert examples
+head / tail / cut / join / paste / sort / split / fold / fmt 
+
+a2ps --portrait --columns=1 --no-header --output=<outputfile> <inputfile>
+a2ps --landscape --no-header --borders no --output=<outputfile> <inputfile>
+a2ps --portrait --columns=1 --no-header --borders no -Pps1 <inputfile>
+a2ps --landscape --columns=1 --no-header --font-size=11 --output=OUTFILE.ps INFILE.txt
+a2ps --portrait  --columns=1 --no-header --font-size=10 --output=OUTFILE.ps INFILE.txt
+a2ps --landscape --no-header --columns=1 --borders no --chars-per-line=165 --output=OUTFILE.ps INFILE.txt
+
+convert : part of 'imagemagick'
+convert : https://legacy.imagemagick.org/script/download.php
+convert : 'imagemagick' -> display ; left-mouse -> menu
+
+convert -append IN1.jpg IN2.jpg ... EX.jpg
+convert -append IN1.pdf IN2.pdf ... EX.pdf  # increased file size !!
+convert <input> <output>  : extension determines format
+convert foto.jpg -resize 800x600 foto_new.jpg
+convert foto.jpg -resize x600 foto_new.jpg
+convert foto.jpg -resize 50% foto_new.jpg
+convert foto.jpg -rotate "+90<" foto_new.jpg
+convert imp.jpg -font <font> -pointsize 16 -fill black -draw "text 0.590'Copyright'" img_new.jpg
+convert foto.jpg -border 10x10 -bordercolor "#000000" foto_new.jpg
+convert foto.jpg -mattecolor "#000000" -frame 10x10 foto_new.jpg
+convert foto.jpg -mattecolor "#000000" -frame 20x20+11 foto_new.jpg
+convert -mattecolor "#000000" -frame 20x20+11 foto1.jpg foto2.jpg +append foto_new.jpg
+convert foto1.jpg foto2.jpg -morph 40 animation.gif
+convert foto.jpg -colorspace gray foto_new.jpg
+convert foto.jpg -modulate 100,0,100 foto_new.jpg
+convert foto.jpg -fill violet -tint 70 foto_new.jpg
+convert foto.jpg -fill red -colorize 0,10,90 foto_new.jpg
+convert foto.jpg -vignette foto_new.jpg
+convert foto.jpg -vignette 40x100 -background blue foto_new.jpg
+convert foto.jpg -charcoal 2 foto_new.jpg
+convert foto.jpg -swirl 120 foto_new.jpg
+convert foto.jpg -implode 1.2 foto_new.jpg
+convert foto.jpg -spread 5 foto_new.jpg
+convert foto.jpg -spread 20 foto_new.jpg
+convert foto.jpg -blur 20 foto_new.jpg
+convert foto.jpg -gaussian 20 foto_new.jpg
+convert foto.jpg -sharpen 20 foto_new.jpg
+
+enscript -p <exfile.ps> <infile.txt>
+enscript -1 -B --media=A4 --language=html --output=OUTFILE INFILE 
+enscript -1 -B --media=A4 --language=PostScript --output=EX.ps IN.txt 
+enscript -1 -B --media=A4 --language=html --output=EX.html IN.txt 
+
+find . -name  "<name>" -print 
+
+fmt <input>                    # format text to 75 line length
+fmt -s <input>                 # don't fill lines
+
+gs -dBATCH -dNOPAUSE -dQUIET -sPAPERSIZE=a4 -sDEVICE=pdfwrite -sOutputFile=OUTFILE.pdf INFILE.ps 
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m '-sOutputFile=EX-%03d.png' IN.pdf 
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m -dFirstpage=1 -dLastpage=1 '-sOutputFile=EX.png' IN.pdf 
+
+htmldoc --continuous --fontsize 11 -t pdf14 -f OUTFILE.pdf INFILE.html 
+htmldoc --continuous --fontsize 11 -t ps3 -f OUTFILE.pdf INFILE.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --no-links -f OUTFILE.pdf INFILE.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --no-links --nup 2 -f OUTFILE.pdf INFILE.html 
+htmldoc --continuous --fontsize 11 -t pdf14 --links --linkcolor blue --linkstyle underline -f OUTFILE.pdf INFILE.html 
+
+ps2pdfwr INFILE.ps OUTFILE.pdf 
+ps2pdf IN.ps EX.pdf 
+pdf2ps IN.pdf EX.ps 
+
+mpage -2 -f <file> >! <file.ps>        % -f:  folds lines
+mpage -1 -l <file> >! <file.ps>        % -l:  landscape mode (1 page)
+mpage -1 -bA4 <file> >! <file.ps>      % -bA4:  A4 paper size
+mpage -2 -Pps1 <file.txt>              % prints to printer
+
+pdftk A=<upsidedown>.pdf cat A1-endsouth output <upside>.pdf 
+pdftk A=<odd_pages>.pdf B=<even_pages>.pdf shuffle A B output <collated_pages>.pdf 
+pdftk A=<odd_pages>.pdf B=<even_pages>.pdf shuffle A Bend-1 output <collated_pages>.pdf 
+pdftk A=<full_doc>.pdf cat Aeven output <even_pages>.pdf
+pdftk A=<full_doc>.pdf cat Aodd output <odd_pages>.pdf
+pdfshuffler
+psselect -p2-100000 tex.ps tex1.ps
+
+psnup -d -b5 -m5 -nup 2 tex.ps >! Ttex.ps
+psnup -d -pA4 -b5 -m5 -nup 4 tex.ps >! Ttex.ps              #for pc423
+psnup -d -pA4 -b5 -m5 -nup 2 tex.ps >! Ttex.ps
+psnup -d -pA4 -b5 -m5 -nup 16 INFILE.ps >! OUTFILE.ps 
+
+tr [opt] set1 set2             #translate or delete characters
+fold [opt] file                #wrap each input line 
+split [opt] infile             #split a file into pieces
+csplit [opt] file pattern      #split a file into sections
+paste [opt] file               #merge lines of files
+cut [opt] file                 #remove sections from each line of file
+
+gzip -dc < /usr/share/man/man1/psselect.1.gz > psselect.1
+groff -man -Tps < psselect.1 > psselect.ps
+psbook psselect.ps | psnup -n 2 > psselect.booklet.ps
+
+sort -g INFILE > OUTFILE
+pr --columns=3 --separator='|' --omit-header --omit-pagination --page-width=71 ORG.txt > NEW.txt
+---- JOIN PDF-FILES 
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=outfile input1 input2 ...  
+---- PDF -> UPSIDE-DOWN 
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=outfile -c '<</Orientation 2>> setpagedevice' input1  
+---- EXTRACT PAGES m TO n FROM PDF 
+gs -dBATCH -dNOPAUSE -dQUIET -dSAFER -sDEVICE=pdfwrite -dFirstPage=m -dLastPage=n -sOutputFile=output input 
+---- MAKE PNG PREVIEW OF EACH PAGE 
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m '-sOutputFile=OUTPUT-%03d.png' INPUT.pdf  
+gs -dSAFER -dBATCH -dNOPAUSE -r50 -sDEVICE=png16m -dFirstpage=1 -dLastpage=1 '-sOutputFile=OUTPUT.png' INPUT.pdf 
+---- EN/DECRIPT
+openssl enc -aes-256-cbc -e -in INFILE -out OUTFILE -p -pass pass:PASSWD 
+openssl enc -aes-256-cbc -d -in INFILE -out OUTFILE -p -pass pass:PASSWD 
+sort -t "|" -k 3,3 -k 4,4 
+sort -g
+======================================================================
+w98:  "C:\Program Files\gs\gs8.54\bin\gswin32.exe"        #ghostscript
+wxp:  "C:\Program Files\ghostscript\gs8.54\bin\gswin32.exe"  #ghostscript
+lto:  /usr/bin/gs                                         #ghostscript
+lpc:  /usr/bin/gs                                         #ghostscript
+lhp:  /usr/bin/gs                                         #ghostscript
+wi7:  "$APPSDIR/Ghostscript/bin/gswin32.exe" &
+wi7:  "$PROGDIR/gs/gs8.54/bin/gswin32.exe" \ 
+      "-IC:/Program Files/gs/gs8.54/lib;
+      C:/Program Files/gs/fonts;
+      C:/Program Files/gs/gs8.54/Resource"
+......................................................................
+gs -dQUIET -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -sDEVICE=pdfwrite -sOUTPUTFILE=tex.pdf tex.ps
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=out.pdf in1.pdf in2.pdf 
+ps2pdf <file.ps> <file.pdf>
+psselect -e <file.ps> <evenpages.ps>
+psselect -o <file.ps> <oddpages.ps>
+psselect -p#, #<file.ps> <select.ps>
+psselect -r <file.ps> <reversed.ps>
+OdfConverter /i <file.docx> <file.odt>
+======================================================================
+/usr/bin/convert                                     #convert#graphics
+/usr/bin/jpegtran                                    #convert#graphics
+/usr/bin/pstopnm                                     #convert#graphics
+/usr/bin/pnmtojpeg                                   #convert#graphics
+/usr/bin/jpegtopnm                                   #convert#graphics
+/usr/bin/pnmtops                                     #convert#graphics
+/usr/bin/fig2dev                                     #convert#graphics
+----------------------------------------------------------------------
+fig2dev -L eepic  test-xfig.fig  out-xfig.eepic
+fig2dev -L eps    test-xfig.fig  out-xfig.eps
+fig2dev -L jpeg   test-xfig.fig  out-xfig.jpg
+fig2dev -L pdf    test-xfig.fig  out-xfig.pdf
+fig2dev -L ps     test-xfig.fig  out-xfig.ps
+convert  out-xfig.ps  out-convert.gif
+ps2gif   out-xfig.ps  out-ps2fig.gif
+======================================================================
+lin:  /usr/X11R6/bin/xfontsel   /usr/bin/gfontsel     #character fonts
+lpc:  gnome-font-properties                           #character fonts
+======================================================================
+w98:  "C:\Windows\Charmap.exe"                         #util#character
+wxp:  "%SystemRoot%\system32\charmap.exe"              #util#character
+wvi:  "%SystemRoot%\system32\charmap.exe"              #util#character
+wi7:  "%SystemRoot%\system32\charmap.exe"           #m(char)#character
+lto:  /usr/bin/gcharmap                                #util#character
+lhp:  gnome-character-map  gucharmap  charmap     #menu#util#character
+lin:  charmap                                          #util#character
+======================================================================
+wxp:  "C:\MiKTeX\localtexmf\utils\eps2pdf.exe"                    #tex
+lin:  latex xdvi kdvi dvips                                       #tex
+lin:  tlmgr                                                       #tex
+======================================================================
+wi7:  $APPSDIR/Gnuplot/binary/gnuplot.exe
+lto:  /usr/bin/X11/xfig  /usr/bin/gimp  /usr/bin/gnuplot    #util#draw
+lto:  /usr/X11R6/bin/display                                #util#draw
+lpc:  /usr/bin/X11/xfig  /usr/bin/gimp  /usr/bin/gnuplot    #util#draw
+lhp:  /usr/bin/xfig  /usr/bin/gimp  /usr/bin/tgif      #menu#util#draw
+lhp:  /usr/bin/gnuplot                                      #util#draw
+lhp:  kolourpaint                                      #menu#util#draw
+lhp:  kruler                                                #util#draw
+lhp   qcad  synfig                                               #draw
+======================================================================
+w98:  "C:\Windows\Calc.exe"                           #util#calculator
+wxp:  "%SystemRoot%\system32\calc.exe"                #util#calculator
+wi7:  calc.exe               Calculator (RC)          #util#calculator
+lin:  kcalc  gcalc  xcalc  galculator                 #util#calculator 
+lhp:  gnome-calculator  gcalctool                #menu#util#calculator
+======================================================================
+lto:  matlab             perl   gcc   f77   pgf77         #programming
+lpc:  matlab   octave    perl   gcc   f77                 #programming
+lhp:  matlab   octave    perl   gcc   f77   startlazerus  #programming
+----------------------------------------------------------------------
+MSC.Marc/Mentat : 
+/usr/local/marck2005r3-emt64/flexlm/licenses/license.dat
+SERVER localhost.localdomain 001F297BE63E 27500
+DAEMON MSC /usr/local/marck2005r3-emt64/flexlm/linux/msc
+chmod uog+rx license.dat
+chgrp users license.dat
+wi7:  $BASEDIR/octave/octave-4.4.0-w32/octave.bat
+wi7:  "C:\Program Files\MATLAB\R2009b\bin\matlab.exe" -nodesktop -nosplash -r 'pwd'
+lhp:  /usr/local/matlab2015b/bin/matlab -nodesktop -nosplash -r 'opengl neverselect'
+m15:  /src/matlab2015b/bin/matlab -nodesktop -nosplash 
+======================================================================
+lto:  /usr/bin/dosbox                                     #dos#virtual
+lpc:  /usr/bin/dosbox                                     #dos#virtual
+lpc:  /usr/bin/VirtualBox                                #menu#virtual
+lhp:  /usr/bin/VirtualBox                                     #virtual
+lhp:  /usr/bin/dosbox                                #menu#dos#virtual
+----------------------------------------------------------------------
+Installeer VirtualBox via Setup exe-file
+Maak Virtual Machine
+ CD/DVD : ISO 
+ Shared folders : kies folder to sharemet <naam>
+Maak Harddisk
+Run iso-file van guest OS en installeer dit.
+Install Guest Additions
+Make dir : /mnt/<mntnaam>
+In fstab :
+ <naam> /mnt/<mntnaam> vboxsf rw,uid=1000,gid=1000  0 0
+START FROM USB
+cd %programfiles%\oracle\virtualbox
+VBoxManage internalcommands createrawvmdk -filename \
+ "%USERPROFILE%"\.VirtualBox\usb.vmdk -rawdisk \\.\PhysicalDrive#
+VBoxManage internalcommands createrawvmdk -filename \
+ ~/.VirtualBox/usb.vmdk -rawdisk /dev/sdb1
+======================================================================
+lin:  xclock -geometry 85x85-0+0 -background lightgreen &  #util#clock
+lto:  xclock -geometry 80x80-0+0 &                         #util#clock
+lhp:  xclock -geometry 80x80-0+0 &                         #util#clock
+lhp:  xclock -geometry 85x85-0+0 -background lightgreen &  #util#clock
+======================================================================
+lin:  dmesg   [ /var/log/ ]                           #kernel#messages
+======================================================================
+lin:  [ /etc/protocols ]                                    #protocols
+======================================================================
+wi7:  NX client                                             #nx#client
+lhp:  NX server                                             #nx#server
+lhp:  sudo /usr/NX/bin/nxclient                                    #nx
+lhp:  sudo /usr/NX/bin/nxserver --help                             #nx
+lhp:  sudo /usr/NX/bin/nxserver --status|--start|--stop|--restart  #nx
+======================================================================
+win:  osk.exe                                    #tool#screen#keyboard
+win:  wmplayer       Windows Media Player         #tool#s#media#player
+wxp:  magnify.exe            Windows Magnifier                   #tool
+wi7:  magnify.exe            Windows Magnifier                   #tool
+lhp:  gnome-help                                                 #help
+lhp:  /usr/bin/iok                          #menu#tool#screen#keyboard
+lhp:  gnome-screenshot --interactive                   #menu#grab#tool
+lhp:  gnome-panel-screenshot       Screenshot                    #tool
+lhp:  ksnapshot -caption "%c"      Snapshot            #menu#grab#tool
+lhp:  libreoffice %U                                        #menu#tool
+lhp:  libreoffice --calc %U        oocalc                   #menu#tool
+lhp:  libreoffice --draw %U        oodraw                   #menu#tool
+lhp:  libreoffice --impress %U     ooimpress                #menu#tool
+lhp:  libreoffice --writer %U      oowriter                 #menu#tool
+lhp:  libreoffice --math %U        oomath                   #menu#tool
+lhp:  klipper                                     #clipboard#menu#tool
+lhp:  startlazarus %f                                       #menu#tool
+lhp:  synfigstudio %F                                       #menu#tool
+lhp:  qcad                                                  #menu#tool
+cyg:  ~piet/bin/onof                                           #system
+cyg:  more ~piet/bin/onof.log                                  #system
+lhp:  m mag                            #m#grab#magnification#wine#menu
+======================================================================
+router:
+ipconfig /all -> Standard Gateway = web-address router --> browser
+- eigen wachtwoord OPGEVEN
+- remote management UIT
+- ssid (Service Set IDentifier) UIT (INVISIBLE) na config netw.app.
+- mac-filters INSTELLEN na config netw.app.
+- VoIP / DMZ (eigen server) / UPnP (extern hardware) : UIT
+======================================================================
+man sysctl                                                #info system
+temporary:  echo <value> > /proc/sys/<parameter>
+permanent:  /etc/sysctl.conf:  <parameter> = <value>
+======================================================================
+wvi:  Control Panel > Programs and Features                  #settings
+======================================================================
+lto:  /usr/X11R6/bin/xman                               #documentation
+======================================================================
+wxp:  "C:\ProgramFiles\Samsung\SamsungPCStudio3\Launcher.exe"     #gsm
+wi7:  "C:\ProgramFiles\Samsung\SamsungPCStudio3\Launcher.exe"     #gsm
+======================================================================
+lin:  man  apropos  info  pinfo  ldd  strace         #info on software
+lin:  which  locate                                     #find software
+----------------------------------------------------------------------
+ldd /bin/bash                # shows libraries used by  /bin/bash
+man -t man > man.ps
+strace -eopen /bin/ls        # shows opened files by /bin/ls
+rpm -qa                      # all installed rpm's
+m infsoft
+updatedb : update locate's database /var/spool/locate/locatedb
+locate psselect
+
+======================================================================
+lhp:  xfce4-session-logout                            #menu#sys#logout
+======================================================================
+Windows software: <= means that it is downloaded to ~/wcos/mswin/Src or ~/wcos/mswin/apps or installed in VirtualBox
+ClearAfterME    :  cleanup after me (op USB)      = cleanafterme.exe              <= www.nirsoft.net/utils/clean_after_me.html
+cports          :  view open ports/connections    = cports.zip                    <= ?
+cpuz_144.exe    :  cpuz_144 install (sys info)
+cutepdf         :  pdf writer                    <=                               <= http://www.cutepdf.com               
+cygwin          :  shells in windows              = cygwin                        <= www.cygwin.com/
+dll             :  dll files                                                       = www.dll-files.com
+drivermax       :  copy and restore drivers       =                               <= www.drivermax.com/
+drivermax       :  copy and restore drivers       =                                = www.innovative-sol.com/drivermax
+easygps         :  gps software                                                    = www.easygps.com
+excelviewer     :  Excel 2007 viewer             <= ExcelViewer.exe               <= ?
+flashplayer     :  flash player                  <= install_fl_pl.exe             <= www.adobe.com/products/flashplayer/
+flashplayer     :  flash player                  <= uninstall_fl_pl.exe           <= www.adobe.com/products/flashplayer/
+floola          :  ipod server                   <= Floola-win.zip                <= www.floola.com
+gmer.exe        :                                                                 <= www.gmer.net/files.php
+gnumeric        :  spread sheet                                                    = projects.gnome.org/gnumeric/
+K-Lite          :  Codec Pack                                                     <= http://codecpack.nl/klcodec.htm
+K-Lite          :  Codec Pack                                                     <= www.codecguide.com/download_kl.htm
+LogiFlash       :                                                                  = ct-softlink 0903030
+memorymonitor   :  memory monitor                                                  = www.mkn-software.de/en/software
+net speed       :  net speed                      =                                = www.speedtest.net
+ofview          :  displays opened files          = ofview.zip                    <= www.nirsoft.net/utils/cports.html
+optinfo.exe     :  optical drive info and test                                    <= www.alexnolan.net/software/opticalinfo.htm
+ping test       :  ping speed                     =                                = Pingtest.net
+powerpointviewer:  powerpoint2007 viewer          = PowerPointViewer.exe          <= ?
+PowerSoundEditorFree.exe : sound manipulation (install)
+pstools         :  ps tools                      <= PsTools.zip                   <= tinyurl.com/pstools
+RealPlayer11    :  real player 11                 = RealPlayer111GOLD.exe         <= ?
+rcsetup114.exe  :  recovery deleted files                                         <= http://www.recuva.com/
+rocketdock      :  start menu                     = RocketDock-v1.3.5.exe         <= http://rocketdock.com/  | PCMVistaInfo_2
+samsung         :  samsung gsm tools             <= samsung                       <= website samsung
+scope           :  scope                                                          <= http://www.zeitnitz.de/Christian/scope_en
+spybotsd162.exe :  spybot search & destroy 1.6.2.46
+holmimpuls      :  impuls generator                                               <= http://www.holmacoustics.com/holmimpuls.php
+startup delayer :  windows startup delayer                                         = www.r2.com.au
+sumatra pdf     :  pdf viewer                                                      = blog.kowalczyk.info/software/sumatrapdf 
+switch          :  convert audio codecs                                            = www.nch.com.au/switch
+SyncBack        :  sync and backup               <= SyncBack_Setup_NL.exe         <= www.2brightsparks.com/ | PCMVistaInfo_2
+SysSpec         :  system information            <= SysSpec.exe                   <= www.alexnolan.net/software/sysspec.htm
+Uninstaller     :  uninstall windows programs                                      = www.revouninstaller.com
+unlocker        :  unlocks programs               = unlocker1.8.7.exe              = ccollomb.free.fr/unlocker/
+viewers         :  MO 2007 viewers                                                 = PCA224
+winamp          :  media player                                                    = www.winamp.com
+wireshark       :                                 = wireshark-setup-1.0.5.exe     <= ?
+wordview        :  MS word 2007 viewer            = wordview_nl-nl.exe            <= ?
+ws_ftp          :  windows ftp                   <= ws-ftp32                      <= TU software server
+----------------------------------------------------------------------
+support.microsoft.com/kb/947709      -> netsh
+support.microsoft.com/290301         -> Istaller Clean Up Utility
+support.microsoft.com/kb/290301      -> install cleanup utility
+======================================================================
+www:  #google  http://www.google.com/translate_t                
+www:  #www     http://ranking.thumbshots.com
+www:  #google  http://www.google.com/advanced_search
+www:  #google  http://www.googleguide.com/special_tools.html
+www:  #google  http://news.google.com/
+======================================================================
+FILES
+----------------------------------------------------------------------
+/home/piet/wcos/linux/cos/linux/linux.txt
+
+==== User and Security Files
+/etc/group              User group information
+/etc/npasswd            npasswd configuration file
+/etc/shadow             shadow password file
+/etc/passwd             User account information
+==== Networking Files
+/etc/bootptab           Internet Bootstrap Protocol server database
+/etc/exports            Directories to export to NFS clients
+/etc/gateways           List of gateways
+/etc/hosts              Hostname to IP address mapping file
+/etc/hosts.equiv        Lists of trusted hosts and remote users
+/etc/inetd.conf         inetd configuration file
+/etc/named.conf         named default initialization file
+/etc/networks           Known networks
+/usr/lib/named or/etc/named.d           named configuration files
+/etc/smb.conf or /etc/samba/smb.conf    SAMBA configuration file
+/etc/snmpd.conf         SNMP daemon configuration file
+/etc/ftpaccess          FTP configuration file
+/etc/httpd/access.conf  HTTP access configuration file
+/etc/httpd/httpd.conf   HTTP daemon configuration file
+/etc/httpd/srm.conf     HTTP server resource management configuration file
+/etc/services                   Network services list
+==== X-Windows Files
+/etc/XF86Config or /etc/X11/XF86Config  X-Server configuration file
+/etc/X11/xinit/xinitrc                  xinit configuration file
+~/.xinitrc                      User-specific xinit configuration file
+~/.fvwm2rc                      fvwm configuration file
+/usr/lib/X11/system.fvwmrc      System default MWM configuration file
+/usr/lib/X11/app-defaults       Application-specific defaults
+~/.Xdefaults-hostname   Host-specific defaults
+==== System Start-Up Files
+/etc/inittab                    init configuration file
+/etc/lilo.conf                  Lilo configuration file
+/etc/rc*                        System start-up scripts
+==== System Log Files
+/etc/syslog.conf                System login configuration file
+/var/log/message                General system log file
+==== Miscellaneous Files
+/etc/sysconfig                  Miscellaneous configuration files 
+**********************************************************************
+LAPTOP83:  SETTINGS AND COMMANDS                                #lap83
+======================================================================
+EMAIL:                                              #lap83 Thunderbird
+----------------------------------------------------------------------
+account name                   :  p.j.g.schreurs@tue.nl
+your name                      :  piet schreurs
+email address                  :  p.j.g.schreurs@tue.nl
+reply-to-address               :  -
+organization                   :  -
+attache signature              :  -
+attache card msg               :  -
+server settings   
+server type                    :  IMAP Mail Server
+server name                    :  webmail.tue.nl     
+server port                    :  993 (default 993) / 143
+user name                      :  pschreur
+security                       :  SSL / None
+secure authentication          :  -
+check new mail at startup      :  +
+check new mail every           :  10 min
+delete to                      :  Trash Folder
+cleanup Inbox on exit          :  -
+empty Trash on exit            :  -
+IMAP server directory          :  -
+show only subscribed folders   :  +
+use IDLE command if supported  :  +
+max server connections in cache:  5
+Local directory                 :
+  /home/piet/.thunderbird/qk4q97lp.default/ImapMail/webmail.tue-2.nl
+Copies and Folders 
+place a copy in                :  Sent on server account
+place drafts in                :  Drafts on Local Folders
+templates in                   :  Templates on server account
+composition and addressing
+HTML format                    :  +
+automatic quote on reply       :  +
+download messages locally      :  -
+delete old messages            :  never
+Junk settings      
+enable adaptive junk control   :  +
+move adaptive junk to          :  Junk on server account
+move new junk to               :  Junk on Local Folders
+Return receipts
+use global return receipts     :  +
+Security
+digital signing                :  -
+encryption                     :  -
+certificates                   :  -
+Outgoing Server (SMTP)          
+description                    :  -
+server name                    :  mailhost.tue.nl
+port                           :  25 (default 25)
+user name                      :  pschreur
+security                       :  None
+----------------------------------------------------------------------
+                               :  imap.gmail.com
+                               :  SSL
+                               :  993
+----------------------------------------------------------------------
+                               :  pop.gmail.com
+                               :  SSL
+                               :  995
+----------------------------------------------------------------------
+Outgoing Server (SMTP)          
+description                    :  -
+server name                    :  smtp.gmail.com
+port                           :  465 (default 465) or 587
+authourisation                 :  yes
+user name                      :  pschreur
+security                       :  SSL 
+Preferences
+start page on launch           :  -
+forward message                :  as attachment
+auto save every                :  5 min
+font                           :  fixed width / medium
+address book                   :  local
+add outgoing addresses to      :  Personal address book
+scan email for scam            :  +
+check with anti-virus software :  -
+saved passwords                :  -
+attachment folder              :  -
+open new message in            :  existing window
+internet connection            :  direct
+connect timeout                :  60 sec
+always startup online          :  +
+auto-check updates             :  -
+certificates                   :  -
+revocation lists               :  -
+verification                   :  -
+security devices               :  ?
+======================================================================
+BROWSER                                                 #lap83 Firefox
+----------------------------------------------------------------------
+startup                        :  show home page
+home page                      :  file:///home/piet/wwww/home.html
+show download window           :  +
+close it when completed        :  +
+save files to                  :  Downloads
+block pop-up windows           :  + (exceptions ->)
+load images automatically      :  + (exceptions ->)
+enable javascript              :  + (advanced ->)
+fonts                          :  senf / size 16
+applications                   :  allways ask
+accept cookies                 :  - (exceptions ->)
+accept third-party cookies     :  - 
+keep until                     :  expire
+clear history on exit          :  - (settings ->)
+warn on installation add-ons   :  + (exceptions ->)
+remember passwords             :  -
+use smooth scrolling           :  +
+check spelling                 :  -
+network connection             :  direct / proxy
+HTTP Proxy                     :  proxy.wfw.wtb.tue.nl  / 80
+SSL Proxy                      :  proxy.wfw.wtb.tue.nl  / 443
+FTP Proxy                      :  proxy.wfw.wtb.tue.nl  / 80
+Gopher Proxy                   :  proxy.wfw.wtb.tue.nl  / 80
+SOCKS Host                     :  -
+SOCKs version                  :  v5
+No proxy for                   :  localhost, 127.0.0.1, tue.nl
+cache space                    :  150 MB
+automatically update           :  -
+encryption                     :  SSL 3.0 and TLS 1.0
+certificate request            :  always ask
+certificates                   :  + (?)
+about:config
+browser.sessionhistory.max_entries:  5
+about:buildconfig
+about:credits
+about:license
+about:plugins
+ Adobe Acrobat
+ Cortona3D Viewer
+ Google Earth Plugin
+ Java Deployment Toolkit
+ Shockwave Flash   
+ Shockwave for Director
+ Silverlight Plug-In
+ VLC Web Plugin
+ Windows Activation Technologies
+extensions (add-ons)
+ Adblock Plus                     
+ BetterPrivacy                    
+ CS Lite Mod
+ DOM Inspector
+ Downloadhelper                   
+ DownThemAll                      
+ EPUBReader                       
+ Exif Viewer 1.55                
+ FoxyProxy Standard
+ Ghostery
+ HTTPS-Everywhere 
+ NoScript
+ QuickProxy
+ Save Text To File
+ ScrapBook  
+ Screengrab
+ YouTube to MP3  
+ Ghostery                      :  +
+hotkeys
+Shift-Ctrl-Del                 :  cleanup in browser          #hotkeys
+======================================================================
+GOOGLE                                                         #google
+----------------------------------------------------------------------
+www.google.com/products"
+www.google.nl/preferences"
+www.google.nl/alerts"
+www.google.nl/language_tools"
+www.google.nl/images"
+www.google.nl/books"
+www.google.nl/mail"
+www.google.nl/mobile"
+www.google.nl/m"
+www.google.nl/pack"
+www.google.nl/sms"
+www.google.nl/dirhp"
+www.google.nl/groups"
++<>   include <>"
+-<>   exclude <>"
+*     wildcard"
+~<>   alternative for <>"
+\"<>\"  literal"
+allinanchor:"
+allintext:"
+allintitle:"
+allinurl:"
+author:"
+cache:"
+date:			 # date:<3|6|12>"
+define:"
+ext:"
+filetype:"
+group:"
+inanchor:"
+info:"
+insubject:"
+intext:"
+intitle:"
+inurl:"
+link:			 # link:<site>"
+location:"
+movie:"
+related:"
+site:"
+======================================================================
+win:  $APPSDIR/Foobar2000/foobar2000.exe &        #m(ipod)#util#player
+lhp:  $HOME/wcos/mswin/Documents/foobar2000/foobar2000.exe & #util#player
+lhp:  wine /home/piet/wcos/mswin/apps/Foobar2000/foobar2000.exe #util#player
+win:  /home/piet/wcos/mswin/apps/Sc201.exe &            #editor#m(sci)
+win:  $APPSDIR/wscite/SciTE.exe                         #editor#m(sci)
+win:  /home/piet/wcos/mswin/apps/siw.exe &         #info#system#m(siw)
+win:  $APPSDIR/VLCPortable/VLCPortable.exe                     #m(vlc)
+**********************************************************************
+WINDOWS
+======================================================================
+MAPS
+C:\Users\axv\AppData\Local\Microsoft\WindowNetCookies
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+C:\Users\piet\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+C:\Users\piet\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+C:\Users\piet\AppData\Roaming\Microsoft\Windows\SendTo
+======================================================================
+SETTINGS
+======================================================================
+Automatic startup                   :  minimized
+Windows Search Indexing             :  off   (menu)
+Remote Differential Compression     :  off
+Automatic Windows Defender Operation:  off
+Automatic Disk Defragmentation      :  off
+User Access Control (UAC)           :  off
+Swap space                          :  2 x RAM
+SysConf>System>Advanced             :  no effects / no animation
+CostumerExperienceImprovement       :  off   (menu)
+Menu (Folder with Shortcuts/Launchers) => Taskbar
+Browser 'homepage' with links and/or linkpage
+Targets in 'SendTo'
+Swith off 'Scheduled Tasks' as much as possible
+======================================================================
+Firefox 
+about:config
+extensions.screenshots.uploaddisabled : true
+network.trr.mode : 0 -> 1(3)  # Trusted Recursive Resolver : DoH aan
+network.trr.url : https://mozilla.cloudflare-dns.com/dns-query
+(zie www.ct.nl/softlink/1810126)
+about:networking
+**********************************************************************
+WINDOWS COMMANDS
+----------------------------------------------------------------------
+info : https://support.microsoft.com/en-us/2623670
+       https://www.windows-commandline.com/cmd-commands/
+       https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490890(v=technet.10)?redirectedfrom=MSDN
+----------------------------------------------------------------------
+in path (C:\WINDOWS\System32)
+----------------------------------------------------------------------
+wxp:  cliconfg               SQL Client Configuration 
+wi7:  cliconfg               SQL Client Configuration 
+win:  clipbrd                Clipboard Viewer 
+wi7:  comexp.msc             Component Services                #system
+wi7:  control (panel)        Control Panel
+win:  control access         Accessibility Options
+wxp:  control folders        Folders Properties               #folders
+wi7:  control folders        Folders Properties               #folders
+wxp:  control fonts          Fonts                              #fonts
+wi7:  control fonts          Fonts                              #fonts
+wxp:  ddeshare               DDE Shares 
+win:  devcon                 Device management
+wi7:  devicepairingwizard    Add a device (RC)
+wi7:  displayswitch          Connect to a projector
+win:  driverquery            list of installed drivers
+wxp:  dxdiag                 Direct X Troubleshooter 
+wi7:  dxdiag                 Direct X Troubleshooter 
+wxp:  eudcedit               Private Character Editor 
+wi7:  eudcedit               Private Character Editor 
+win:  find "text"            Find "text"
+win:  findfast.cpl           Findfast 
+wi7:  ftype                  File Type Association (see assoc)   #file
+wxp:  help.exe               Command-line tools                  #help
+wi7:  help.exe               Command-line tools                  #help
+win:  helpctr                Help and Support                    #help
+win:  hotlineclient          Hotline Client                      #help
+wi7:  icacls "file" /grant username:F                 #add#permissions
+wi7:  icacls "file" /grant:r username:(R,RX)      #replace#permissions
+wi7:  icacls "*.bat"                                 #list#permissions
+wi7:  icacls "*.bat" /grant:r username:F /t       #replace#permissions
+wxp:  iexpress               Iexpress Wizard 
+wi7:  iexpress               Iexpress Wizard 
+win:  igfxzoom               Zoom Utility 
+wxp:  intl.cpl               Regional Settings               #settings
+wi7:  intl.cpl               Regional Settings               #settings
+win:  ipconfig /all          information about TCP/IP
+     #network
+wxp:  joy.cpl                Game Controllers 
+wi7:  joy.cpl                Game Controllers 
+wxp:  label                  Volume Serial Number for C: 
+wi7:  label                  Volume Serial Number for C: 
+wxp:  logoff                 Logs You Out of Windows 
+win:  migwiz                 Files/Settings Transfer Tool 
+wxp:  mmc                    Microsoft Management Console 
+wi7:  mmc                    Microsoft Management Console 
+wxp:  mobsync                Microsoft Syncronization Tool 
+wi7:  mobsync                Microsoft Syncronization Tool 
+wi7:  mrt                    Malicious Software Removal Tool
+wxp:  msiexec                Windows Installer Details 
+wi7:  msiexec                Windows Installer Details 
+wxp:  mstsc                  Remote Desktop 
+wi7:  mstsc                  Remote Desktop 
+wi7:  net                    Set things
+wi7:  netplwiz               Advanced User Accounts             #users
+wi7:  $TOOLDIR/bat/netplwiz.bat &                               #users
+win:  netstat                
+wvi:  userpasswords2         Advanced User Accounts             #users
+wxp:  ntmsmgr.msc            Removable Storage 
+wxp:  ntmsoprq.msc           Rem.Storage Operator Requests 
+wxp:  odbccp32.cpl           ODBC Data Source Administrator 
+win:  odbccp32               ODBC Data Source Administrator 
+wxp:  packager               Object Packager 
+win:  pbrush                 Paint 
+win:  ports.cpl              Ports
+wxp:  rasphone               Remote Access Phonebook 
+wi7:  rasphone               Remote Access Phonebook 
+wi7:  recdisc                Create a system repair disc
+wxp:  rtcshare               Sharing Session 
+wi7:  sdclt                  Backup and Restore
+wxp:  set                    Settings
+wi7:  set set                Settings
+wi7:  shrpubw                Create a shared folder Wizard 
+wxp:  shrpubw                Create a shared folder Wizard 
+wi7:  sigverif               File Signature Verification Tool 
+wxp:  sigverif               File Signature Verification Tool 
+win:  sticpl.cpl             Scanners and Cameras 
+wxp:  sysedit                System Configuration Editor 
+wi7:  sysedit                System Configuration Editor 
+win:  systeminfo             System information
+wi7:  SystemPropertiesPerformance | Change Comp. Perf. Settings
+wi7:  SystemPropertiesAdvanced    | 
+wi7:  SystemPropertiesComputerName|
+wxp:  takeown /f             make me owner
+wi7:  takeown /f             make me owner
+win:  tasklist               list of running tasks          #kill#task
+win:  taskkill /im 'process' /f                             #kill#task  
+win:  tcptest                TCP Tester 
+wxp:  telephon.cpl           Phone and Modem Options 
+wi7:  telephon.cpl           Phone and Modem Options 
+wxp:  tourstart              Windows XP Tour Wizard 
+win:  ver                    version
+wxp:  verifier               Driver Verifier Utility 
+wi7:  verifier               Driver Verifier Utility 
+wi7:  vssadmin               tool from an admin command prompt
+wi7:  vssadmin Resize ShadowStorage /On=C: /For=C: /MaxSize=15GB
+win:  wabmig                 Windows Address Book Import Utility 
+win:  wab                    Windows Address Book 
+wxp:  wiaacmgr               Windows Picture Import Wizard 
+wi7:  wiaacmgr               Windows Picture Import Wizard 
+wxp:  wscript                Windows Script host settings 
+wi7:  wscript                Windows Script host settings 
+----------------------------------------------------------------------
+not in path
+----------------------------------------------------------------------
+"C:\MiKTeX\localtexmf\utils\eps2pdf.exe"
+"C:\Program Files\Windows NT\Accessories\wordpad.exe"
+"C:\Program Files\Internet Explorer\iexplore.exe -extoff"    
+"C:\Program Files\Windows Media Player\wmplayer.exe" /prefetch:1
+"C:\Program Files\Common Files\Microsoft Shared\MSInfo\msinfo32.exe"
+"C:\Program Files\ghostscript\gs8.54\bin\gswin32.exe" 
+"C:\Program Files\Ghostgum\gsview\gsview32.exe"
+"C:\Program Files\WS_FTP\WS_FTP95.exe"
+win:  "C:\Windows\Temp"                                         #clean
+win:  "C:\Users\piet\\AppData\Local\Temp"                       #clean
+win:  "C:\Windows\winsys"  -> *_blobs.bin : cache for updates   #clean
+win:  "C:\Windows\winsys\manifestcache\*                        #clean
+win:  "C:\Windows\SoftwareDistribution"                         #clean
+win:  "C:\Users\piet\AppData\Local\Microsoft\Windows\Burn"      #clean
+======================================================================
+LINKS
+wvi:  www.windowsvistaservice.nl  
+win:  www.sysinternals.com
+win:  live.sysinternals.com   
+win:  technet.microsoft.com
+win:  windows.microsoft.com/nl-NL/windows7/Keyboard-shortcuts #hotkeys
+win:  www.opensourcewindows.org
+win:  wintoflash.com 
+win:  https://www.windows-commandline.com/
+======================================================================
+win:  Windows environment variables
+wxp:  %ALLUSERSPROFILE% [xp]    C:\Documents and Settings\All Users
+wi7:  %ALLUSERSPROFILE% [vi/7]  C:\ProgramData
+wxp:  %APPDATA% [xp]            C:\Documents and Settings\(username}\Application Data
+wi7:  %APPDATA% [vi/7]          C:\Users\(username}\AppData\Roaming
+wi7:  %CommonProgramFiles% [vi/7] C:\Program Files\Common Files
+win:  %COMPUTERNAME%            {computername}
+win:  %COMSPEC%                 C:\Windows\System32\cmd.exe
+win:  %HOMEDRIVE%               C:
+wxp:  %HOMEPATH% [xp]           \Documents and Settings\{username}
+wi7:  %HOMEPATH% [vi/7]         \Users\{username}
+wi7:  %LOCALAPPDATA% [vi/7]     C:\Users\{username}\AppData\Local
+win:  %PATH%                    Varies. Includes C:\Windows\System32\;C:\Windows\;C:\Windows\System32\Wbem
+wxp:  %PATHEXT% [xp]            .COM; .EXE; .BAT; .CMD; .VBS; .VBE; .JS ; .WSF; .WSH; 
+wi7:  %PATHEXT% [vi/7]          .COM; .EXE; .BAT; .CMD; .VBS; .VBE; .JS ; .WSF; .WSH; .MSC
+wi7:  %ProgramData% [vi/7]      C:\ProgramData
+win:  %PROGRAMFILES%            C:\Program Files
+wi7:  %ProgramFiles(x86)%       In 64-bit systems, directory containing 32-bit programs. Usually C:\Program Files (x86)
+win:  %PROMPT%                  Command prompt code : usually $P$G
+wi7:  %Public% [vi/7]           C:\Users\Public
+win:  %SYSTEMDRIVE%             Drive containing root directory, usually C:
+win:  %SYSTEMROOT%              Windows root directory, usually C:\Windows
+wxp:  %TEMP% and %TMP% [xp]     C:\Documents and Settings\{Username}\Local Settings\Temp
+wi7:  %TEMP% and %TMP% [vi/7]   C:\Users\{Username}\AppData\Local\Temp
+win:  %USERNAME%                {username}
+wxp:  %USERPROFILE% [xp]        C:\Documents and Settings\{username}
+wi7:  %USERPROFILE% [vi/7]      C:\Users\{username}
+win:  %WINDIR%                  C:\Windows
+======================================================================
+win, wi7 : CLEANUP WINDOWS
+----------------------------------------------------------------------
+wi7:    WIN+PauseBreak                                    #performance
+wi7:    SystemPropertiesAdvanced > restore point              #restore
+wi7:    control update                                  #windowsupdate
+wi7:    wscui.cpl                                    #updates#security
+wi7:                                                   #update#drivers
+wi7:                               #update#MicrosoftSecurityEssentials
+wi7:    mrt                              #MaliciousSoftwareRemovalTool
+wi7:    control /name Microsoft.ProgramsAndFeatures          #software
+wi7:    $APPSDIR/Myuninst/myuninst.exe  &
+wi7:    $APPSDIR/Revouninstaller-portable/revouninstaller.exe  &
+wi7:    In browser window: Shift-Ctrl-Del         #clearbrowserhistory
+wi7:    defrag /?  [switch on defrag service first]   #defragmentation
+wi7:    Disk Properties: defragmentation              #defragmentation
+wi7:    $APPSDIR/AutoRuns/autoruns.exe      &        #startup#programs
+wi7:    HKEY_LOCAL_MACHINE\Software\Windows\CurrentVersion\Run
+wi7:    $APPSDIR/CloneSpy/CloneSpy.exe  &                      #clones
+wi7:    $APPSDIR/duplicate_finder_win9x.exe  &             #duplicates
+wi7:    $APPSDIR/CCleanerPortable/CCleaner.exe  &             #cleanup
+wi7:    cleanmgr.exe                                          #cleanup
+wi7:    System Properties > System Protection > Configure    #security
+----------------------------------------------------------------------
+TCP/IP stack repair (does NOT help against browser crashes)
+ netsh winsock reset catalog
+ netsh int ipv4 reset reset.log
+ netsh int ipv6 reset reset.log
+ reboot
+----------------------------------------------------------------------
+lin:  MAINTENANCE
+lin:  uname -sr                                  #KernelNameAndRelease
+lin:  cat /etc/*-release                            #LinuxDistribution
+lin:  uptime
+lin:  w OR who                                      #ListUsersLoggedIn
+lin:  whoami
+lin:  crontab -l                                   #ListScheduledTasks
+lin:  free                                             #ShowFreeMemory
+lin:  df -h                                        #FreeSpaceAvailable
+lin:  df -h /home/piet
+lin:  du -h -s /home/piet
+lin:  du -k /home/piet | sort -n | tail -5               #LargestFiles
+lin:  ls -lSr /home/piet | tail -5                       #LargestFiles
+lin:  du -ch /home/piet/baktime.txt | grep total             #FileSize
+lin:  >filename                                             #EmptyFile
+lin:  for I in `ls "directory/*.ext"`;do >"$I";done        #EmptyFiles
+lin:  ls -l /home/piet | wc -l                             #CountFiles
+lin:  ls -larth /home/piet | tail -10
+lin:  lsof                                              #ListOpenFiles
+lin:  find /home/piet -mtime +7665 -ls      #LisModifiedFilesOlderThan
+lin:  find /home/piet -type f -size 0b -ls              #FindEmtyFiles
+lin:  find /home/piet -name "*trash*" -ls
+lin:  find $HOME -type f -name "*~" -print
+lin:  find $HOME -type f -name "/~*" -print
+lin:  find $HOME -type f -name "*core*" -print
+lin:  last                                       #UsersActivityHistory
+lhp:  inxi -c0 -FdfinoprsuxZ                              #system#info
+lhp:  fslint-gui &                                     #DuplicateFiles
+wi7:  $APPSDIR/duplicate_finder_win9x.exe &            #DuplicateFiles
+----------------------------------------------------------------------
+lin:  lsof | grep 'TCP' | more
+wi7, win : OPTIMIZE : use 'alltasks'
+wi7:  [ C:\Windows\explorer.exe shell:::{ED7BA470-8E54-465E-825C-99712043E01C} ]
+wi7:  # transparency : disable
+wi7:  # appearance : 
+wi7:  # effects
+wi7:  # keyboard : make single type ' and "
+----------------------------------------------------------------------
+lsof -i 4 -n                                 # list open ports on IPv4
+----------------------------------------------------------------------
+OBSERVE WINDOWS
+# $APPSDIR/SysSpec.exe  &
+
+# '$APPSDIR/SysExp/System Explorer.exe'  &
+# Whatinstartup/WhatinStartup.exe  &
+# $APPSDIR/WSCCPortable/wsccportable.exe  &
+# $APPSDIR/ProcessExplorer/procexp.exe  &
+
+# $APPSDIR/SpaceSniffer/SpaceSniffer.exe  &
+
+# $APPSDIR/Wirelessnetview/WirelessNetView.exe  &
+# $APPSDIR/Wnetwatcher/WNetWatcher.exe  &
+# $APPSDIR/Awatch/awatch.exe  &
+# $APPSDIR/Etoolz/eTools.exe  &
+# $APPSDIR/Networx/networx.exe  &
+# $APPSDIR/Macaddressview/MACAddressView.exe  &
+# $APPSDIR/WiresharkPortable/WiresharkPortable.exe  &
+
+# $APPSDIR/Bluetoothview/Bluetoothview.exe  &
+# $APPSDIR/Usbdeview/USBDeview.exe  &
+# $APPSDIR/CurrPorts/CurrPorts.exe  &
+# $APPSDIR/Portscan/PortScan.exe  &
+# $APPSDIR/Driverview/DriverView.exe  &
+======================================================================
+killall lxpanel
+lxpanel [--profile LXDE]
+killall pcmanfm 
+pcmanfm --desktop [--profile LXDE|lubuntu]
+rfkill [list|unblock[wifi|bluetooth]]		#rfkill
+lxhotkey --gui=gtk				#hotkeys
+======================================================================
+DUAL BOOT
+----------------------------------------------------------------------
+https://distrowatch.com/
+https://averagelinuxuser.com/dualboot-linux-windows/
+----------------------------------------------------------------------
+allways install windows before linux: windows will overwrite MBR
+----------------------------------------------------------------------
+Backup Windows
+Backup files
+Make restore point
+defragment windows partition
+
+Shrink Windows partition with 'disk management': 'diskmgmt.msc'
+(Better do it with GParted: see below)
+Sometimes needed more steps: 
+https://www.infopackets.com/news/9867/how-fix-cant-shrink-volume-windows-7-8-10
+
+BIOS: (disable Secure Booting)
+BIOS: enable 'legacy mode'
+BIOS: allow startup from USB (change boot order)
+Start from USB
+Run GParted
+ shrink Windows partition and resize
+ install Linux from USB : choose manual install
+  choose the created - with GParted - free space
+  create partition: 'primary'; mount point: '/'
+  check: 'efi' partition has type 'efi'
+   (boot loader will be installed in 'efi' partition)
+  check: only new partition will be formated (ext4)
+  install
+   Linux (Mint, and others) creates GRUB2 in MBR
+Reboot (remove USB!) -> GRUB menu ; if not : proceed
+BIOS: enable Boot Menu
+BIOS: change boot order
+Reboot 
+**********************************************************************
