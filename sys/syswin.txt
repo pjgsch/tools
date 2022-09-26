@@ -2,40 +2,73 @@
 # Websites
 ======================================================================
 ----------------------------------------------------------------------
+Nieuwe computer 
+  https://www.seniorweb.nl/artikel/een-nieuwe-computer-gekocht-wat-nu
+  https://www.makeuseof.com/tag/things-must-do-brand-new-laptop/
+  https://support.microsoft.com/nl-nl/windows/windows-activeren-c39005d4-95ee-b91e-b399-2820fda32227
+
+Windows 10 Account
+  https://computertotaal.nl/artikelen/pc/zo-gebruik-je-windows-10-zonder-microsoft-account-70681/
+
+Windows 10 Installatie Handleiding
+  https://www.icttipsandtricks.nl/2016/10/10/handleiding-windows-10-installeren-deel-1/amp/
+
+----------------------------------------------------------------------
+Windows 10 
+  https://www.seniorweb.nl/onderwerp/windows-10
+
 Windows Basics
   https://edu.gcfglobal.org/en/windowsbasics/
+
 Microsoft technical documentation
   https://docs.microsoft.com/en-us/
+
 Windows command line
   https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-xp/bb490890(v=technet.10)?redirectedfrom=MSDN
   https://www.windows-commandline.com/
   https://windowsloop.com/windows-shell-commands/
   https://www.ionos.com/digitalguide/server/know-how/windows-cmd-commands/
+
 Various
   https://www.itechtics.com
+
 Password recovery
   https://www.cyberpratibha.com/blog/how-to-find-administrator-password-of-window-10-using-kali-linux/?amp=1
+
+Wifi Password
+  https://geekflare.com/find-windows-wifi-password/
+
 Startup
   https://www.ubackup.com/articles/windows-10-startup-repair-command-prompt.html
+
 Internet
   https://www.bleepingcomputer.com/news/microsoft/best-windows-10-commands-to-diagnose-your-internet-connection/
+
 Diagnostic Tools
   https://helpdeskgeek.com/free-tools-review/15-windows-diagnostics-tools-to-improve-your-pcs-health/
+
 Microsoft Support
   https://docs.microsoft.com/en-us/windows/client-management/windows-10-support-solutions
+
 Diagnostics
   https://www.cigatisolutions.com/blog/diagnostics-on-windows-10/
+
 Repair Tools
   https://geekflare.com/windows-problem-solver-tools/
+
 Windows problems
   https://www.techradar.com/how-to/100-common-windows-10-problems
   https://recoverit.wondershare.com/windows-10/windows-10-common-problems-and-how-to-fix-them.html
+
 Fix Copy/Paste
   https://www.osradar.com/i-cannot-copy-and-paste-on-windows-how-to-fix-it
+
 Hardware check
   https://www.partitionwizard.com/partitionmanager/pc-hardware-check.html
+
 Test CPU
   https://techguided.com/best-tools-to-stress-test-p-cpu-ram-gpu
+
 Environment variables
   https://windowsloop.com/list-of-all-environment-variables-in-windows-10/
 ----------------------------------------------------------------------

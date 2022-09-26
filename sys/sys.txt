@@ -59,7 +59,7 @@ lin:  xinputs list => xinputs --disable/--enable <id>          #system
 lin:  arch                                        #architecture#system
 lin:  sudo visudo                                           #sudo#root
 ----------------------------------------------------------------------
-lin:  sudo -u piet id                                            #sudo
+lin:  sudo -u <user> id                                          #sudo
 ======================================================================
 win:  hdwwiz.cpl     Add Hardware Wizard                     #hardware
 wxp:  dcomcnfg       Component Services                      #hardware
@@ -285,7 +285,7 @@ lin:  /sbin/ifconfig              #configure network interface#network
 lin:  /sbin/route                            #IP routing table#network
 lin:  /sbin/arp                                               #network
 lin:  mtr                                         #diagnostics#network
-lin:  /usr/sbin/mtr pc423.wfw.wtb.tue.nl                      #network
+lin:  /usr/sbin/mtr <address>                                 #network
 lin:  fing                                           #discover#network
 lin:  sudo /usr/bin/fing -r 1 -o table,text,console           #network    
 lin:  sudo /usr/sbin/tcpdump -i wlan0                         #network
@@ -322,7 +322,7 @@ lin:  tcpdump                      #inspect packages (sniffer)#network
 lin:  sudo wireshark               #inspect packages (sniffer)#network
 lin:  nmap -A 131.155.224.90            #map and trace traffic#network
 lin:  nmap -sV -p 80 131.155.224.90  #map traffic on selected ports#network
-lin:  nmap -v -A -PN pc423.wfw.wtb.tue.nl           #port scan#network
+lin:  nmap -v -A -PN <address>                      #port scan#network
 lin:  sudo /usr/sbin/tcpdump -D                               #network
 lin:  sudo /usr/sbin/tcpdump -i wlan0                         #network
 lin:  netstat -anlpt | grep LISTEN                            #network
@@ -357,19 +357,9 @@ nmcli con up id <essid>           # connect ('FRITZ!Box 7490')
 nmcli dev wifi connect <essid> password <passwd>  # for new connection
 nmcli con down id <essid>         # disconnect ('FRITZ!Box 7490')
 sudo ifconfig wlan0 down          # disconnact
-win:  nslookup                      pc423.wfw.wtb.tue.nl
-host                          pc423.wfw.wtb.tue.nl
-dig                           pc423.wfw.wtb.tue.nl
-ping  diskserver1.wfw.wtb.tue.nl
-      pc423.wfw.wtb.tue.nl        =  131.155.53.173
-      diskserver1.wfw.wtb.tue.nl  =  131.155.54.86
-      linuxserver.wfw.wtb.tue.nl  =  131.155.55.13
-      linuxserver.wfw.wtb.tue.nl  =  131.155.54.19
-      wfwweb.wfw.wtb.tue.nl       =  131.155.54.17
-      sg30.wfw.wtb.tue.nl         =  131.155.54.70
-      proxy.wfw.wtb.tue.nl        =  131.155.54.3
-      pc3.wfw.wtb.tue.nl          =  131.155.54.3
-      noise.wfw.wtb.tue.nl        =  131.155.53.167
+win:  nslookup                      <adddress>
+host                                <adddress>
+dig                                 <adddress>
 wget -p --tries=3 --timeout=1 --recursive --level=2 --convert-links http://www.nos.nl
 /sbin/ifconfig  -> MAC address
 /sbin/ifconfig <eth0> <myip> netmask <mask>
@@ -380,12 +370,12 @@ wget -p --tries=3 --timeout=1 --recursive --level=2 --convert-links http://www.n
 /etc/init.d/network restart
 /bin/netstat -g
 /bin/netstat -a -s | more
-/bin/ping                     pc423.wfw.wtb.tue.nl
-/bin/ping6                    ping naar ipv6 servers
-/bin/traceroute               pc423.wfw.wtb.tue.nl
-/usr/bin/host                 pc423.wfw.wtb.tue.nl
-/usr/bin/dig                  pc423.wfw.wtb.tue.nl
-/usr/bin/nmap -v -A -T4 -PN   pc423.wfw.wtb.tue.nl
+/bin/ping                     <address>
+/bin/ping6                    <address>
+/bin/traceroute               <address>
+/usr/bin/host                 <address>
+/usr/bin/dig                  <address>
+/usr/bin/nmap -v -A -T4 -PN   <address>
 /usr/sbin/aireply-ng 
 /usr/bin/gpsmap
 /sbin/iwconfig                 #configure a wireless network interface
@@ -498,8 +488,8 @@ lin:  more /etc/modprobe.conf                             #info#kernel
 sudo /sbin/lsmod
 sudo /sbin/rmmod usb-storage
 sudo /sbin/insmod usb-storage
-ls /lib/modules/`uname -r`                # list modules
-ls /lib/modules/`uname -r`/kernel         # list modules
+ls /lib/modules/`uname -r`                              # list modules
+ls /lib/modules/`uname -r`/kernel                       # list modules
 cat /etc/modprobe.conf
 rmmod iwlagn
 modprobe iwlagn
@@ -637,17 +627,14 @@ sudo umount /media/usb1
 sudo mount -o rw,noexec,nosuid,nodev,shortname=winnt,uid=501 /dev/sdb1 /media/usb1 
 /src/marck2005r3/mentat2005r3/bin/mentat &
 /src/marck2008r1/mentat2008r1/bin/mentat &
-sudo mount -o loop /media/MULTIBOOT/casper-rw /home/piet/tmp/casper/
-sudo mount -o loop=/dev/loop0 /media/MULTIBOOT/casper-rw /home/piet/mnt/casper/ 
-sudo umount /home/piet/tmp/caspermnt/
+sudo mount -o loop /media/MULTIBOOT/casper-rw <homedir>/tmp/casper/
+sudo mount -o loop=/dev/loop0 /media/MULTIBOOT/casper-rw <homedir>/mnt/casper/ 
+sudo umount <homedir>/tmp/caspermnt/
 ----------------------------------------------------------------------
-sudo mount -t nfs diskserver1.wfw.wtb.tue.nl /src 
-sudo mount diskserver1:/home/staff/piet  /home/piet/mnt/software
 sudo mount linuxserver:/mnt/raid/software  /mnt/software
 sudo mount linuxserver:/mnt/raid/software  /src
 sudo mount -t nfs linuxserver:/mnt/raid/software  /src
 sudo mount linuxserver:/src64  /src
-sudo mount wtbfiler.wtb.tue.nl:/software  /src 
 ======================================================================
 win:  $APPSDIR\Cpuz\cpuz.exe                                 #sys#info
 win:  $APPSDIR\[siw]                                         #sys#info
@@ -787,9 +774,7 @@ at -f comat TIME          # execute script comat
 crontab -e                # edit current crontab
 crontab -l                # display current crontab
 crontab -d                # remove current crontab
-#crontab -r                # remove current crontab
-* * * * * $HOME/tmp/basch
-0-59 * * * * date >> MEMA && ps -ef|grep mentatX | grep -v piet | grep -v userpath >> $HOME/MEMA
+crontab -r                # remove current crontab
 ======================================================================
 wxp:  powercfg.cpl              Power Configuration             #power
 wvi:  Control Panel > (System & Maintenance >) Power Options    #power
@@ -953,7 +938,6 @@ su -
 bash
 /sbin/service yum-updatesd stop
 ps -aux | grep yum   ->   kill helper
-export http_proxy=http://proxy.wfw.wtb.tue.nl:80
 yum shell | repo disable <repo-name>
 yum repolist
 yum check-update
@@ -992,12 +976,12 @@ lhp:  gnome-about-me           Personal information         #set#users
 lhp:  userpasswd                                      #menupassw#users
 ----------------------------------------------------------------------
 win:  icacls /?                                      #pemissions#users
-win:  icacls C:/Users/piet/wcos/tls 
-win:  icacls C:/Users/piet/wcos/tls /t | more
-win:  icacls C:/Users/piet/wcos/tls /grant:r piet:f /t
-win:  icacls C:/Users/piet/wcos/tls /grant:r piet:f /t /inheritance:r
-win:  icacls C:/Users/piet/wcos/tls /grant:r gs:r /t
-win:  icacls C:/Users/piet/wcos/tls /remove gs
+win:  icacls <directory> 
+win:  icacls <directory> /t | more
+win:  icacls <directory> /grant:r <user>:f /t
+win:  icacls <directory> /grant:r <user>:f /t /inheritance:r
+win:  icacls <directory> /grant:r gs:r /t
+win:  icacls <directory> /remove gs
 win:  net user <username> <password> /add                    #password
 win:  net localgroup administrators <username> /add          #password
 win:  wmic useraccount where name='<username>' set PasswordRequired=false
@@ -1348,7 +1332,7 @@ wvi:  "%SystemRoot%\explorer.exe"                         #filemanager
 wvi:  Control Panel > Folder Options > View               #filemanager
 wi7:  explorer.exe           Windows Explorer             #filemanager
 wi7:  freecommander                                       #filemanager
-lto:  xterm -e /home/piet/bin/mc   /usr/bin/konqueror     #filemanager
+lto:  xterm -e     mc   /usr/bin/konqueror                #filemanager
 lpc:  /usr/bin/nautilus    /usr/bin/konqueror             #filemanager
 lpc:  nautilus-file-management-properties                 #filemanager
 lhp:  /usr/bin/nautilus    /usr/bin/konqueror             #filemanager
@@ -1361,7 +1345,7 @@ lhp:  /usr/bin/thunar                                #menu#filemanager
 lhp:  /usr/bin/thunar / &                                 #filemanager
 lhp:  /usr/lib64/Thunar/ThunarBulkRename %F          #tool#filemanager
 lhp:  mc                    Midnight commander            #filemanager
-lhp:  /usr/bin/konqueror -profile piet &                  #filemanager
+lhp:  /usr/bin/konqueror -profile <name> &                #filemanager
 lhp:  dolphin %i -caption "%c" %u                    #menu#filemanager
 lin:  pcmanfm --desktop-pref                              #filemanager
 win:  explorer =                                          #filemanager
@@ -1420,8 +1404,6 @@ lhp:  gnome-search-tool    kfind                       #menu#util#find
 ----------------------------------------------------------------------
 find [startdir] -name [file] -print
 find [startdir] -maxdepth [level] -name [file] -print
-find /home/piet/w* -maxdepth 10 -name '*syl*' -print | grep -v '/tnt'| grep dsc | grep pdf
-find /home/piet/piet -maxdepth 5 -name '*.pdf' -print
 find . -name sed.cmd -print
 find ~/ -name sed.cmd -print
 find ~/ -name pat -print
@@ -1431,8 +1413,6 @@ find -name . -exec grep -l "text" {} \;
 find . -mtime -1
 find ~/ -daystart -type f -atime 1
 ls -al --time-style=+%D | grep `date +%D`
-find /home/piet/piet -type f -print | grep -h '.txt'
-find /home/piet/wdoc -type f -print | grep -h '\.m'
 ls -d -1             # list with full path, 1 per line
 ======================================================================
 wvi:  Control Panel > Indexing Options                       #indexing
@@ -1490,7 +1470,6 @@ lhp:  kile                                               #tex#s#editor
 lhp:  nedit  [ ~/.nedit ] [ ~/.neditdb ]                #menu#s#editor
 lhp:  vi sed awk nedit                                       #s#editor
 lhp:  sed                                                      #editor
-lhp:  /home/piet/.wine/drive_c/windows/notepad.exe      #menu#s#editor
 lhp:  wordpad                                           #menu#s#editor
 lhp:  kwrite                                            #menu#s#editor
 lin:  texdoctk                                                    #tex
@@ -1534,7 +1513,6 @@ lhp:  /usr/bin/oocalc                                     #spreadsheet
 lto:  /usr/X11R6/bin/xv  /usr/bin/kuickshow                  #pictures
 lto:  /usr/bin/kview  /usr/bin/ee  /usr/bin/gqview           #pictures
 lpc:  /usr/bin/xcam  /usr/bin/kview  /usr/bin/eog            #pictures
-lhp:  /home/piet/wcos/linux/Apps/xv                          #pictures
 lhp:  /usr/bin/xcam  /usr/bin/eog                            #pictures
 ======================================================================
 lto:  /usr/bin/play  /usr/bin/ogg123  /usr/bin/xmms    #s#player#music
@@ -1903,8 +1881,8 @@ lhp:  klipper                                     #clipboard#menu#tool
 lhp:  startlazarus %f                                       #menu#tool
 lhp:  synfigstudio %F                                       #menu#tool
 lhp:  qcad                                                  #menu#tool
-cyg:  ~piet/bin/onof                                           #system
-cyg:  more ~piet/bin/onof.log                                  #system
+cyg:  ../bin/onof                                              #system
+cyg:  more ../bin/onof.log                                     #system
 lhp:  m mag                            #m#grab#magnification#wine#menu
 ======================================================================
 router:
@@ -1999,8 +1977,6 @@ www:  #google  http://news.google.com/
 ======================================================================
 FILES
 ----------------------------------------------------------------------
-/home/piet/wcos/linux/cos/linux/linux.txt
-
 ==== User and Security Files
 /etc/group              User group information
 /etc/npasswd            npasswd configuration file
@@ -2041,166 +2017,6 @@ FILES
 ==== Miscellaneous Files
 /etc/sysconfig                  Miscellaneous configuration files 
 **********************************************************************
-LAPTOP83:  SETTINGS AND COMMANDS                                #lap83
-======================================================================
-EMAIL:                                              #lap83 Thunderbird
-----------------------------------------------------------------------
-account name                   :  p.j.g.schreurs@tue.nl
-your name                      :  piet schreurs
-email address                  :  p.j.g.schreurs@tue.nl
-reply-to-address               :  -
-organization                   :  -
-attache signature              :  -
-attache card msg               :  -
-server settings   
-server type                    :  IMAP Mail Server
-server name                    :  webmail.tue.nl     
-server port                    :  993 (default 993) / 143
-user name                      :  pschreur
-security                       :  SSL / None
-secure authentication          :  -
-check new mail at startup      :  +
-check new mail every           :  10 min
-delete to                      :  Trash Folder
-cleanup Inbox on exit          :  -
-empty Trash on exit            :  -
-IMAP server directory          :  -
-show only subscribed folders   :  +
-use IDLE command if supported  :  +
-max server connections in cache:  5
-Local directory                 :
-  /home/piet/.thunderbird/qk4q97lp.default/ImapMail/webmail.tue-2.nl
-Copies and Folders 
-place a copy in                :  Sent on server account
-place drafts in                :  Drafts on Local Folders
-templates in                   :  Templates on server account
-composition and addressing
-HTML format                    :  +
-automatic quote on reply       :  +
-download messages locally      :  -
-delete old messages            :  never
-Junk settings      
-enable adaptive junk control   :  +
-move adaptive junk to          :  Junk on server account
-move new junk to               :  Junk on Local Folders
-Return receipts
-use global return receipts     :  +
-Security
-digital signing                :  -
-encryption                     :  -
-certificates                   :  -
-Outgoing Server (SMTP)          
-description                    :  -
-server name                    :  mailhost.tue.nl
-port                           :  25 (default 25)
-user name                      :  pschreur
-security                       :  None
-----------------------------------------------------------------------
-                               :  imap.gmail.com
-                               :  SSL
-                               :  993
-----------------------------------------------------------------------
-                               :  pop.gmail.com
-                               :  SSL
-                               :  995
-----------------------------------------------------------------------
-Outgoing Server (SMTP)          
-description                    :  -
-server name                    :  smtp.gmail.com
-port                           :  465 (default 465) or 587
-authourisation                 :  yes
-user name                      :  pschreur
-security                       :  SSL 
-Preferences
-start page on launch           :  -
-forward message                :  as attachment
-auto save every                :  5 min
-font                           :  fixed width / medium
-address book                   :  local
-add outgoing addresses to      :  Personal address book
-scan email for scam            :  +
-check with anti-virus software :  -
-saved passwords                :  -
-attachment folder              :  -
-open new message in            :  existing window
-internet connection            :  direct
-connect timeout                :  60 sec
-always startup online          :  +
-auto-check updates             :  -
-certificates                   :  -
-revocation lists               :  -
-verification                   :  -
-security devices               :  ?
-======================================================================
-BROWSER                                                 #lap83 Firefox
-----------------------------------------------------------------------
-startup                        :  show home page
-home page                      :  file:///home/piet/wwww/home.html
-show download window           :  +
-close it when completed        :  +
-save files to                  :  Downloads
-block pop-up windows           :  + (exceptions ->)
-load images automatically      :  + (exceptions ->)
-enable javascript              :  + (advanced ->)
-fonts                          :  senf / size 16
-applications                   :  allways ask
-accept cookies                 :  - (exceptions ->)
-accept third-party cookies     :  - 
-keep until                     :  expire
-clear history on exit          :  - (settings ->)
-warn on installation add-ons   :  + (exceptions ->)
-remember passwords             :  -
-use smooth scrolling           :  +
-check spelling                 :  -
-network connection             :  direct / proxy
-HTTP Proxy                     :  proxy.wfw.wtb.tue.nl  / 80
-SSL Proxy                      :  proxy.wfw.wtb.tue.nl  / 443
-FTP Proxy                      :  proxy.wfw.wtb.tue.nl  / 80
-Gopher Proxy                   :  proxy.wfw.wtb.tue.nl  / 80
-SOCKS Host                     :  -
-SOCKs version                  :  v5
-No proxy for                   :  localhost, 127.0.0.1, tue.nl
-cache space                    :  150 MB
-automatically update           :  -
-encryption                     :  SSL 3.0 and TLS 1.0
-certificate request            :  always ask
-certificates                   :  + (?)
-about:config
-browser.sessionhistory.max_entries:  5
-about:buildconfig
-about:credits
-about:license
-about:plugins
- Adobe Acrobat
- Cortona3D Viewer
- Google Earth Plugin
- Java Deployment Toolkit
- Shockwave Flash   
- Shockwave for Director
- Silverlight Plug-In
- VLC Web Plugin
- Windows Activation Technologies
-extensions (add-ons)
- Adblock Plus                     
- BetterPrivacy                    
- CS Lite Mod
- DOM Inspector
- Downloadhelper                   
- DownThemAll                      
- EPUBReader                       
- Exif Viewer 1.55                
- FoxyProxy Standard
- Ghostery
- HTTPS-Everywhere 
- NoScript
- QuickProxy
- Save Text To File
- ScrapBook  
- Screengrab
- YouTube to MP3  
- Ghostery                      :  +
-hotkeys
-Shift-Ctrl-Del                 :  cleanup in browser          #hotkeys
 ======================================================================
 GOOGLE                                                         #google
 ----------------------------------------------------------------------
@@ -2247,10 +2063,7 @@ site:"
 ======================================================================
 win:  $APPSDIR/Foobar2000/foobar2000.exe &        #m(ipod)#util#player
 lhp:  $HOME/wcos/mswin/Documents/foobar2000/foobar2000.exe & #util#player
-lhp:  wine /home/piet/wcos/mswin/apps/Foobar2000/foobar2000.exe #util#player
-win:  /home/piet/wcos/mswin/apps/Sc201.exe &            #editor#m(sci)
 win:  $APPSDIR/wscite/SciTE.exe                         #editor#m(sci)
-win:  /home/piet/wcos/mswin/apps/siw.exe &         #info#system#m(siw)
 win:  $APPSDIR/VLCPortable/VLCPortable.exe                     #m(vlc)
 **********************************************************************
 WINDOWS
@@ -2258,9 +2071,9 @@ WINDOWS
 MAPS
 C:\Users\axv\AppData\Local\Microsoft\WindowNetCookies
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
-C:\Users\piet\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
-C:\Users\piet\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-C:\Users\piet\AppData\Roaming\Microsoft\Windows\SendTo
+C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+C:\Users\<user>\AppData\Roaming\Microsoft\Windows\SendTo
 ======================================================================
 SETTINGS
 ======================================================================
@@ -2407,11 +2220,11 @@ not in path
 "C:\Program Files\Ghostgum\gsview\gsview32.exe"
 "C:\Program Files\WS_FTP\WS_FTP95.exe"
 win:  "C:\Windows\Temp"                                         #clean
-win:  "C:\Users\piet\\AppData\Local\Temp"                       #clean
+win:  "C:\Users\<user>\\AppData\Local\Temp"                     #clean
 win:  "C:\Windows\winsys"  -> *_blobs.bin : cache for updates   #clean
 win:  "C:\Windows\winsys\manifestcache\*                        #clean
 win:  "C:\Windows\SoftwareDistribution"                         #clean
-win:  "C:\Users\piet\AppData\Local\Microsoft\Windows\Burn"      #clean
+win:  "C:\Users\<user>\AppData\Local\Microsoft\Windows\Burn"    #clean
 ======================================================================
 LINKS
 wvi:  www.windowsvistaservice.nl  
@@ -2419,9 +2232,6 @@ win:  www.sysinternals.com
 win:  live.sysinternals.com   
 win:  technet.microsoft.com
 win:  windows.microsoft.com/nl-NL/windows7/Keyboard-shortcuts #hotkeys
-win:  www.opensourcewindows.org
-win:  wintoflash.com 
-win:  https://www.windows-commandline.com/
 ======================================================================
 win:  Windows environment variables
 wxp:  %ALLUSERSPROFILE% [xp]    C:\Documents and Settings\All Users
@@ -2490,19 +2300,18 @@ lin:  whoami
 lin:  crontab -l                                   #ListScheduledTasks
 lin:  free                                             #ShowFreeMemory
 lin:  df -h                                        #FreeSpaceAvailable
-lin:  df -h /home/piet
-lin:  du -h -s /home/piet
-lin:  du -k /home/piet | sort -n | tail -5               #LargestFiles
-lin:  ls -lSr /home/piet | tail -5                       #LargestFiles
-lin:  du -ch /home/piet/baktime.txt | grep total             #FileSize
+lin:  du -h -s <directory>
+lin:  du -k <directory> | sort -n | tail -5              #LargestFiles
+lin:  ls -lSr <directory> | tail -5                      #LargestFiles
+lin:  du -ch <directory>/baktime.txt | grep total            #FileSize
 lin:  >filename                                             #EmptyFile
 lin:  for I in `ls "directory/*.ext"`;do >"$I";done        #EmptyFiles
-lin:  ls -l /home/piet | wc -l                             #CountFiles
-lin:  ls -larth /home/piet | tail -10
+lin:  ls -l <directory> | wc -l                            #CountFiles
+lin:  ls -larth <directory> | tail -10
 lin:  lsof                                              #ListOpenFiles
-lin:  find /home/piet -mtime +7665 -ls      #LisModifiedFilesOlderThan
-lin:  find /home/piet -type f -size 0b -ls              #FindEmtyFiles
-lin:  find /home/piet -name "*trash*" -ls
+lin:  find <directory> -mtime +7665 -ls     #LisModifiedFilesOlderThan
+lin:  find <directory> -type f -size 0b -ls             #FindEmtyFiles
+lin:  find <directory> -name "*trash*" -ls
 lin:  find $HOME -type f -name "*~" -print
 lin:  find $HOME -type f -name "/~*" -print
 lin:  find $HOME -type f -name "*core*" -print

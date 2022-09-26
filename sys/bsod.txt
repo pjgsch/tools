@@ -1,3 +1,13 @@
+======================================================================
+
+========== Error message
+what is the error message in BSOD-screem?
+
+========== Windows last change
+cmd.exe ->
+systeminfo | findstr /C:"Install Date"
+
+======================================================================
 
 ========== Safe mode from dead system
 Reboot PC
@@ -21,22 +31,22 @@ F5 -> save mode with networking
 [Win r] : "msconfig"
 Boot -> Boot options > uncheck Safe boot
 
-========== Windows update
-[Win I] -> Settings
-Windows Update
-download updates & install updates
-Restart
+========== Prevent automatic reboot
+[Win+s] -> "Control Panel" -> Control Panel
+System and Seurity > System > Advanced system settings
+Settings > System failure section > uncheck Automatically restart > ok
 
-========== Windows update
-[Win+i] -> Settings
-Windows Update
-Update history
-Uninstall updates
+======================================================================
+
+========== Disk space
+
+========== RAM 
 
 ========== Memory diagnostic tool
 [Win+s] -> "Windows Memory Diagnostic"
 OR
 [Win r] -> "mdsched.exe"
+
 Restart now and check for problems (recommended) -> reboot & test
 Event Viewer > Window Logs > System : view MemoryDiagnostic file
 Restart
@@ -45,22 +55,52 @@ Restart
 [Win+e] -> This PC -> Local Disk
 Properties > Tools > Check
 
+========== Unconnect hardware
+unconnect hardware
+
+========== Virtual memory
+[Win s] : "View advanced system settings"
+-> Performance section > Settings 
+-> Performance Options > Advanced
+-> Virtual memory > Change
+uncheck Automatically manage ....
+Custum size -> 1.5 a 3 x physical memory
+Restart
+
+======================================================================
+
+========== Windows update
+[Win I] -> Settings > Updates & Security > Windows Update
+download updates & install updates
+Restart
+
+========== Windows update
+[Win+i] -> Settings > Updates & Security > Windows Update
+Update history
+Uninstall updates
+
 ========== Driver issues
 [Win+x] > Device Manager
 select drivers ->
 Properties > Drivers > Update Driver / Roll Back Driver / Disable Driver / Uninstall Driver
 Restart
 
+======================================================================
+
 ========== Sfc scan
 [Win+x] > Windows Terminal (Admin)
 OR
-cmd.exe as Admin ->
-sfc /scannow
+cmd.exe as Admin 
+
+sfc /verifyonly  -->  computer is scanned
+sfc /scannow     -->  computer is scanned and issues are fixed
 Restart
 
 ========== DISM scan
 [Win+x] > Windows Terminal (Admin)
-DISM.exe/Online/Cleanup-Image/ Restorehealth
+dism.exe /online /Cleanup-Image /CheckHealth
+dism.exe /online /Cleanup-Image /ScanHealth
+dism.exe /online /Cleanup-Image/ Restorehealth
 
 ========== Malware scan
 [Win+s] -> "Windows Security"
@@ -70,23 +110,7 @@ Windows Security > Virus & threat protection
 scan
 Restart
 
-========== System restore
-[Win+F] > "Create a restore poinr" -> System Properties
-System Protection > System Restore
-select restore point
-Scan for affected programs
-Next > Finish
-
-[Win+r] -> "rstrui"
-select restore point
-Next
-Finish
-
-========== Remove hardware
-remove hardware
-
-========== Error message
-what is the error message in BSOD-screem?
+======================================================================
 
 ========== Remove apps
 Settings
@@ -104,6 +128,20 @@ Startup: Disable
 Restart
 Repeat with enabeling services and startup apps
 
+======================================================================
+
+========== System restore
+[Win+F] > "Create a restore poinr" -> System Properties
+System Protection > System Restore
+select restore point
+Scan for affected programs
+Next > Finish
+
+[Win+r] -> "rstrui"
+select restore point
+Next
+Finish
+
 ========== Back to previous build
 Settings
 Recovery
@@ -112,20 +150,9 @@ Go Back
 ========== In-place upgrade
 
 ========== Reset Windows
+systemreset -cleanpc
 
-========== Prevent automatic reboot
-[Win+s] -> "Control Panel" -> Control Panel
-System and Seurity > System > Advanced system settings
-Settings > System failure section > uncheck Automatically restart > ok
-
-========== Virtual memory
-[Win s] : "View advanced system settings"
--> Performance section > Settings 
--> Performance Options > Advanced
--> Virtual memory > Change
-uncheck Automatically manage ....
-Custum size -> 1.5 a 3 x physical memory
-Restart
+======================================================================
 
 https://www.stellarinfo.com/article/fix-windows-11-bsod-black-screen-of-death.php
 https://windowsreport.com/fix-bsod-windows-11/
