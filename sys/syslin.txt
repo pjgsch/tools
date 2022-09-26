@@ -1,0 +1,56 @@
+======================================================================
+ls -al /etc/grub.d
+more /etc/default/grub
+more /boot/grub.cfg
+======================================================================
+======================================================================
+/bin/uname -a
+arch 
+cat /etc/*-release
+cat /proc/version
+======================================================================
+cat /proc/cpuinfo
+free -m               # free memory
+vmstat                # processes, memory, paging, block IO, traps, cpu activity
+sudo dmidecode
+======================================================================
+cat /proc/partitions
+sudo fdisk -l
+cat /proc/swaps
+df -ahkT
+======================================================================
+/sbin/runlevel        # runlevel 1,2,3,4,5
+/sbin/chkconfig
+cat /etc/fstab
+cat /etc/mtab
+cat /proc/mounts
+======================================================================
+/usr/bin/id           # current user id and group memberships
+groups 
+cat /etc/group | pr --columns=5 -T 
+======================================================================
+du -a --exclude=.nx --exclude=.dbus $HOME | sort -n -r | head -n 20 
+======================================================================
+crontab -l
+======================================================================
+cat /etc/profile
+cat /etc/bashrc
+cat ~/.profile
+cat ~/.bashrc
+======================================================================
+nmcli con             # network connection
+/sbin/ifconfig        # network interfaces
+/sbin/iwconfig        # wireless interfaces
+/sbin/iwgetid         # info on current wireless network
+cat /proc/net/dev     # statistics about network interfaces
+cat /etc/resolv.conf  # alpha-numeric domain names to numeric IP
+/sbin/route           # kernel routing table
+cat /etc/hosts
+======================================================================
+rfkill list
+rfkill unblock all
+sudo rmmod iwl4965
+sudo modprobe iwl4965
+service network-manager restart
+======================================================================
+

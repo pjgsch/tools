@@ -1,0 +1,125 @@
+##====================================================================
+##= netcom.txt      : commands for networking
+======================================================================
+AES    much better than TKIP
+AP     Access Point (router)
+ARP    Address Resolution Protocol (packet) FF:FF:FF:FF:FF:FF ; 64 B
+BSS    Basic Service Set (set AP's and clients in a WLAN)
+BSSID  Basic Service Set IDentification = MAC address of WAP
+DBFA   Dictionary Brute Force Attack
+DHCP   Dynamic Host Configuration Protocol
+ESS    Extended Service Set = set of BSSs in the same SSID
+ESSID  Access point's SSID name
+IP     Internet Protocol
+IV     Initialization Vector
+LAN    Local Area Network
+MAC    Media Access Control
+NAS    Network Attach Storage
+NIC    Network Interface Card
+PMK    Primary Master Key
+PSK    Pre-Shared Key (= WPA password)
+TCP    Transmission Control Protocol
+SSID   Service Set IDentification (name of WLAN; may have multiple AP's)
+TKIP   Temporal Key Integrity Protocol 
+WEP    Wired Equivalent Privacy (64, 128, 256 bits)
+WAP    Wireless Access Point
+WLAN   Wireless Local Area Network
+WPA    WiFi Protected Access
+GPRS   114 kbit/s
+Edge   236 kbit/s
+UMTS   384 kbit/s
+HSDPA  28000 kbit/s
+4G     326 Mbit/s
+======================================================================
+Linux cable connect
+
+dmesg | grep NETDEV			       # cable connected ?
+dmesg | grep eth0			       # cable connected ?
+cat /proc/net/dev			       # check network interface name
+cat /etc/resolv.conf			       # DNS nameservers
+cat /etc/sysconfig/network                     # network configuration
+cat /etc/sysconfig/network-scripts/ifcfg-eth0  # network information
+cat /etc/hosts                                 # local hosts (not DNS)
+cat /etc/ntp.conf
+cat /etc/nsswitch.conf                         # order of name search
+sudo cat /etc/sysconfig/static-routes
+/sbin/chkconfig --list                         # view all system services and their state
+
+/sbin/ifconfig eth0                            # IP addresses for interface eth0
+/sbin/ip addr show eth0                        # IP addresses for interface eth0
+/bin/netstat -nr                               # display routing table info
+/sbin/route                                    # default gateway (default via)
+/sbin/ip route list                            # default gateway (default via)
+/usr/bin/nslookup localhost.localdomain        # IP-address of domain name 
+/usr/bin/dig localhost.localdomain             # IP-address of domain name 
+/bin/traceroute -n 8.8.8.8                     # trace route of packages
+/bin/tracepath 8.8.8.8                         # trace route of packages
+/usr/bin/host www.google.com		       # resolve address with local nameserver
+/bin/ping -c 5 8.8.8.8			       # ping to address
+/bin/ping -c 5 www.google.com		       # ping to resolved address
+
+sudo /etc/init.d/network restart                     # restart networking
+/sbin/ifconfig eth0 down                             # disable interface wlan0
+/sbin/ifdown eth0                                    # disable interface wlan0
+sudo /sbin/ifconfig eth0 up                          # start interface wlan0
+/sbin/ifup eth0                                      # start interface wlan0
+sudo /usr/bin/arp-scan --interface=eth0 --localnet   # scan local network
+/sbin/arp -a                                         # show other systems on network
+cat /proc/net/arp
+
+/usr/bin/system-config-network 
+/usr/bin/system-control-network
+/usr/bin/nm-connection-editor
+ /usr/bin/redhat-config-network
+ /usr/bin/neat
+ /usr/bin/netcfg
+/sbin/ip route replace default via <address>         # change default gateway
+/sbin/route add default gw <gateway> dev eth0        # add gateway
+/sbin/route del default gw <gateway> dev eth0        # delete gateway
+/sbin/ifconfig eth0 xxx.xxx.xxx.xxx netmask 255.255.255.0 broadcast xxx.xxx.xxx.255   # change IP address
+
+======================================================================
+Linux Wifi
+
+lin:  /sbin/arp                                  # detect router
+lin:  sudo iwlist wlan0 scanning | grep -A 7 Cell     # search access point
+lin:  dmesg | grep wlan0                         # check for access point association
+lin:  wpa_cli status                             # WPA command line client
+lin:  cat /var/log/syslog                        # info from DHCP
+lin:  ifconfig wlan0                             # IP addresses for interface wlan0
+lin:  iwconfig wlan0                             # IP addresses for interface wlan0
+lin:  ip addr show wlan0                         # IP addresses for interface wlan0
+lin:  iwconfig eth0                              # IP addresses for interface eth0
+win:  ipconfig /all | more                       # IP addresses for interface
+win:  route                                      # IP routing table
+win:  nslookup localhost.localdomain             # IP-address of domain name 
+win:  ping www.goggle.com                        # ping to resolved address
+lin:  dig 8.8.8.8
+lin:  sudo netstat -tulpan                                  # list traffic
+lin:  sudo netstat -an                                      # list traffic
+win:  netstat -a -s | more                                  # network info
+lin:  sudo nethogs wlan0                                    # list to network traffic
+lin:  tcpdump                                               # inspect packages (sniffer)
+lin:  sudo wireshark                                        # inspect packages (sniffer)
+win:  "%APPSDIR%\Wirelessnetview\WirelessNetView.exe"       # inspect packages (sniffer)
+lin:  nmap -A 131.155.224.90                                # map and trace traffic
+lin:  nmap -sV -p 80 131.155.224.90                         # map traffic on selected ports
+lin:  nmap -v -A -PN pc423.wfw.wtb.tue.nl                   # port scan
+win:  fing -r 1 -o table,text,console                       # network discovery
+win:  "%APPSDIR%\Wirelessnetview\WirelessNetView.exe"       # Wireless Net View
+win:  "%APPSDIR%\Awatch\awatch.exe"                         # monitor traffic
+win:  "%APPSDIR%\Dnsdataview\DNSDataView.exe"               # DNS info
+win:  "%APPSDIR%\Namebench\namebench-1.3.1-Windows.exe"     # DNS speed test
+win:  "%APPSDIR%\Homedale\Homedale.exe"                     # list wireless networks
+win:  "C:\Program Files\MetaGeek\inSSIDer 2.0\inSSIDer.exe" # list wireless networks
+win:  "%APPSDIR%\CurrPorts\CurrPorts.exe"                   # list open ports
+win:  "%APPSDIR%\Smartsniff\x86\smsniff.exe"                # port sniffer
+win:  "%APPSDIR%\Socketsniff\SocketSniff.exe"               # port sniffer
+
+www/tinyurl.com/macspoofer
+john (the ripper) | aircrack-ng
+======================================================================
+ifconfig wlan0 down                    # disable interface wlan0
+ifconfig hw ether xx:xx:xx:xx:xx:xx    # change MAC address
+ifconfig wlan0 up                      # start interface wlan0
+======================================================================
