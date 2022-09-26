@@ -127,3 +127,11 @@ uncheck Automatically manage ....
 Custum size -> 1.5 a 3 x physical memory
 Restart
 
+https://www.stellarinfo.com/article/fix-windows-11-bsod-black-screen-of-death.php
+https://windowsreport.com/fix-bsod-windows-11/
+https://www.windowscentral.com/software-apps/windows-11/how-to-fix-blue-screen-of-death-errors-on-windows-11
+https://www.minitool.com/data-recovery/troubleshoot-windows-11-blue-screen-error.html
+https://www.ubackup.com/windows-11/blue-screen-windows-11.html
+https://support.microsoft.com/en-us/windows/start-your-pc-in-safe-mode-in-windows-92c27cff-db89-8644-1ce4-b3e5e56fe234
+
+https://devicetests.com/
