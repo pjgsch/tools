@@ -1211,12 +1211,30 @@ wi7:  Taskber  : CTRL+Shift : start as administrator          #hotkeys
 wi7:  Taskbar  : r-mouse    : opens menu                      #hotkeys
 wi7:  Taskbar  : Win-B      : info menu                       #hotkeys
 wi7:  [CTRL] a            select all                          #hotkeys
-lin:  [CTRL] a            select all                          #hotkeys
 wi7:  [CTRL] c            copy                                #hotkeys
 wi7:  [CTRL] f            find                                #hotkeys                              
 wi7:  [CTRL] v            paste                               #hotkeys                                                              
-lin:  [CTRL] v            paste                               #hotkeys                                                              
 wi7:  [CTRL] z            undo                                #hotkeys
+w10:  Win                 open or close Start                 #hotkeys
+w10:  Win-E               File Explorer                       #hotkeys
+w10:  Win-I               Settings                            #hotkeys
+w10:  Win-R               Run Dialog Box                      #hotkeys
+w10:  Win-S               Search                              #hotkeys
+w10:  Win-Pause           Start>Settings>System>About         #hotkeys
+w10:  Win-Tab             Task View                           #hotkeys
+w11:  Win                 open or close Start                 #hotkeys
+w11:  Win-E               File Explorer                       #hotkeys
+w11:  Win-I               Settings                            #hotkeys
+w11:  Win-R               Run Dialog Box                      #hotkeys
+w11:  Win-S               Search                              #hotkeys
+w11:  Win-Q               Search                              #hotkeys
+w11:  Win-Pause           Start>Settings>System>About         #hotkeys
+w11:  Win-Tab             Task View                           #hotkeys
+w11:  Win-A               Action Center                       #hotkeys
+w11:  Win-X               Start Context Menu                  #hotkeys
+w11:  Ctrl-Shift-Esc      Task Manager                        #hotkeys
+lin:  [CTRL] a            select all                          #hotkeys
+lin:  [CTRL] v            paste                               #hotkeys                                                              
 lin:  [CTRL] z            undo                                #hotkeys
 lin:  [CTRL] c            terminates active process           #hotkeys
 lin:  [CTRL] d (z)        terminate keyboard input (logout)   #hotkeys
