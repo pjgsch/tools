@@ -1,0 +1,58 @@
+Action Center           "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
+Administrative Tools    control admintools
+Backup and Restore [A]  sdclt.exe
+Bluetooth               fsquirt.exe
+Calculator              calc.exe
+Character Map           charmap.exe
+Cleanup                 cleanmgr.exe
+Command Prompt          cmd.exe
+Computer     		%windir%\explorer
+Control Panel           control.exe
+Defragmentation         defrag.exe /? (start service first)
+Device Management       devmgmt.msc
+Disk Management [A]     diskmgmt.msc
+DISM                    dism.exe /Online /Cleanup-Image /CheckHealth
+Display Properties      desk.cpl
+Event Viewer            eventvwr.exe
+Firewall                firewall.cpl
+Kill Tasks   		taskkill /F /IM <progname>
+Magnifier               Magnify.exe
+Memory Test             mdsched.exe
+MS Config [A]           msconfig.exe
+Notepad                 notepad.exe
+Onscreen Keyboard       osk.exe
+Optional Features [A]   OptionalFeatures.exe
+Performance Monitor     permon
+Power                   powercfg.exe -l
+Programs and Features   control /name Microsoft.ProgramsAndFeatures
+Programs                appwiz.cpl
+RAM Memory   		Computer > System Properties
+RAM Memory   		wmic memphysical get MaxCapacity /format:list
+Resource Monitor [A]    perfmon.exe /res
+Services                services.msc
+SFC Scan                sfc /verifyonly
+Show Drives             wmic logicaldisk get filesystem,caption,drivetype,size,freespace,name,volumename
+Storage                 Settings > System > Storage > Storage sense => Configure Storage Sense > clean now
+Sys Prop Protection [A] SystemPropertiesProtection.exe
+System Info  		msinfo32.exe
+System Properties [A]   sysdm.cpl
+System Restore          rstrui.exe
+Task List        	tasklist | more
+Task Manager            taskmgr.exe
+Task Schedular          taskschd.msc
+Time and Date           timedate.cpl
+Windows Version		winver.exe
+Windows Version         wmic os get version
+Windows Update          control update  |  ms-settings:windowsupdate
+Wordpad                 
+Hotkey [Win]            Start
+Hotkey [Win+E]          File Explorer
+Hotkey [Win+I]          Settings
+Hotkey [Win+R]          Run Dialog Box
+Hotkey [Win+S]          Search
+Hotkey [Win+Tab]        Task View
+Hotkey [Win+A]          Action Center
+Hotkey [Win+X]          Start Context Menu
+Hotkey [Ctrl+Shift+Esc] Task Manager
+Hotkey [Win+Pause]      Control Panel
+Hotkey [Win+U]          Ease of Access
