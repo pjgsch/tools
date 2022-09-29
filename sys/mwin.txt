@@ -1,12 +1,13 @@
 Action Center           "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
 Administrative Tools    control admintools
-Backup and Restore [A]  sdclt.exe
+Backup and Restore [A]  sdclt.exe | control.exe /name Microsoft.BackupAndRestore
 Bluetooth               fsquirt.exe
 Calculator              calc.exe
 Character Map           charmap.exe
 Cleanup                 cleanmgr.exe
 Command Prompt          cmd.exe
-Computer     		%windir%\explorer
+Computer     		        %windir%\explorer
+Computer Management     compmgmt.msc
 Control Panel           control.exe
 Defragmentation         defrag.exe /? (start service first)
 Device Management       devmgmt.msc
@@ -15,33 +16,34 @@ DISM                    dism.exe /Online /Cleanup-Image /CheckHealth
 Display Properties      desk.cpl
 Event Viewer            eventvwr.exe
 Firewall                firewall.cpl
-Kill Tasks   		taskkill /F /IM <progname>
+Kill Tasks   		        taskkill /F /IM <progname>
 Magnifier               Magnify.exe
 Memory Test             mdsched.exe
-MS Config [A]           msconfig.exe
+MSConfig [A]            msconfig.exe
 Notepad                 notepad.exe
 Onscreen Keyboard       osk.exe
 Optional Features [A]   OptionalFeatures.exe
-Performance Monitor     permon
+Performance Monitor     permon.exe
 Power                   powercfg.exe -l
 Programs and Features   control /name Microsoft.ProgramsAndFeatures
 Programs                appwiz.cpl
-RAM Memory   		Computer > System Properties
-RAM Memory   		wmic memphysical get MaxCapacity /format:list
+RAM Memory   		        Computer > System Properties
+RAM Memory   		        wmic memphysical get MaxCapacity /format:list
 Resource Monitor [A]    perfmon.exe /res
 Services                services.msc
 SFC Scan                sfc /verifyonly
 Show Drives             wmic logicaldisk get filesystem,caption,drivetype,size,freespace,name,volumename
 Storage                 Settings > System > Storage > Storage sense => Configure Storage Sense > clean now
 Sys Prop Protection [A] SystemPropertiesProtection.exe
-System Info  		msinfo32.exe
+System Info  		        msinfo32.exe
 System Properties [A]   sysdm.cpl
 System Restore          rstrui.exe
-Task List        	tasklist | more
+Task List        	      tasklist | more
 Task Manager            taskmgr.exe
 Task Schedular          taskschd.msc
 Time and Date           timedate.cpl
-Windows Version		winver.exe
+Users [A]               Netplwiz.exe
+Windows Version		      winver.exe
 Windows Version         wmic os get version
 Windows Update          control update  |  ms-settings:windowsupdate
 Wordpad                 
