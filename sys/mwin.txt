@@ -1,3 +1,4 @@
+Alltasks                C:\Windows\explorer.exe shell:::{ED7BA470-8E54-465E-825C-99712043E01C}
 Action Center           "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools"
 Administrative Tools    control admintools
 Backup and Restore [A]  sdclt.exe | control.exe /name Microsoft.BackupAndRestore
@@ -46,7 +47,7 @@ Users [A]               Netplwiz.exe
 Windows Version		      winver.exe
 Windows Version         wmic os get version
 Windows Update          control update  |  ms-settings:windowsupdate
-Wordpad                 
+Wordpad                 "%ProgramFiles%\Windows NT\Accessories\wordpad.exe"
 Hotkey [Win]            Start
 Hotkey [Win+E]          File Explorer
 Hotkey [Win+I]          Settings
@@ -58,3 +59,6 @@ Hotkey [Win+X]          Start Context Menu
 Hotkey [Ctrl+Shift+Esc] Task Manager
 Hotkey [Win+Pause]      Control Panel
 Hotkey [Win+U]          Ease of Access
+
+SendTo                  C:\Users\piet\AppData\Roaming\Microsoft\Windows\SendTo
+
