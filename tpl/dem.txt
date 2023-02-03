@@ -89,7 +89,6 @@ https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-bash.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-c.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-dos.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-f77.txt
-https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-fonts.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-gnuplot.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-LO-calc.txt
 https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-matlab.txt
