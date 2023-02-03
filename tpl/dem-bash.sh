@@ -108,12 +108,14 @@ done < "$trfile"
 # Calculation with 'bc';  -l indicates the use of math functions
 
 pi=`bc -l <<< "4*a(1)"`
+rm "testxy"
 touch "testxy"
 for i in {0..360}
 do
   x=$i
   y=`bc -l <<< "s(($x/180)*$pi)"`
-  printf "%f  %f \n" "$x" "$y" >> "testxy"
+  echo $x $y >> "testxy"
+#  printf "%f  %f \n" "$x" "$y" >> "testxy"
 done
 
 #**********************************************************************

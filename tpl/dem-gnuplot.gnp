@@ -1,0 +1,11 @@
+#**********************************************************************
+reset;
+clear; 
+set terminal pop;
+set title 'xy-plot'
+set xlabel 'x'
+set ylabel 'y'
+set grid
+plot [0:2*pi] 'testxy' with lines
+pause -1 "Hit return to continue"
+#**********************************************************************
