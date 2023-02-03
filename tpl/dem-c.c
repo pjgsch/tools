@@ -18,7 +18,7 @@ int main()
   fprintf(fin,"# Test input file \n");
   for (i=0;i<5;i++) 
   { 
-    fprintf(fin,"ITEM1|ITEM2|ITEM3|ITEM4| \n"); 
+    fprintf(fin,"ITEM1|ITEM2|ITEM3|ITEM4|\n"); 
   }
   fclose(fin);
 
@@ -29,25 +29,31 @@ int main()
 /*====================================================================*/
 /* The trash-file is read line-by-line */
 
-  ftr = fopen("testtr","r"); //printf("opened ftr \n");
+  ftr = fopen("testtr","r"); 
+
+//  printf("opened ftr \n");
 //  line = (char *) malloc(81*sizeof(char));
 
   itemsep = '|'; 
   nlines = 0;                // line counter
 
-//  if (ftr != NULL )
-//  {
+  if (ftr != NULL )
+  {
+
 
   i = 0;
 
   while ( ( c = getc(ftr) ) != EOF )
-  { //1
-    if ( c!='\n' ) { line[i++] = c; }
-    if ( c=='\n' ) { line[i++] = '\0'; i = 0; }
+  { 
+    while ( c != '\n' ) { line[i++] = c; c = getc(ftr); }
+    if ( c == '\n' ) 
+    { 
+      line[i++] = '\0'; i = 0; 
+//      printf("line = [%s] \n",line);
+    }
 
     if ( i == 0 )    // The 'line' is read and can be processed
-    { //2
-      //printf("line = [%s] \n",line);
+    { 
       nlines = nlines + 1;   
       cinl = 0;              // line-character counter
       nitems = 0;            // item counter
@@ -74,14 +80,20 @@ int main()
           chr = line[++cinl]; 
         }
         chr = line[++cinl]; 
-      } //3
+      } 
       printf("%s | %s | %s | %s | \n",item1,item2,item3,item4);
-      //printf("nitems = %d \n",nitems);
-      //printf("nlines = %d \n",nlines);
-    } //2
-  } //1
-//}
+//      printf("nitems = %d \n",nitems);
+//      printf("nlines = %d \n",nlines);
+    } 
+
+  }
+  }
   fclose(ftr);
+
+/********************************************************************/
+
+
+
 
 }
 /********************************************************************/
