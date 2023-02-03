@@ -1,0 +1,104 @@
+======================================================================
+======================================================================
+Programming: short demo-files
+
+In the demo-scripts (dem-..) a database is written to a file.
+It has 5 records and each record has 4 fields.
+
+The script reads each line in the generated database and isolates 
+the fields (items).
+System calls are used to make a temporary trash file.
+
+Function y=sin(x) is calculated for x=1:360 degrees.
+Value-pairs x,y are written to a file.
+
+The values can be plotted with gnuplot.
+
+to test: 
+=> go to a temporary directory
+=> download the dem-file with wget
+=> execute the demo
+
+to plot yx-values with gnuplot:
+=> download and execute the gnuplot script
+
+wget -O dem.gnp https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-gnuplot.gnp
+gnuplot dem.gnp
+
+======================================================================
+#### bash shell script
+wget -O dem.sh https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-bash.sh
+source dem.sh
+
+#### Perl
+wget -O dem.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-perl.pl
+perl dem.pl
+
+#### Python; python2 can be other version
+wget -O dem.py https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-python.py
+python2 dem.py
+
+#### C
+wget -O dem.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-c.c
+gcc dem.c && ./a.out
+
+#### Fortran-77
+wget -O dem.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-f77.f
+$FORTRAN-COMPILER dem.f && ./a.out
+
+#### Pascal
+wget -O dem.pas https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-pas.pas
+$PASCAL-COMPILER dem.pas
+
+#### Octave (Matlab); plot is included; eps- and jpg-files are written
+wget -O dem.m https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-matlab.m
+octave dem.m
+
+======================================================================
+Programming: extended demo-files
+
+#### Perl
+wget -O dem.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-perl.pl
+perl dem.pl
+
+#### C
+wget -O dem.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-c.c
+wget -O IN.txt https://raw.githubusercontent.com/pjgsch/tools/main/tpl/test-txt2.txt
+$C-COMPILER dem.c &&.a/out
+
+#### Fortran-77
+wget -O dem.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-f77.f
+$FORTRAN77-COMPILER dem.f && ./a.out
+
+#### lua
+wget -O dem.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-lua.lua
+lua dem.lua
+
+#### html
+wget -O dem.html https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-html.html
+#### dem.html : open in browser
+
+#### xfig
+wget -O dem.xfig https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-xfig.fig
+#### open in xfig
+
+======================================================================
+Documentation and command examples: open in browser
+
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-bash.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-c.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-dos.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-f77.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-fonts.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-gnuplot.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-LO-calc.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-matlab.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-ment.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-octave.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-pas.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-pl.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-tex.txt
+https://raw.githubusercontent.com/pjgsch/tools/main/tpl/doc-vi.txt
+
+======================================================================
+
