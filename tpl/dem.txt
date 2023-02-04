@@ -22,65 +22,65 @@ to test:
 to plot yx-values with gnuplot:
 => download and execute the gnuplot script
 
-wget -O dem.gnp https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-gnuplot.gnp
-gnuplot dem.gnp
+wget -O dem-gnuplot.gnp https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-gnuplot.gnp
+gnuplot dem-gnuplot.gnp
 
 ======================================================================
 #### bash shell script
-wget -O dem.sh https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-bash.sh
-source dem.sh
+wget -O dem-bash.sh https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-bash.sh
+source dem-bash.sh
 
 #### Perl
-wget -O dem.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-perl.pl
-perl dem.pl
+wget -O dem-perl.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-perl.pl
+perl dem-perl.pl
 
 #### Python; python2 can be other version
-wget -O dem.py https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-python.py
-python2 dem.py
+wget -O dem-python.py https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-python.py
+python2 dem-python.py
 
 #### C
-wget -O dem.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-c.c
-gcc dem.c && ./a.out
+wget -O dem-c.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-c.c
+gcc dem-c.c && ./a.out
 
 #### Fortran-77
-wget -O dem.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-f77.f
-$FORTRAN-COMPILER dem.f && ./a.out
+wget -O dem-f77.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-f77.f
+$FORTRAN-COMPILER dem-f77.f && ./a.out
 
 #### Pascal
-wget -O dem.pas https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-pas.pas
-$PASCAL-COMPILER dem.pas
+wget -O dem-pas.pas https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-pas.pas
+$PASCAL-COMPILER dem-pas.pas
 
 #### Octave (Matlab); plot is included; eps- and jpg-files are written
-wget -O dem.m https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-matlab.m
-octave dem.m
+wget -O dem-matlab.m https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-matlab.m
+octave dem-matlab.m
 
 ======================================================================
 Programming: extended demo-files
 
 #### Perl
-wget -O dem.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-perl.pl
-perl dem.pl
+wget -O demext-perl.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-perl.pl
+perl demdemext-perl.pl
 
 #### C
-wget -O dem.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-c.c
+wget -O demext-c.c https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-c.c
 wget -O IN.txt https://raw.githubusercontent.com/pjgsch/tools/main/tpl/test-txt2.txt
-$C-COMPILER dem.c &&.a/out
+$C-COMPILER demext-c.c &&.a/out
 
 #### Fortran-77
-wget -O dem.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-f77.f
-$FORTRAN77-COMPILER dem.f && ./a.out
+wget -O demext-f77.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-f77.f
+$FORTRAN77-COMPILER demext-f77.f && ./a.out
 
 #### lua
-wget -O dem.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-lua.lua
-lua dem.lua
+wget -O demext-lua.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-lua.lua
+lua demext-lua.lua
 
 #### html
-wget -O dem.html https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-html.html
-#### dem.html : open in browser
+wget -O demext-html.html https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-html.html
+#### demext-html.html : open in browser
 
 #### xfig
-wget -O dem.xfig https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-xfig.fig
-#### open in xfig
+wget -O demext-xfig.xfig https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-xfig.fig
+#### demext-xfig.fig : open in xfig
 
 ======================================================================
 Documentation and command examples: open in browser
