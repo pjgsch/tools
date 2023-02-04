@@ -3,7 +3,6 @@
 #**********************************************************************
 # The package POSIX is used to get numbers from text strings.
 
-#unshift(@INC, "/home/piet/work/prl/sub/");
 #print @INC,"\n";
 use POSIX;
 #use pln;
