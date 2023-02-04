@@ -54,6 +54,10 @@ $PASCAL-COMPILER dem-pas.pas
 wget -O dem-matlab.m https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-matlab.m
 octave dem-matlab.m
 
+#### lua
+wget -O dem-lua.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-lua.lua
+lua dem-lua.lua
+
 ======================================================================
 Programming: extended demo-files
 
@@ -70,9 +74,6 @@ $C-COMPILER demext-c.c &&.a/out
 wget -O demext-f77.f https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-f77.f
 $FORTRAN77-COMPILER demext-f77.f && ./a.out
 
-#### lua
-wget -O demext-lua.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-lua.lua
-lua demext-lua.lua
 
 #### html
 wget -O demext-html.html https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-html.html
