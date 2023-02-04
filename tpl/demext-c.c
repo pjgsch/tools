@@ -9,30 +9,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-/*
-#include <C:/Users/piet/work/cpl/gcc/lib/getword.h>
-#include <C:/Users/piet/work/cpl/gcc/lib/revwrd.h>
-#include <C:/Users/piet/work/cpl/gcc/lib/lwcnnt.h>
-#include <C:/Users/piet/work/cpl/gcc/lib/pause.h>
-#include <C:/Users/piet/work/cpl/gcc/lib/cins.h>
-#include <C:/Users/piet/work/cpl/gcc/lib/wtod.h>
-#include "C:/Users/piet/work/cpl/gcc/lib/getline.h"
-#include "C:/Users/piet/work/cpl/gcc/lib/strrepl.h"
-#include "C:/Users/piet/work/cpl/gcc/lib/stminch.h"
-*/
-
-/*
-#include </home/piet/work/cpl/gcc/lib/getword.h>
-#include </home/piet/work/cpl/gcc/lib/revwrd.h>
-#include </home/piet/work/cpl/gcc/lib/lwcnnt.h>
-#include </home/piet/work/cpl/gcc/lib/pause.h>
-#include </home/piet/work/cpl/gcc/lib/cins.h>
-#include </home/piet/work/cpl/gcc/lib/wtod.h>
-#include "/home/piet/work/cpl/gcc/lib/getline.h"
-#include "/home/piet/work/cpl/gcc/lib/strrepl.h"
-#include "/home/piet/work/cpl/gcc/lib/stminch.h"
-*/
-
 main()
 {
   FILE *f;
@@ -125,77 +101,6 @@ main()
   printf("\n\n\n");
 
 /**********************************************************************/
-/*
-  printf("TEST getword.inp ================\n");
-  f = fopen("IN.txt","r");
-  while (getword(f,woord,lc,' ',100)!=EOF)
-  printf("%s ",woord);
-  fclose(f);
-  printf("\n\n\n");
-
-  printf("TEST revwrd.inp =================\n");
-  f = fopen("IN.txt","r");
-  while (getword(f,woord,lc,' ',100)!=EOF)
-  {
-    revwrd(woord);
-    printf("%s ",woord);
-  }
-  fclose(f);
-  printf("\n\n\n");
-
-  printf("TEST cins.inp ===================\n");
-  f = fopen("IN.txt","r");
-  while (getword(f,woord,lc,' ',100)!=EOF)
-  {
-    printf("%s ",woord);
-    printf("[%d] ",cins('a',woord));
-  }
-  printf("\n\n\n");
-  fclose(f);
-
-
-  printf("TEST stminch.inp ================\n");
-  f = fopen("IN.txt","r");
-  while (getword(f,woord,lc,' ',100)!=EOF)
-  {
-    stminch(wrd,woord,"od");
-    printf("%s ",wrd);
-  }
-  printf("\n\n\n");
-  fclose(f);
-
-  printf("TEST wtod.inp ===================\n");
-  f = fopen("IN.txt","r");
-  c = getword(f,woord,c,' ',20);
-  while (c!=EOF && c!='&')
-  {
-    nn=wtod(woord);
-    if      (nn==0) 
-            printf("%s ",woord); 
-    else if (nn==1) 
-            { din=atoi(woord); 
-              printf("%d ",din); }
-    else if (nn==2) {dlo=atol(woord); printf("%ld ",dlo);}
-    else if (nn==3) {ddo=atof(woord); printf("%g ",ddo);}
-    c=getword(f,woord,c,' ',20);
-  }
-  printf("\n\n\n");
-  fclose(f);
-
-  printf("TEST strrepl.inp ================\n");
-  f = fopen("IN.txt","r");
-  lineout[0] = '\0';
-  numrep = 0; 
-  while ( getline(f,linein,100) > 0)
-  {
-      numrep = numrep + strrepl(linein,lineout,"aap","vis");
-      printf("%s",lineout);
-  }
-  printf("%d replacements \n",numrep);
-  fclose(f); 
-  printf("\n\n\n");
-
-*/
 
 }
 
