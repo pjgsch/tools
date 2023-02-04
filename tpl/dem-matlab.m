@@ -1,5 +1,4 @@
 %**********************************************************************
-% Type : path(path,'/home/piet/wcos/cpl/ml/tpl');
 % To prevent crash on using 'surf' : opengl neverselect
 
 clear all; close all;
