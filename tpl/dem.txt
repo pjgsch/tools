@@ -2,24 +2,28 @@
 ======================================================================
 Programming: short demo-files
 
-In the demo-scripts (dem-..) a database is written to a file.
-It has 5 records and each record has 4 fields.
+For some programming languages, demo files are provided, which do
+more or less the same thing.
 
-The script reads each line in the generated database and isolates 
+First a database is written to a file.
+It has 5 records and each record has 4 fields.
+The script reads each line in the generated file and isolates 
 the fields (items).
 System calls are used to make a temporary trash file.
 
-Function y=sin(x) is calculated for x=1:360 degrees.
+To test floating numbers and math functions the y=sin(x) is 
+calculated for x=1:360 degrees.
 Value-pairs x,y are written to a file.
-
-The values can be plotted with gnuplot.
 
 to test: 
 => go to a temporary directory
-=> download the dem-file with wget
+=> download the dem-file with wget or from the browser
 => execute the demo
 
-to plot yx-values with gnuplot:
+----------------------------------------------------------------------
+
+The calculated xy-values can be plotted with gnuplot.
+To plot yx-values with gnuplot:
 => download and execute the gnuplot script
 
 wget -O dem-gnuplot.gnp https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-gnuplot.gnp
@@ -59,7 +63,10 @@ wget -O dem-lua.lua https://raw.githubusercontent.com/pjgsch/tools/main/tpl/dem-
 lua dem-lua.lua
 
 ======================================================================
-Programming: extended demo-files
+Programming: extended demo-files.
+
+Here are some extended demo-files. 
+They do not all the same things, but can be used to change and test things.
 
 #### Perl
 wget -O demext-perl.pl https://raw.githubusercontent.com/pjgsch/tools/main/tpl/demext-perl.pl
