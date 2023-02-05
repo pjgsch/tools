@@ -40,48 +40,35 @@ load(ggg,'-ascii'); foo = eval(ggg); col = 'b';
 % f3 = foo;
 % f4 = foo;
 %----------------------------------------------------------------------
- ff=f4 ; plot(ff(:,1),ff(:,2),'-'); grid on;
- plot(f1(:,1),f1(:,2),'-'); grid on;
- plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.'); grid on;
- plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.',f3(:,1),f3(:,2),'-.'); grid on;
+ff=f4 ; plot(ff(:,1),ff(:,2),'-'); grid on;
+plot(f1(:,1),f1(:,2),'-'); grid on;
+plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.'); grid on;
+plot(f1(:,1),f1(:,2),'-',f2(:,1),f2(:,2),'-.',f3(:,1),f3(:,2),'-.'); grid on;
 %......................................................................
 xlabel('time [s]'); ylabel('disp x [mm]'); % title('');
 xlabel('time [s]'); ylabel('force y [N]'); % title('');
 legend('top','bottom');
 run('<path>/chp');
 %----------------------------------------------------------------------
- epsfile = [' '];
- print('-depsc2',[epsfile]);
+epsfile = [' '];
+print('-depsc2',[epsfile]);
 xmin = min(min(f1(:,2)),min(f2(:,2))); xmax = max(max(f1(:,2)),max(f2(:,2)));
 ymin = min(min(f1(:,3)),min(f2(:,3))); ymax = max(max(f1(:,3)),max(f2(:,3)));
 axis([xmin,45,0,60]);
 %======================================================================
-%name='crank';
-clear M;M = moviein(ic-1);
-load([matf '0']);load([matf '00']);mshop = [1 0 0 0 0 0 0 0 0];
-for i=1:1:ic-1,
-  load([matf num2str(i)]);clf;pmsh(mshop,lok,crd0,crd,eldaC,5);
-  axis([-0.1 2.5 -0.1 2.5]);
-  M(:,i)=getframe;pause(0.01);
-end;
-save stadam1 M;
-% load stadam1; axis off; movie(M,3,50);
-load stadam1; path('...',path); mpgwrite(M,jet,name);
-% load stadam1; movie2avi(M,'stadam1.avi','compression','none') % in matlab72
-======================================================================
 === RUN MENTAT AND/OR MARC
 mentprg = '/usr/local/marck2005r3-emt64/mentat2005r3/bin/mentat';
-prcfile = '$BASEDIR/wdoc/tex/syl/mmm/tnt/mrc/mmN1101a.proc';
+prcfile = '$PATH/mmN1101a.proc';
 fff = [mentprg,' -pr ',prcfile]; unix(fff);
 ======================================================================
 === PLOT FROM MENTAT TO MATLAB
-=== $BASEDIR/work/mlf/mbib/me2maplot.m
+=== $PATH/me2maplot.m
 addpath('<path>/mlf/mbib'); 
 [x1,y1] = me2maplot('<x-y-file>');   
 [x2,y2] = me2maplot('<x-y-file>'); 
 plot(x1,y1,x2,y2);
 grid on;xlabel('');ylabel('');title('');legend('');   
-run('$BASEDIR/work/mlf/mbib/chp');
+run('$BASEDIR/work/mlf/mbib/chp'); NB: this must be available.
 epsdir='';epsfile='';
 print('-depsc2',[epsdir,epsfile]);
 ======================================================================
