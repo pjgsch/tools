@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Items</title>
+
+<style> 
+body { font-family:Andale Mono, monospace; }
+body { font-size:20px;font-style:normal; }
+body { margin:40px;padding:10px; }
+a { text-decoration:none; }
+m { color:magenta; } 
+</style>
+
+</head>
+
+<body style="margin:40px;padding:10px" text="black" bgcolor="lightyellow" vlink="blue">
+
+<hr size="5">
+
+&nbsp &emsp 
+
+<a href="" target="_blank"></a>
+
+<ul style="list-style-type:square">
+<ul style="list-style-type:none">
+
+<table width="100%" cellpadding="5">
+<tr>
+<td valign="top"> </td>
+</tr>
+</table>
+
+</body>
+</html>
